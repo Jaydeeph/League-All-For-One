@@ -16,7 +16,7 @@ namespace League_All_in_One
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new LeagueAIO());
         }
     }
 }
