@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace League_All_in_One
@@ -16,6 +13,7 @@ namespace League_All_in_One
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            HelpFile.CreateLeagueFolder();
             Application.Run(new LeagueAIO());
         }
     }

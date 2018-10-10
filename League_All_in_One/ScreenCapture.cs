@@ -3,6 +3,10 @@ using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Drawing.Imaging;
 
+//This class was provided from online and I have not written any of this.
+//Acquired from a different source that I cannot remember, but its commently used. 
+//Such as: https://github.com/LeeHolmes/BusinessCardAutomation/blob/master/ImageRecognizer/ScreenCapture.cs
+
 namespace League_All_in_One
 {
     /// <summary>

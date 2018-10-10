@@ -1,6 +1,6 @@
 ﻿using Emgu.CV;
 using Emgu.CV.Structure;
-
+using League_All_in_One.Properties;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
@@ -37,17 +37,16 @@ namespace League_All_in_One
         {
             ScreenCapture screenCapsture = new ScreenCapture();
             Image image = screenCapsture.CaptureScreen();
-
-            image.Save("C:\\Users\\Jay\\Pictures\\Screenshots\\A.png");
+            image.Save(HelpFile.GetScreenShotDirectory());
         }
 
         private void ImageRecognition()
         {
-            string pathA = "C:\\Users\\Jay\\Pictures\\Screenshots\\A.png";
-            string pathB = "C:\\Users\\Jay\\Pictures\\Screenshots\\B.png";
+            string screenShotPath = HelpFile.GetScreenShotDirectory();
+            Bitmap leagueAcceptButton = Resources.LeagueAccpetButton;
 
-            Image<Bgr, byte> source = new Image<Bgr, byte>(pathA);
-            Image<Bgr, byte> template = new Image<Bgr, byte>(pathB);
+            Image<Bgr, byte> source = new Image<Bgr, byte>(screenShotPath);
+            Image<Bgr, byte> template = new Image<Bgr, byte>(leagueAcceptButton);
             Image<Bgr, byte> imageToShow = source.Copy();
 
             using (Image<Gray, float> result = source.MatchTemplate(template, Emgu.CV.CvEnum.TemplateMatchingType.CcoeffNormed))
@@ -58,6 +57,7 @@ namespace League_All_in_One
 
                 if (maxValues[0] > 0.9)
                 {
+                    //Drawing rect is only for testing purposes. Remember to remove it later please!
                     Rectangle match = new Rectangle(maxLocations[0], template.Size);
                     imageToShow.Draw(match, new Bgr(Color.Red), 3);
 
@@ -72,5 +72,10 @@ namespace League_All_in_One
             }
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ScreenshotTimer.Start();
+        }
     }
 }
