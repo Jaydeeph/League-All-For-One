@@ -59,6 +59,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Encryption.cs" />
+    <Compile Include="FlatTheme.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="HelpFile.cs" />
     <Compile Include="KeyboardEvents.cs" />
     <Compile Include="MainForm.cs">

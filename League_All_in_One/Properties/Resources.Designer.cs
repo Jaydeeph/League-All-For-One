@@ -63,9 +63,9 @@ namespace League_All_in_One.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LeagueAccpetButton {
+        internal static System.Drawing.Bitmap LeagueAcceptButton {
             get {
-                object obj = ResourceManager.GetObject("LeagueAccpetButton", resourceCulture);
+                object obj = ResourceManager.GetObject("LeagueAcceptButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

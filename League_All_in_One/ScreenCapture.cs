@@ -32,7 +32,7 @@ namespace League_All_in_One
             // get te hDC of the target window
             IntPtr hdcSrc = User32.GetWindowDC(handle);
             // get the size
-            User32.RECT windowRect = new User32.RECT();
+            User32.Rect windowRect = new User32.Rect();
             User32.GetWindowRect(handle, ref windowRect);
             int width = windowRect.right - windowRect.left;
             int height = windowRect.bottom - windowRect.top;
@@ -108,7 +108,7 @@ namespace League_All_in_One
         private class User32
         {
             [StructLayout(LayoutKind.Sequential)]
-            public struct RECT
+            public struct Rect
             {
                 public int left;
                 public int top;
@@ -122,7 +122,34 @@ namespace League_All_in_One
             [DllImport("user32.dll")]
             public static extern IntPtr ReleaseDC(IntPtr hWnd, IntPtr hDC);
             [DllImport("user32.dll")]
-            public static extern IntPtr GetWindowRect(IntPtr hWnd, ref RECT rect);
+            public static extern IntPtr GetWindowRect(IntPtr hWnd, ref Rect rect);
+            [DllImport("user32.dll")]
+            public static extern IntPtr GetForegroundWindow();
+        }
+
+        public static Image CaptureDesktop()
+        {
+            return CaptureWindowDifferentFunction(User32.GetDesktopWindow());
+        }
+
+        public static Bitmap CaptureActiveWindow()
+        {
+            return CaptureWindowDifferentFunction(User32.GetForegroundWindow());
+        }
+
+        public static Bitmap CaptureWindowDifferentFunction(IntPtr handle)
+        {
+            var rect = new User32.Rect();
+            User32.GetWindowRect(handle, ref rect);
+            var bounds = new Rectangle(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);
+            var result = new Bitmap(bounds.Width, bounds.Height);
+
+            using (var graphics = Graphics.FromImage(result))
+            {
+                graphics.CopyFromScreen(new Point(bounds.Left, bounds.Top), Point.Empty, bounds.Size);
+            }
+
+            return result;
         }
     }
 }
