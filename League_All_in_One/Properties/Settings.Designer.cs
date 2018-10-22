@@ -26,72 +26,168 @@ namespace League_All_in_One.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool firstTime {
+        public bool FirstTime {
             get {
-                return ((bool)(this["firstTime"]));
+                return ((bool)(this["FirstTime"]));
             }
             set {
-                this["firstTime"] = value;
+                this["FirstTime"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string encryptedPassword {
+        public string EncryptedPassword {
             get {
-                return ((string)(this["encryptedPassword"]));
+                return ((string)(this["EncryptedPassword"]));
             }
             set {
-                this["encryptedPassword"] = value;
+                this["EncryptedPassword"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string encryptedIV {
+        public string EncryptedIV {
             get {
-                return ((string)(this["encryptedIV"]));
+                return ((string)(this["EncryptedIV"]));
             }
             set {
-                this["encryptedIV"] = value;
+                this["EncryptedIV"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string encryptedKey {
+        public string EncryptedKey {
             get {
-                return ((string)(this["encryptedKey"]));
+                return ((string)(this["EncryptedKey"]));
             }
             set {
-                this["encryptedKey"] = value;
+                this["EncryptedKey"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string username {
+        public string Username {
             get {
-                return ((string)(this["username"]));
+                return ((string)(this["Username"]));
             }
             set {
-                this["username"] = value;
+                this["Username"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string notEncryptedPassword {
+        public string NotEncryptedPassword {
             get {
-                return ((string)(this["notEncryptedPassword"]));
+                return ((string)(this["NotEncryptedPassword"]));
             }
             set {
-                this["notEncryptedPassword"] = value;
+                this["NotEncryptedPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RememberMeTicked {
+            get {
+                return ((bool)(this["RememberMeTicked"]));
+            }
+            set {
+                this["RememberMeTicked"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoStartLeague {
+            get {
+                return ((bool)(this["AutoStartLeague"]));
+            }
+            set {
+                this["AutoStartLeague"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoLogin {
+            get {
+                return ((bool)(this["AutoLogin"]));
+            }
+            set {
+                this["AutoLogin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoAccept {
+            get {
+                return ((bool)(this["AutoAccept"]));
+            }
+            set {
+                this["AutoAccept"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoChampionSelect {
+            get {
+                return ((bool)(this["AutoChampionSelect"]));
+            }
+            set {
+                this["AutoChampionSelect"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoChatSpam {
+            get {
+                return ((bool)(this["AutoChatSpam"]));
+            }
+            set {
+                this["AutoChatSpam"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoRunesSelect {
+            get {
+                return ((bool)(this["AutoRunesSelect"]));
+            }
+            set {
+                this["AutoRunesSelect"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LeagueEXELocation {
+            get {
+                return ((string)(this["LeagueEXELocation"]));
+            }
+            set {
+                this["LeagueEXELocation"] = value;
             }
         }
     }

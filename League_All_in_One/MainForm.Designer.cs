@@ -31,42 +31,59 @@
             this.components = new System.ComponentModel.Container();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.TabControllerPanel = new System.Windows.Forms.Panel();
-            this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.MainTabController = new MaterialSkin.Controls.MaterialTabControl();
+            this.MainPageTabPage = new System.Windows.Forms.TabPage();
+            this.LocateLeagueButton = new MaterialSkin.Controls.MaterialFlatButton();
+            this.LeagueLocationTextbox = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.AutoAcceptToggle = new FlatUI.FlatToggle();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.AutoRunesSelectStatusLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.AutoRunesSelectLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.AutoChatSpamStatusLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.AutoChatSpamLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.AutoChampSelectStatusLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.AutoChampSelectLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.AutoAcceptStatusLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.AutoAcceptLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.AutoLoginStatusLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.AutoLoginLabel = new MaterialSkin.Controls.MaterialLabel();
-            this.AutoLoginToggle = new FlatUI.FlatToggle();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.LiveStatusLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.StatusLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.AutoLoginAutoAcceptTabPage = new System.Windows.Forms.TabPage();
             this.RememberMeTickedLabel = new MaterialSkin.Controls.MaterialLabel();
-            this.RememberMeIsTickedToggle = new FlatUI.FlatToggle();
-            this.flatButton1 = new FlatUI.FlatButton();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.MatchFoundPicturebox = new System.Windows.Forms.PictureBox();
             this.EncryptPasswordLabel = new MaterialSkin.Controls.MaterialLabel();
-            this.EncryptPasswordToggle = new FlatUI.FlatToggle();
             this.RememberLoginDetailsLabel = new MaterialSkin.Controls.MaterialLabel();
-            this.RememberLoginDetailsToggle = new FlatUI.FlatToggle();
             this.SaveLoginDetailsButton = new MaterialSkin.Controls.MaterialFlatButton();
             this.passwordLabel = new MaterialSkin.Controls.MaterialLabel();
             this.PasswordTextbox = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.usernameLabel = new MaterialSkin.Controls.MaterialLabel();
             this.UsernameTextbox = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.RememberMeIsTickedToggle = new FlatUI.FlatToggle();
+            this.EncryptPasswordToggle = new FlatUI.FlatToggle();
+            this.RememberLoginDetailsToggle = new FlatUI.FlatToggle();
+            this.ChampSelectChampChatSpamTabPage = new System.Windows.Forms.TabPage();
+            this.ChangeRunesTabPage = new System.Windows.Forms.TabPage();
+            this.CheckBuildsTabPage = new System.Windows.Forms.TabPage();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.AutoAcceptTimer = new System.Windows.Forms.Timer(this.components);
             this.AutoLoginTimer = new System.Windows.Forms.Timer(this.components);
             this.TakeScreenshotTimer = new System.Windows.Forms.Timer(this.components);
+            this.AutoChampSelectTimer = new System.Windows.Forms.Timer(this.components);
+            this.AutoChatSpamTimer = new System.Windows.Forms.Timer(this.components);
+            this.AutoRuneSelectTimer = new System.Windows.Forms.Timer(this.components);
             this.MainPanel.SuspendLayout();
             this.TabControllerPanel.SuspendLayout();
-            this.materialTabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.MainTabController.SuspendLayout();
+            this.MainPageTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.AutoLoginAutoAcceptTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MatchFoundPicturebox)).BeginInit();
             this.SuspendLayout();
             // 
             // MainPanel
@@ -76,50 +93,100 @@
             this.MainPanel.Controls.Add(this.materialTabSelector1);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.MainPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.MainPanel.Location = new System.Drawing.Point(0, 64);
+            this.MainPanel.Location = new System.Drawing.Point(0, 53);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(985, 672);
+            this.MainPanel.Size = new System.Drawing.Size(826, 590);
             this.MainPanel.TabIndex = 1;
             // 
             // TabControllerPanel
             // 
-            this.TabControllerPanel.Controls.Add(this.materialTabControl1);
+            this.TabControllerPanel.Controls.Add(this.MainTabController);
             this.TabControllerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabControllerPanel.Location = new System.Drawing.Point(0, 43);
             this.TabControllerPanel.Name = "TabControllerPanel";
-            this.TabControllerPanel.Size = new System.Drawing.Size(985, 629);
+            this.TabControllerPanel.Size = new System.Drawing.Size(826, 547);
             this.TabControllerPanel.TabIndex = 2;
             // 
-            // materialTabControl1
+            // MainTabController
             // 
-            this.materialTabControl1.Controls.Add(this.tabPage1);
-            this.materialTabControl1.Controls.Add(this.tabPage2);
-            this.materialTabControl1.Controls.Add(this.tabPage3);
-            this.materialTabControl1.Controls.Add(this.tabPage4);
-            this.materialTabControl1.Controls.Add(this.tabPage5);
-            this.materialTabControl1.Controls.Add(this.tabPage6);
-            this.materialTabControl1.Depth = 0;
-            this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialTabControl1.Name = "materialTabControl1";
-            this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(985, 629);
-            this.materialTabControl1.TabIndex = 0;
+            this.MainTabController.Controls.Add(this.MainPageTabPage);
+            this.MainTabController.Controls.Add(this.AutoLoginAutoAcceptTabPage);
+            this.MainTabController.Controls.Add(this.ChampSelectChampChatSpamTabPage);
+            this.MainTabController.Controls.Add(this.ChangeRunesTabPage);
+            this.MainTabController.Controls.Add(this.CheckBuildsTabPage);
+            this.MainTabController.Depth = 0;
+            this.MainTabController.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainTabController.Location = new System.Drawing.Point(0, 0);
+            this.MainTabController.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MainTabController.Name = "MainTabController";
+            this.MainTabController.SelectedIndex = 0;
+            this.MainTabController.Size = new System.Drawing.Size(826, 547);
+            this.MainTabController.TabIndex = 0;
             // 
-            // tabPage1
+            // MainPageTabPage
             // 
-            this.tabPage1.Controls.Add(this.materialLabel1);
-            this.tabPage1.Controls.Add(this.AutoAcceptToggle);
-            this.tabPage1.Controls.Add(this.AutoLoginLabel);
-            this.tabPage1.Controls.Add(this.AutoLoginToggle);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(977, 603);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Main Page";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.MainPageTabPage.BackColor = System.Drawing.Color.White;
+            this.MainPageTabPage.Controls.Add(this.LocateLeagueButton);
+            this.MainPageTabPage.Controls.Add(this.LeagueLocationTextbox);
+            this.MainPageTabPage.Controls.Add(this.materialLabel1);
+            this.MainPageTabPage.Controls.Add(this.pictureBox3);
+            this.MainPageTabPage.Controls.Add(this.AutoRunesSelectStatusLabel);
+            this.MainPageTabPage.Controls.Add(this.AutoRunesSelectLabel);
+            this.MainPageTabPage.Controls.Add(this.AutoChatSpamStatusLabel);
+            this.MainPageTabPage.Controls.Add(this.AutoChatSpamLabel);
+            this.MainPageTabPage.Controls.Add(this.AutoChampSelectStatusLabel);
+            this.MainPageTabPage.Controls.Add(this.AutoChampSelectLabel);
+            this.MainPageTabPage.Controls.Add(this.AutoAcceptStatusLabel);
+            this.MainPageTabPage.Controls.Add(this.AutoAcceptLabel);
+            this.MainPageTabPage.Controls.Add(this.AutoLoginStatusLabel);
+            this.MainPageTabPage.Controls.Add(this.materialDivider1);
+            this.MainPageTabPage.Controls.Add(this.AutoLoginLabel);
+            this.MainPageTabPage.Controls.Add(this.materialLabel3);
+            this.MainPageTabPage.Controls.Add(this.panel1);
+            this.MainPageTabPage.Controls.Add(this.materialLabel2);
+            this.MainPageTabPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.MainPageTabPage.Location = new System.Drawing.Point(4, 22);
+            this.MainPageTabPage.Name = "MainPageTabPage";
+            this.MainPageTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.MainPageTabPage.Size = new System.Drawing.Size(818, 521);
+            this.MainPageTabPage.TabIndex = 0;
+            this.MainPageTabPage.Text = "Main Page";
+            // 
+            // LocateLeagueButton
+            // 
+            this.LocateLeagueButton.AutoSize = true;
+            this.LocateLeagueButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.LocateLeagueButton.Depth = 0;
+            this.LocateLeagueButton.Icon = null;
+            this.LocateLeagueButton.Location = new System.Drawing.Point(653, 332);
+            this.LocateLeagueButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.LocateLeagueButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LocateLeagueButton.Name = "LocateLeagueButton";
+            this.LocateLeagueButton.Primary = false;
+            this.LocateLeagueButton.Size = new System.Drawing.Size(154, 36);
+            this.LocateLeagueButton.TabIndex = 48;
+            this.LocateLeagueButton.Text = "Locate League.exe";
+            this.LocateLeagueButton.UseVisualStyleBackColor = true;
+            this.LocateLeagueButton.Click += new System.EventHandler(this.LocateLeagueButton_Click);
+            // 
+            // LeagueLocationTextbox
+            // 
+            this.LeagueLocationTextbox.BackColor = System.Drawing.Color.White;
+            this.LeagueLocationTextbox.Depth = 0;
+            this.LeagueLocationTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.LeagueLocationTextbox.Hint = "";
+            this.LeagueLocationTextbox.Location = new System.Drawing.Point(140, 339);
+            this.LeagueLocationTextbox.MaxLength = 32767;
+            this.LeagueLocationTextbox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LeagueLocationTextbox.Name = "LeagueLocationTextbox";
+            this.LeagueLocationTextbox.PasswordChar = '\0';
+            this.LeagueLocationTextbox.SelectedText = "";
+            this.LeagueLocationTextbox.SelectionLength = 0;
+            this.LeagueLocationTextbox.SelectionStart = 0;
+            this.LeagueLocationTextbox.Size = new System.Drawing.Size(506, 23);
+            this.LeagueLocationTextbox.TabIndex = 2;
+            this.LeagueLocationTextbox.TabStop = false;
+            this.LeagueLocationTextbox.UseSystemPasswordChar = false;
             // 
             // materialLabel1
             // 
@@ -127,25 +194,144 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(506, 291);
+            this.materialLabel1.Location = new System.Drawing.Point(8, 340);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(96, 19);
-            this.materialLabel1.TabIndex = 18;
-            this.materialLabel1.Text = "Auto Accept:";
+            this.materialLabel1.Size = new System.Drawing.Size(126, 19);
+            this.materialLabel1.TabIndex = 47;
+            this.materialLabel1.Text = "League Directory:";
             // 
-            // AutoAcceptToggle
+            // pictureBox3
             // 
-            this.AutoAcceptToggle.BackColor = System.Drawing.Color.Transparent;
-            this.AutoAcceptToggle.Checked = false;
-            this.AutoAcceptToggle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AutoAcceptToggle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.AutoAcceptToggle.Location = new System.Drawing.Point(608, 285);
-            this.AutoAcceptToggle.Name = "AutoAcceptToggle";
-            this.AutoAcceptToggle.Options = FlatUI.FlatToggle._Options.Style3;
-            this.AutoAcceptToggle.Size = new System.Drawing.Size(76, 33);
-            this.AutoAcceptToggle.TabIndex = 17;
-            this.AutoAcceptToggle.Text = "flatToggle4";
+            this.pictureBox3.Location = new System.Drawing.Point(327, 48);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(480, 270);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 46;
+            this.pictureBox3.TabStop = false;
+            // 
+            // AutoRunesSelectStatusLabel
+            // 
+            this.AutoRunesSelectStatusLabel.AutoSize = true;
+            this.AutoRunesSelectStatusLabel.Depth = 0;
+            this.AutoRunesSelectStatusLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.AutoRunesSelectStatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.AutoRunesSelectStatusLabel.Location = new System.Drawing.Point(168, 255);
+            this.AutoRunesSelectStatusLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AutoRunesSelectStatusLabel.Name = "AutoRunesSelectStatusLabel";
+            this.AutoRunesSelectStatusLabel.Size = new System.Drawing.Size(0, 19);
+            this.AutoRunesSelectStatusLabel.TabIndex = 35;
+            // 
+            // AutoRunesSelectLabel
+            // 
+            this.AutoRunesSelectLabel.AutoSize = true;
+            this.AutoRunesSelectLabel.Depth = 0;
+            this.AutoRunesSelectLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.AutoRunesSelectLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.AutoRunesSelectLabel.Location = new System.Drawing.Point(26, 255);
+            this.AutoRunesSelectLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AutoRunesSelectLabel.Name = "AutoRunesSelectLabel";
+            this.AutoRunesSelectLabel.Size = new System.Drawing.Size(136, 19);
+            this.AutoRunesSelectLabel.TabIndex = 34;
+            this.AutoRunesSelectLabel.Text = "Auto Runes Select:";
+            // 
+            // AutoChatSpamStatusLabel
+            // 
+            this.AutoChatSpamStatusLabel.AutoSize = true;
+            this.AutoChatSpamStatusLabel.Depth = 0;
+            this.AutoChatSpamStatusLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.AutoChatSpamStatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.AutoChatSpamStatusLabel.Location = new System.Drawing.Point(168, 216);
+            this.AutoChatSpamStatusLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AutoChatSpamStatusLabel.Name = "AutoChatSpamStatusLabel";
+            this.AutoChatSpamStatusLabel.Size = new System.Drawing.Size(0, 19);
+            this.AutoChatSpamStatusLabel.TabIndex = 33;
+            // 
+            // AutoChatSpamLabel
+            // 
+            this.AutoChatSpamLabel.AutoSize = true;
+            this.AutoChatSpamLabel.Depth = 0;
+            this.AutoChatSpamLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.AutoChatSpamLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.AutoChatSpamLabel.Location = new System.Drawing.Point(40, 216);
+            this.AutoChatSpamLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AutoChatSpamLabel.Name = "AutoChatSpamLabel";
+            this.AutoChatSpamLabel.Size = new System.Drawing.Size(122, 19);
+            this.AutoChatSpamLabel.TabIndex = 32;
+            this.AutoChatSpamLabel.Text = "Auto Chat Spam:";
+            // 
+            // AutoChampSelectStatusLabel
+            // 
+            this.AutoChampSelectStatusLabel.AutoSize = true;
+            this.AutoChampSelectStatusLabel.Depth = 0;
+            this.AutoChampSelectStatusLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.AutoChampSelectStatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.AutoChampSelectStatusLabel.Location = new System.Drawing.Point(168, 177);
+            this.AutoChampSelectStatusLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AutoChampSelectStatusLabel.Name = "AutoChampSelectStatusLabel";
+            this.AutoChampSelectStatusLabel.Size = new System.Drawing.Size(0, 19);
+            this.AutoChampSelectStatusLabel.TabIndex = 31;
+            // 
+            // AutoChampSelectLabel
+            // 
+            this.AutoChampSelectLabel.AutoSize = true;
+            this.AutoChampSelectLabel.Depth = 0;
+            this.AutoChampSelectLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.AutoChampSelectLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.AutoChampSelectLabel.Location = new System.Drawing.Point(20, 177);
+            this.AutoChampSelectLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AutoChampSelectLabel.Name = "AutoChampSelectLabel";
+            this.AutoChampSelectLabel.Size = new System.Drawing.Size(142, 19);
+            this.AutoChampSelectLabel.TabIndex = 30;
+            this.AutoChampSelectLabel.Text = "Auto Champ Select:";
+            // 
+            // AutoAcceptStatusLabel
+            // 
+            this.AutoAcceptStatusLabel.AutoSize = true;
+            this.AutoAcceptStatusLabel.Depth = 0;
+            this.AutoAcceptStatusLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.AutoAcceptStatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.AutoAcceptStatusLabel.Location = new System.Drawing.Point(168, 138);
+            this.AutoAcceptStatusLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AutoAcceptStatusLabel.Name = "AutoAcceptStatusLabel";
+            this.AutoAcceptStatusLabel.Size = new System.Drawing.Size(0, 19);
+            this.AutoAcceptStatusLabel.TabIndex = 29;
+            // 
+            // AutoAcceptLabel
+            // 
+            this.AutoAcceptLabel.AutoSize = true;
+            this.AutoAcceptLabel.Depth = 0;
+            this.AutoAcceptLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.AutoAcceptLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.AutoAcceptLabel.Location = new System.Drawing.Point(66, 138);
+            this.AutoAcceptLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AutoAcceptLabel.Name = "AutoAcceptLabel";
+            this.AutoAcceptLabel.Size = new System.Drawing.Size(96, 19);
+            this.AutoAcceptLabel.TabIndex = 28;
+            this.AutoAcceptLabel.Text = "Auto Accept:";
+            // 
+            // AutoLoginStatusLabel
+            // 
+            this.AutoLoginStatusLabel.AutoSize = true;
+            this.AutoLoginStatusLabel.Depth = 0;
+            this.AutoLoginStatusLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.AutoLoginStatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.AutoLoginStatusLabel.Location = new System.Drawing.Point(168, 99);
+            this.AutoLoginStatusLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AutoLoginStatusLabel.Name = "AutoLoginStatusLabel";
+            this.AutoLoginStatusLabel.Size = new System.Drawing.Size(0, 19);
+            this.AutoLoginStatusLabel.TabIndex = 27;
+            // 
+            // materialDivider1
+            // 
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(22, 40);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(765, 2);
+            this.materialDivider1.TabIndex = 26;
+            this.materialDivider1.Text = "materialDivider1";
             // 
             // AutoLoginLabel
             // 
@@ -153,49 +339,97 @@
             this.AutoLoginLabel.Depth = 0;
             this.AutoLoginLabel.Font = new System.Drawing.Font("Roboto", 11F);
             this.AutoLoginLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.AutoLoginLabel.Location = new System.Drawing.Point(312, 291);
+            this.AutoLoginLabel.Location = new System.Drawing.Point(80, 99);
             this.AutoLoginLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.AutoLoginLabel.Name = "AutoLoginLabel";
             this.AutoLoginLabel.Size = new System.Drawing.Size(86, 19);
-            this.AutoLoginLabel.TabIndex = 16;
+            this.AutoLoginLabel.TabIndex = 25;
             this.AutoLoginLabel.Text = "Auto Login:";
             // 
-            // AutoLoginToggle
+            // materialLabel3
             // 
-            this.AutoLoginToggle.BackColor = System.Drawing.Color.Transparent;
-            this.AutoLoginToggle.Checked = false;
-            this.AutoLoginToggle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AutoLoginToggle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.AutoLoginToggle.Location = new System.Drawing.Point(404, 285);
-            this.AutoLoginToggle.Name = "AutoLoginToggle";
-            this.AutoLoginToggle.Options = FlatUI.FlatToggle._Options.Style3;
-            this.AutoLoginToggle.Size = new System.Drawing.Size(76, 33);
-            this.AutoLoginToggle.TabIndex = 15;
-            this.AutoLoginToggle.Text = "flatToggle3";
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(18, 19);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(69, 19);
+            this.materialLabel3.TabIndex = 24;
+            this.materialLabel3.Text = "STATUS:";
             // 
-            // tabPage2
+            // panel1
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.White;
-            this.tabPage2.Controls.Add(this.RememberMeTickedLabel);
-            this.tabPage2.Controls.Add(this.RememberMeIsTickedToggle);
-            this.tabPage2.Controls.Add(this.flatButton1);
-            this.tabPage2.Controls.Add(this.pictureBox2);
-            this.tabPage2.Controls.Add(this.pictureBox1);
-            this.tabPage2.Controls.Add(this.EncryptPasswordLabel);
-            this.tabPage2.Controls.Add(this.EncryptPasswordToggle);
-            this.tabPage2.Controls.Add(this.RememberLoginDetailsLabel);
-            this.tabPage2.Controls.Add(this.RememberLoginDetailsToggle);
-            this.tabPage2.Controls.Add(this.SaveLoginDetailsButton);
-            this.tabPage2.Controls.Add(this.passwordLabel);
-            this.tabPage2.Controls.Add(this.PasswordTextbox);
-            this.tabPage2.Controls.Add(this.usernameLabel);
-            this.tabPage2.Controls.Add(this.UsernameTextbox);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(977, 603);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Auto Login/Auto Accept";
+            this.panel1.Controls.Add(this.LiveStatusLabel);
+            this.panel1.Controls.Add(this.StatusLabel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(3, 499);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(812, 19);
+            this.panel1.TabIndex = 23;
+            // 
+            // LiveStatusLabel
+            // 
+            this.LiveStatusLabel.AutoSize = true;
+            this.LiveStatusLabel.Depth = 0;
+            this.LiveStatusLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LiveStatusLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.LiveStatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LiveStatusLabel.Location = new System.Drawing.Point(51, 0);
+            this.LiveStatusLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LiveStatusLabel.Name = "LiveStatusLabel";
+            this.LiveStatusLabel.Size = new System.Drawing.Size(0, 19);
+            this.LiveStatusLabel.TabIndex = 22;
+            // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.Depth = 0;
+            this.StatusLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.StatusLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.StatusLabel.Location = new System.Drawing.Point(0, 0);
+            this.StatusLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(51, 19);
+            this.StatusLabel.TabIndex = 21;
+            this.StatusLabel.Text = "Staus:";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(18, 60);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(221, 19);
+            this.materialLabel2.TabIndex = 20;
+            this.materialLabel2.Text = "Auto Start League On App Start:";
+            // 
+            // AutoLoginAutoAcceptTabPage
+            // 
+            this.AutoLoginAutoAcceptTabPage.BackColor = System.Drawing.Color.White;
+            this.AutoLoginAutoAcceptTabPage.Controls.Add(this.RememberMeTickedLabel);
+            this.AutoLoginAutoAcceptTabPage.Controls.Add(this.MatchFoundPicturebox);
+            this.AutoLoginAutoAcceptTabPage.Controls.Add(this.EncryptPasswordLabel);
+            this.AutoLoginAutoAcceptTabPage.Controls.Add(this.RememberLoginDetailsLabel);
+            this.AutoLoginAutoAcceptTabPage.Controls.Add(this.SaveLoginDetailsButton);
+            this.AutoLoginAutoAcceptTabPage.Controls.Add(this.passwordLabel);
+            this.AutoLoginAutoAcceptTabPage.Controls.Add(this.PasswordTextbox);
+            this.AutoLoginAutoAcceptTabPage.Controls.Add(this.usernameLabel);
+            this.AutoLoginAutoAcceptTabPage.Controls.Add(this.UsernameTextbox);
+            this.AutoLoginAutoAcceptTabPage.Controls.Add(this.RememberMeIsTickedToggle);
+            this.AutoLoginAutoAcceptTabPage.Controls.Add(this.EncryptPasswordToggle);
+            this.AutoLoginAutoAcceptTabPage.Controls.Add(this.RememberLoginDetailsToggle);
+            this.AutoLoginAutoAcceptTabPage.Location = new System.Drawing.Point(4, 22);
+            this.AutoLoginAutoAcceptTabPage.Name = "AutoLoginAutoAcceptTabPage";
+            this.AutoLoginAutoAcceptTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.AutoLoginAutoAcceptTabPage.Size = new System.Drawing.Size(818, 521);
+            this.AutoLoginAutoAcceptTabPage.TabIndex = 1;
+            this.AutoLoginAutoAcceptTabPage.Text = "Auto Login/Auto Accept";
             // 
             // RememberMeTickedLabel
             // 
@@ -210,51 +444,14 @@
             this.RememberMeTickedLabel.TabIndex = 15;
             this.RememberMeTickedLabel.Text = "Remember me is ticked:";
             // 
-            // RememberMeIsTickedToggle
+            // MatchFoundPicturebox
             // 
-            this.RememberMeIsTickedToggle.BackColor = System.Drawing.Color.Transparent;
-            this.RememberMeIsTickedToggle.Checked = false;
-            this.RememberMeIsTickedToggle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RememberMeIsTickedToggle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.RememberMeIsTickedToggle.Location = new System.Drawing.Point(203, 100);
-            this.RememberMeIsTickedToggle.Name = "RememberMeIsTickedToggle";
-            this.RememberMeIsTickedToggle.Options = FlatUI.FlatToggle._Options.Style2;
-            this.RememberMeIsTickedToggle.Size = new System.Drawing.Size(76, 33);
-            this.RememberMeIsTickedToggle.TabIndex = 14;
-            this.RememberMeIsTickedToggle.Text = "flatToggle1";
-            // 
-            // flatButton1
-            // 
-            this.flatButton1.BackColor = System.Drawing.Color.Transparent;
-            this.flatButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.flatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.flatButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.flatButton1.Location = new System.Drawing.Point(153, 390);
-            this.flatButton1.Name = "flatButton1";
-            this.flatButton1.Rounded = false;
-            this.flatButton1.Size = new System.Drawing.Size(106, 32);
-            this.flatButton1.TabIndex = 13;
-            this.flatButton1.Text = "flatButton1";
-            this.flatButton1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.flatButton1.Click += new System.EventHandler(this.flatButton1_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(436, 266);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(460, 240);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(436, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(460, 227);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.MatchFoundPicturebox.Location = new System.Drawing.Point(309, 17);
+            this.MatchFoundPicturebox.Name = "MatchFoundPicturebox";
+            this.MatchFoundPicturebox.Size = new System.Drawing.Size(460, 227);
+            this.MatchFoundPicturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MatchFoundPicturebox.TabIndex = 11;
+            this.MatchFoundPicturebox.TabStop = false;
             // 
             // EncryptPasswordLabel
             // 
@@ -262,25 +459,12 @@
             this.EncryptPasswordLabel.Depth = 0;
             this.EncryptPasswordLabel.Font = new System.Drawing.Font("Roboto", 11F);
             this.EncryptPasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.EncryptPasswordLabel.Location = new System.Drawing.Point(64, 184);
+            this.EncryptPasswordLabel.Location = new System.Drawing.Point(64, 186);
             this.EncryptPasswordLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.EncryptPasswordLabel.Name = "EncryptPasswordLabel";
             this.EncryptPasswordLabel.Size = new System.Drawing.Size(133, 19);
             this.EncryptPasswordLabel.TabIndex = 10;
             this.EncryptPasswordLabel.Text = "Encrypt Password:";
-            // 
-            // EncryptPasswordToggle
-            // 
-            this.EncryptPasswordToggle.BackColor = System.Drawing.Color.Transparent;
-            this.EncryptPasswordToggle.Checked = false;
-            this.EncryptPasswordToggle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EncryptPasswordToggle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.EncryptPasswordToggle.Location = new System.Drawing.Point(203, 178);
-            this.EncryptPasswordToggle.Name = "EncryptPasswordToggle";
-            this.EncryptPasswordToggle.Options = FlatUI.FlatToggle._Options.Style3;
-            this.EncryptPasswordToggle.Size = new System.Drawing.Size(76, 33);
-            this.EncryptPasswordToggle.TabIndex = 9;
-            this.EncryptPasswordToggle.Text = "flatToggle2";
             // 
             // RememberLoginDetailsLabel
             // 
@@ -288,25 +472,12 @@
             this.RememberLoginDetailsLabel.Depth = 0;
             this.RememberLoginDetailsLabel.Font = new System.Drawing.Font("Roboto", 11F);
             this.RememberLoginDetailsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.RememberLoginDetailsLabel.Location = new System.Drawing.Point(20, 145);
+            this.RememberLoginDetailsLabel.Location = new System.Drawing.Point(20, 147);
             this.RememberLoginDetailsLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.RememberLoginDetailsLabel.Name = "RememberLoginDetailsLabel";
             this.RememberLoginDetailsLabel.Size = new System.Drawing.Size(177, 19);
             this.RememberLoginDetailsLabel.TabIndex = 8;
             this.RememberLoginDetailsLabel.Text = "Remember Login Details:";
-            // 
-            // RememberLoginDetailsToggle
-            // 
-            this.RememberLoginDetailsToggle.BackColor = System.Drawing.Color.Transparent;
-            this.RememberLoginDetailsToggle.Checked = false;
-            this.RememberLoginDetailsToggle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RememberLoginDetailsToggle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.RememberLoginDetailsToggle.Location = new System.Drawing.Point(203, 139);
-            this.RememberLoginDetailsToggle.Name = "RememberLoginDetailsToggle";
-            this.RememberLoginDetailsToggle.Options = FlatUI.FlatToggle._Options.Style3;
-            this.RememberLoginDetailsToggle.Size = new System.Drawing.Size(76, 33);
-            this.RememberLoginDetailsToggle.TabIndex = 7;
-            this.RememberLoginDetailsToggle.Text = "flatToggle1";
             // 
             // SaveLoginDetailsButton
             // 
@@ -315,7 +486,7 @@
             this.SaveLoginDetailsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveLoginDetailsButton.Depth = 0;
             this.SaveLoginDetailsButton.Icon = null;
-            this.SaveLoginDetailsButton.Location = new System.Drawing.Point(100, 248);
+            this.SaveLoginDetailsButton.Location = new System.Drawing.Point(82, 233);
             this.SaveLoginDetailsButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.SaveLoginDetailsButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.SaveLoginDetailsButton.Name = "SaveLoginDetailsButton";
@@ -386,55 +557,84 @@
             this.UsernameTextbox.TabStop = false;
             this.UsernameTextbox.UseSystemPasswordChar = false;
             // 
-            // tabPage3
+            // RememberMeIsTickedToggle
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(977, 603);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Champ Select/Instant Lock";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.RememberMeIsTickedToggle.BackColor = System.Drawing.Color.Transparent;
+            this.RememberMeIsTickedToggle.Checked = false;
+            this.RememberMeIsTickedToggle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RememberMeIsTickedToggle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.RememberMeIsTickedToggle.Location = new System.Drawing.Point(203, 100);
+            this.RememberMeIsTickedToggle.Name = "RememberMeIsTickedToggle";
+            this.RememberMeIsTickedToggle.Options = FlatUI.FlatToggle._Options.Style2;
+            this.RememberMeIsTickedToggle.Size = new System.Drawing.Size(76, 33);
+            this.RememberMeIsTickedToggle.TabIndex = 14;
+            this.RememberMeIsTickedToggle.Text = "flatToggle1";
             // 
-            // tabPage4
+            // EncryptPasswordToggle
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(977, 603);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Chat Spamming";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.EncryptPasswordToggle.BackColor = System.Drawing.Color.Transparent;
+            this.EncryptPasswordToggle.Checked = false;
+            this.EncryptPasswordToggle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EncryptPasswordToggle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.EncryptPasswordToggle.Location = new System.Drawing.Point(203, 180);
+            this.EncryptPasswordToggle.Name = "EncryptPasswordToggle";
+            this.EncryptPasswordToggle.Options = FlatUI.FlatToggle._Options.Style3;
+            this.EncryptPasswordToggle.Size = new System.Drawing.Size(76, 33);
+            this.EncryptPasswordToggle.TabIndex = 9;
+            this.EncryptPasswordToggle.Text = "flatToggle2";
             // 
-            // tabPage5
+            // RememberLoginDetailsToggle
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(977, 603);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Change Runes";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.RememberLoginDetailsToggle.BackColor = System.Drawing.Color.Transparent;
+            this.RememberLoginDetailsToggle.Checked = false;
+            this.RememberLoginDetailsToggle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RememberLoginDetailsToggle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.RememberLoginDetailsToggle.Location = new System.Drawing.Point(203, 141);
+            this.RememberLoginDetailsToggle.Name = "RememberLoginDetailsToggle";
+            this.RememberLoginDetailsToggle.Options = FlatUI.FlatToggle._Options.Style3;
+            this.RememberLoginDetailsToggle.Size = new System.Drawing.Size(76, 33);
+            this.RememberLoginDetailsToggle.TabIndex = 7;
+            this.RememberLoginDetailsToggle.Text = "flatToggle1";
             // 
-            // tabPage6
+            // ChampSelectChampChatSpamTabPage
             // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(977, 603);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Check Builds";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.ChampSelectChampChatSpamTabPage.Location = new System.Drawing.Point(4, 22);
+            this.ChampSelectChampChatSpamTabPage.Name = "ChampSelectChampChatSpamTabPage";
+            this.ChampSelectChampChatSpamTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.ChampSelectChampChatSpamTabPage.Size = new System.Drawing.Size(818, 521);
+            this.ChampSelectChampChatSpamTabPage.TabIndex = 2;
+            this.ChampSelectChampChatSpamTabPage.Text = "Champ Select/Chat Spam";
+            this.ChampSelectChampChatSpamTabPage.UseVisualStyleBackColor = true;
+            // 
+            // ChangeRunesTabPage
+            // 
+            this.ChangeRunesTabPage.Location = new System.Drawing.Point(4, 22);
+            this.ChangeRunesTabPage.Name = "ChangeRunesTabPage";
+            this.ChangeRunesTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.ChangeRunesTabPage.Size = new System.Drawing.Size(818, 521);
+            this.ChangeRunesTabPage.TabIndex = 4;
+            this.ChangeRunesTabPage.Text = "Change Runes";
+            this.ChangeRunesTabPage.UseVisualStyleBackColor = true;
+            // 
+            // CheckBuildsTabPage
+            // 
+            this.CheckBuildsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.CheckBuildsTabPage.Name = "CheckBuildsTabPage";
+            this.CheckBuildsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.CheckBuildsTabPage.Size = new System.Drawing.Size(818, 521);
+            this.CheckBuildsTabPage.TabIndex = 5;
+            this.CheckBuildsTabPage.Text = "Check Builds";
+            this.CheckBuildsTabPage.UseVisualStyleBackColor = true;
             // 
             // materialTabSelector1
             // 
-            this.materialTabSelector1.BaseTabControl = this.materialTabControl1;
+            this.materialTabSelector1.BaseTabControl = this.MainTabController;
             this.materialTabSelector1.Depth = 0;
             this.materialTabSelector1.Dock = System.Windows.Forms.DockStyle.Top;
             this.materialTabSelector1.Location = new System.Drawing.Point(0, 0);
             this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(985, 43);
+            this.materialTabSelector1.Size = new System.Drawing.Size(826, 43);
             this.materialTabSelector1.TabIndex = 1;
             this.materialTabSelector1.Text = "materialTabSelector1";
             // 
@@ -453,25 +653,40 @@
             this.TakeScreenshotTimer.Interval = 500;
             this.TakeScreenshotTimer.Tick += new System.EventHandler(this.TakeScreenshotTimer_Tick);
             // 
+            // AutoChampSelectTimer
+            // 
+            this.AutoChampSelectTimer.Tick += new System.EventHandler(this.AutoChampSelectTimer_Tick);
+            // 
+            // AutoChatSpamTimer
+            // 
+            this.AutoChatSpamTimer.Tick += new System.EventHandler(this.AutoChatSpamTimer_Tick);
+            // 
+            // AutoRuneSelectTimer
+            // 
+            this.AutoRuneSelectTimer.Tick += new System.EventHandler(this.AutoRuneSelectTimer_Tick);
+            // 
             // LeagueAIO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 736);
+            this.ClientSize = new System.Drawing.Size(826, 643);
             this.Controls.Add(this.MainPanel);
             this.MaximizeBox = false;
             this.Name = "LeagueAIO";
             this.Text = "All For One - League";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LeagueAIO_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MainPanel.ResumeLayout(false);
             this.TabControllerPanel.ResumeLayout(false);
-            this.materialTabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.MainTabController.ResumeLayout(false);
+            this.MainPageTabPage.ResumeLayout(false);
+            this.MainPageTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.AutoLoginAutoAcceptTabPage.ResumeLayout(false);
+            this.AutoLoginAutoAcceptTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MatchFoundPicturebox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -480,14 +695,13 @@
         private System.Windows.Forms.Panel MainPanel;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
         private System.Windows.Forms.Panel TabControllerPanel;
-        private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
+        private MaterialSkin.Controls.MaterialTabControl MainTabController;
+        private System.Windows.Forms.TabPage MainPageTabPage;
+        private System.Windows.Forms.TabPage AutoLoginAutoAcceptTabPage;
+        private System.Windows.Forms.TabPage ChampSelectChampChatSpamTabPage;
+        private System.Windows.Forms.TabPage ChangeRunesTabPage;
         private System.Windows.Forms.Timer AutoAcceptTimer;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage CheckBuildsTabPage;
         private MaterialSkin.Controls.MaterialLabel passwordLabel;
         private MaterialSkin.Controls.MaterialSingleLineTextField PasswordTextbox;
         private MaterialSkin.Controls.MaterialLabel usernameLabel;
@@ -498,16 +712,33 @@
         private MaterialSkin.Controls.MaterialLabel EncryptPasswordLabel;
         private FlatUI.FlatToggle EncryptPasswordToggle;
         private MaterialSkin.Controls.MaterialLabel RememberLoginDetailsLabel;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private FlatUI.FlatToggle AutoAcceptToggle;
-        private MaterialSkin.Controls.MaterialLabel AutoLoginLabel;
-        private FlatUI.FlatToggle AutoLoginToggle;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private FlatUI.FlatButton flatButton1;
         private MaterialSkin.Controls.MaterialLabel RememberMeTickedLabel;
         private FlatUI.FlatToggle RememberMeIsTickedToggle;
         private System.Windows.Forms.Timer TakeScreenshotTimer;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private System.Windows.Forms.Panel panel1;
+        private MaterialSkin.Controls.MaterialLabel LiveStatusLabel;
+        private MaterialSkin.Controls.MaterialLabel StatusLabel;
+        private MaterialSkin.Controls.MaterialLabel AutoRunesSelectStatusLabel;
+        private MaterialSkin.Controls.MaterialLabel AutoRunesSelectLabel;
+        private MaterialSkin.Controls.MaterialLabel AutoChatSpamStatusLabel;
+        private MaterialSkin.Controls.MaterialLabel AutoChatSpamLabel;
+        private MaterialSkin.Controls.MaterialLabel AutoChampSelectStatusLabel;
+        private MaterialSkin.Controls.MaterialLabel AutoChampSelectLabel;
+        private MaterialSkin.Controls.MaterialLabel AutoAcceptStatusLabel;
+        private MaterialSkin.Controls.MaterialLabel AutoAcceptLabel;
+        private MaterialSkin.Controls.MaterialLabel AutoLoginStatusLabel;
+        private MaterialSkin.Controls.MaterialDivider materialDivider1;
+        private MaterialSkin.Controls.MaterialLabel AutoLoginLabel;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.Timer AutoChampSelectTimer;
+        private System.Windows.Forms.Timer AutoChatSpamTimer;
+        private System.Windows.Forms.Timer AutoRuneSelectTimer;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private MaterialSkin.Controls.MaterialFlatButton LocateLeagueButton;
+        private MaterialSkin.Controls.MaterialSingleLineTextField LeagueLocationTextbox;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private System.Windows.Forms.PictureBox MatchFoundPicturebox;
     }
 }
 

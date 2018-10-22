@@ -5,13 +5,50 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace League_All_in_One
 {
     public partial class LeagueAIO : MaterialForm
     {
+        #region "Public Getters"
+        public Label GetLiveStatusLabel
+        {
+            get { return LiveStatusLabel; }
+        }
+
+        public Timer GetAutoLoginTimer
+        {
+            get { return AutoLoginTimer; }
+        }
+
+        public Timer GetAutoAcceptTimer
+        {
+            get { return AutoAcceptTimer; }
+        }
+
+        public Timer GetAutoChampSelectTimer
+        {
+            get { return AutoChampSelectTimer; }
+        }
+
+        public Timer GetAutoChatSpamTimer
+        {
+            get { return AutoChatSpamTimer; }
+        }
+
+        public Timer GetAutoRunesSelectTimer
+        {
+            get { return AutoRuneSelectTimer; }
+        }
+        #endregion
+
         public LeagueAIO()
         {
             InitializeComponent();
@@ -24,13 +61,148 @@ namespace League_All_in_One
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            //LoadSettingsAndUserDetails();
+            //StartTakeScreenshotTimer();
         }
 
+        private void LeagueAIO_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Options.SaveOptions();
+        }
+        private void LoadSettingsAndUserDetails()
+        {
+            LiveStatusLabel.Text = "Loading User Settings...";
+
+            Options.LoadOptions();
+
+            List<Label> statusLabels = new List<Label>
+            {
+                AutoLoginStatusLabel,
+                AutoAcceptStatusLabel,
+                AutoChampSelectStatusLabel,
+                AutoChatSpamStatusLabel,
+                AutoRunesSelectStatusLabel
+            };
+
+            List<bool> optionsStatusBool = new List<bool>
+            {
+                Options.AutoLoginStatus,
+                Options.AutoAcceptStatus,
+                Options.AutoChampSelectStatus,
+                Options.AutoChatSpamStatus,
+                Options.AutoRuneSelectStatus
+            };
+
+            Options.CreateAutoStatusDictionary(statusLabels, optionsStatusBool);
+            Options.LoadLabelStatusFromOptionsVariables();
+        }
+        
+        private void SaveSettingsAndUserDetails()
+        {
+            Options.SaveOptions();
+        }
+
+        #region "Start/Stop Timer Voids"
+        public void StartTakeScreenshotTimer()
+        {
+            TakeScreenshotTimer.Start();
+        }
+
+        public void StopTakeScreenshotTimer()
+        {
+            TakeScreenshotTimer.Stop();
+        }
+
+        public void StartAutoLoginTimer()
+        {
+            AutoLoginTimer.Start();
+        }
+
+        public void StopAuoLoginTimer()
+        {
+            AutoLoginTimer.Stop();
+        }
+
+        public void StartAutoAcceptTimer()
+        {
+            AutoAcceptTimer.Start();
+        }
+
+        public void StopAutoAcceptTimer()
+        {
+            AutoAcceptTimer.Stop();
+        }
+
+        public void StartAutoChampSelectTimer()
+        {
+            AutoChampSelectTimer.Start();
+        }
+
+        public void StopAutoChampSelectTimer()
+        {
+            AutoChampSelectTimer.Stop();
+        }
+
+        public void StartAutoChatSpamTimer()
+        {
+            AutoChatSpamTimer.Start();
+        }
+
+        public void StopAutoChatSpamTimer()
+        {
+            AutoChatSpamTimer.Stop();
+        }
+
+        public void StartAutoRunesSelectTimer()
+        {
+            AutoRuneSelectTimer.Start();
+        }
+
+        public void StopAutoRunesSelectTimer()
+        {
+            AutoRuneSelectTimer.Stop();
+        }
+        #endregion
+
+        #region "Timers"
         private void TakeScreenshotTimer_Tick(object sender, EventArgs e)
         {
             TakeActiveWindowScreenshot();
         }
+
+        private void AutoAcceptTimer_Tick(object sender, EventArgs e)
+        {
+            AutoAcceptImageRecognition();
+        }
+
+        private void AutoLoginTimer_Tick(object sender, EventArgs e)
+        {
+            if (!CheckUsernamePasswordTextboxIsValid())
+            {
+                MessageBox.Show(@"Please make sure you've added your Username and Password.\r\nPlease check the Auto Login tab.", "Unable To Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LiveStatusLabel.Text = "Please double check the Username and Password.";
+                AutoLoginTimer.Stop();
+                return;
+            }
+
+            AutoLoginImageRecognition();
+        }
+
+        private void AutoChampSelectTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AutoChatSpamTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AutoRuneSelectTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
 
         private void TakeFullDesktopScreenShot()
         {
@@ -38,7 +210,7 @@ namespace League_All_in_One
             Image image = screenCapsture.CaptureScreen();
             image.Save(HelpFile.GetScreenShotDirectory());
 
-            pictureBox1.Image = image;
+            MatchFoundPicturebox.Image = image;
         }
 
         private void TakeActiveWindowScreenshot()
@@ -46,14 +218,19 @@ namespace League_All_in_One
             Bitmap image = ScreenCapture.CaptureActiveWindow();
             image.Save(HelpFile.GetScreenShotDirectory(), ImageFormat.Png);
 
-            pictureBox1.Image = image;
+            MatchFoundPicturebox.Image = image;
         }
 
-        #region "Auto Accept"
-
-        private void AutoAcceptTimer_Tick(object sender, EventArgs e)
+        private void AutoStartLeagueClient()
         {
-            AutoAcceptImageRecognition();
+            if (string.IsNullOrWhiteSpace(Options.LeagueEXELocation))
+            {
+                MessageBox.Show("League path directory is not selected! Please select league.exe", "Error 404: League.exe not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LiveStatusLabel.Text = "Error 404: League.exe not found. Please choose league.exe directory.";
+                return;
+            }
+
+            Process.Start(Options.LeagueEXELocation);
         }
 
         private void AutoAcceptImageRecognition()
@@ -74,7 +251,7 @@ namespace League_All_in_One
                 if (maxValues[0] > 0.9)
                 {
                     Rectangle match = new Rectangle(maxLocations[0], template.Size);
-                    //imageToShow.Draw(match, new Bgr(Color.Red), 3);
+                    imageToShow.Draw(match, new Bgr(Color.Red), 3);
 
                     int x = match.X + (match.Width / 2);
                     int y = match.Y + (match.Height / 2);
@@ -92,31 +269,28 @@ namespace League_All_in_One
             MouseEvent.LeftClick();
         }
 
-        #endregion
-
-
         private void SaveLoginDetailsButton_Click(object sender, EventArgs e)
         {
             if (RememberLoginDetailsToggle.Checked)
             {
                 if (EncryptPasswordToggle.Checked)
                 {
-                    Settings.Default.encryptedPassword = Encryption.Encrypt(PasswordTextbox.Text);
-                    Settings.Default.encryptedKey = Encryption.GetRijndaelKey();
-                    Settings.Default.encryptedIV = Encryption.GetRijndaelIV();
+                    Settings.Default.EncryptedPassword = Encryption.Encrypt(PasswordTextbox.Text);
+                    Settings.Default.EncryptedKey = Encryption.GetRijndaelKey();
+                    Settings.Default.EncryptedIV = Encryption.GetRijndaelIV();
                 }
                 else
                 {
-                    Settings.Default.notEncryptedPassword = PasswordTextbox.Text;
+                    Settings.Default.NotEncryptedPassword = PasswordTextbox.Text;
                 }
+                Settings.Default.RememberMeTicked = RememberMeIsTickedToggle.Checked;
             }
             Settings.Default.Save();
         }
 
-        private void AutoLoginTimer_Tick(object sender, EventArgs e)
+        private bool CheckUsernamePasswordTextboxIsValid()
         {
-            //Check if login details have been save or not.
-            AutoLoginImageRecognition();
+            return !string.IsNullOrWhiteSpace(UsernameTextbox.Text) && !string.IsNullOrWhiteSpace(PasswordTextbox.Text);
         }
 
         private void AutoLoginImageRecognition()
@@ -124,20 +298,21 @@ namespace League_All_in_One
             if (RememberMeIsTickedToggle.Checked)
             {
                 LoginPasswordImageRecognition(RememberMeIsTickedToggle.Checked);
-                LoginSignInImageRecognition();
             }
             else
             {
                 LoginUsernameImageRecognition();
                 LoginPasswordImageRecognition(RememberMeIsTickedToggle.Checked);
-                LoginSignInImageRecognition();
             }
+
+            LoginSignInImageRecognition();
+            LoginFailed();
         }
 
         private void LoginUsernameImageRecognition()
         {
             string screenShotPath = HelpFile.GetScreenShotDirectory();
-            string leagueUsername = "C:\\Users\\Jay\\Pictures\\Screenshots\\LeagueUsernameFocused.png";
+            Bitmap leagueUsername = Resources.LeagueUsernameFocused;
 
             Image<Bgr, byte> source = new Image<Bgr, byte>(screenShotPath);
             Image<Bgr, byte> template = new Image<Bgr, byte>(leagueUsername);
@@ -163,7 +338,7 @@ namespace League_All_in_One
                     KeyboardEvents.SetClipboardText(UsernameTextbox.Text);
                     KeyboardEvents.PasteFromClipboard();
 
-                    pictureBox2.Image = imageToShow.Bitmap;
+                    MatchFoundPicturebox.Image = imageToShow.Bitmap;
                 }
             }
         }
@@ -171,15 +346,15 @@ namespace League_All_in_One
         private void LoginPasswordImageRecognition(bool rememberMeChecked)
         {
             string screenShotPath = HelpFile.GetScreenShotDirectory();
-            string leaguePassword = "";
+            Bitmap leaguePassword;
 
             if (rememberMeChecked)
             {
-                leaguePassword = "C:\\Users\\Jay\\Pictures\\Screenshots\\LeaguePasswordFocused.png";
+                leaguePassword = Resources.LeaguePasswordFocused;
             }
             else
             {
-                leaguePassword = "C:\\Users\\Jay\\Pictures\\Screenshots\\LeaguePassword.png";
+                leaguePassword = Resources.LeaguePassword;
             }
 
             Image<Bgr, byte> source = new Image<Bgr, byte>(screenShotPath);
@@ -206,7 +381,7 @@ namespace League_All_in_One
                     KeyboardEvents.SetClipboardText(PasswordTextbox.Text);
                     KeyboardEvents.PasteFromClipboard();
 
-                    pictureBox2.Image = imageToShow.Bitmap;
+                    MatchFoundPicturebox.Image = imageToShow.Bitmap;
                 }
             }
         }
@@ -214,7 +389,7 @@ namespace League_All_in_One
         private void LoginSignInImageRecognition()
         {
             string screenShotPath = HelpFile.GetScreenShotDirectory();
-            string leagueSignIn = "C:\\Users\\Jay\\Pictures\\Screenshots\\LeagueSignInButton.png";
+            Bitmap leagueSignIn = Resources.LeagueSignInButton;
 
             Image<Bgr, byte> source = new Image<Bgr, byte>(screenShotPath);
             Image<Bgr, byte> template = new Image<Bgr, byte>(leagueSignIn);
@@ -237,17 +412,49 @@ namespace League_All_in_One
                     MouseEvent.MoveCursorTo(x, y);
                     MouseEvent.LeftClick();
 
-                    pictureBox2.Image = imageToShow.Bitmap;
+                    MatchFoundPicturebox.Image = imageToShow.Bitmap;
                 }
             }
         }
 
-        private void flatButton1_Click(object sender, EventArgs e)
+        private void LoginFailed()
         {
-            TakeScreenshotTimer.Start();
-            AutoLoginTimer.Start();
+            string screenShotPath = HelpFile.GetScreenShotDirectory();
+            Bitmap leagueSignIn = Resources.LeagueLoginFailed;
+
+            Image<Bgr, byte> source = new Image<Bgr, byte>(screenShotPath);
+            Image<Bgr, byte> template = new Image<Bgr, byte>(leagueSignIn);
+            Image<Bgr, byte> imageToShow = source.Copy();
+
+            using (Image<Gray, float> result = source.MatchTemplate(template, Emgu.CV.CvEnum.TemplateMatchingType.CcoeffNormed))
+            {
+                double[] minValues, maxValues;
+                Point[] minLocations, maxLocations;
+                result.MinMax(out minValues, out maxValues, out minLocations, out maxLocations);
+
+                if (maxValues[0] > 0.9)
+                {
+                    AutoLoginTimer.Stop();
+
+                    MatchFoundPicturebox.Image = imageToShow.Bitmap;
+                }
+            }
         }
 
+        private void LocateLeagueButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "LeagueClient.exe (*.exe*)|*LeagueClient.exe*";
+            openFileDialog.FilterIndex = 1;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = openFileDialog.FileName;
+
+                LeagueLocationTextbox.Text = fileName;
+                Options.LeagueEXELocation = fileName;
+            }
+        }
         
     }
 }

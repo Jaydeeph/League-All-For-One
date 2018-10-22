@@ -63,6 +63,9 @@
     <Compile Include="FlatTheme.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FlatToggle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="HelpFile.cs" />
     <Compile Include="KeyboardEvents.cs" />
     <Compile Include="MainForm.cs">
@@ -75,6 +78,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenCapture.cs" />
+    <Compile Include="Options.cs" />
     <Compile Include="SettinsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +117,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="License-LGPL.txt" />
+    <None Include="Resources\LeagueUsernameFocused.png" />
+    <None Include="Resources\LeagueUsername.png" />
+    <None Include="Resources\LeagueSignInButton.png" />
+    <None Include="Resources\LeaguePasswordFocused.png" />
+    <None Include="Resources\LeaguePassword.png" />
+    <None Include="Resources\LeagueLoginFailed.png" />
+    <None Include="Resources\LeagueLogin.png" />
     <None Include="Resources\LeagueAccpetButton.png" />
     <None Include="Resources\LeagueAcceptButton.png" />
   </ItemGroup>
