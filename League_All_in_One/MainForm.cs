@@ -1,460 +1,367 @@
-﻿using Emgu.CV;
-using Emgu.CV.Structure;
-using League_All_in_One.Properties;
+﻿using League_All_in_One.Properties;
+
 using MaterialSkin;
 using MaterialSkin.Controls;
 
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace League_All_in_One
 {
     public partial class LeagueAIO : MaterialForm
     {
-        #region "Public Getters"
-        public Label GetLiveStatusLabel
-        {
-            get { return LiveStatusLabel; }
-        }
+        private Thread MainOperationsManagerThread;
+        private Thread IsClientFullyLoadedThread;
+        private Thread AutoLoginThread;
+        private Thread AutoCreateMatchThread;
+        private Thread AutoAcceptMatchThread;
+        private Thread AutoChampSelectThread;
+        private Thread AutoChatSpamThread;
 
-        public Timer GetAutoLoginTimer
-        {
-            get { return AutoLoginTimer; }
-        }
-
-        public Timer GetAutoAcceptTimer
-        {
-            get { return AutoAcceptTimer; }
-        }
-
-        public Timer GetAutoChampSelectTimer
-        {
-            get { return AutoChampSelectTimer; }
-        }
-
-        public Timer GetAutoChatSpamTimer
-        {
-            get { return AutoChatSpamTimer; }
-        }
-
-        public Timer GetAutoRunesSelectTimer
-        {
-            get { return AutoRuneSelectTimer; }
-        }
-        #endregion
+        private PriorityQueue PQ;
 
         public LeagueAIO()
         {
             InitializeComponent();
+            LoadMaterialColors();
+            LoadMaterialSkin();
+        }
 
+        private void LoadMaterialSkin()
+        {
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Amber500, Primary.Amber800, Primary.Amber300, Accent.LightBlue400, TextShade.BLACK);
+            materialSkinManager.ColorScheme = new ColorScheme(Options.PrimaryColor, Options.PrimaryDarkColor, Options.PrimaryLightColor, Options.AccentColor, TextShade.BLACK);
+        }
+
+        private void LoadMaterialColors()
+        {
+            Options.PrimaryColor = Settings.Default.PrimaryColor;
+            Options.PrimaryDarkColor = Settings.Default.PrimaryDarkColor;
+            Options.PrimaryLightColor = Settings.Default.PrimaryLightColor;
+            Options.AccentColor = Settings.Default.AccentColor;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //LoadSettingsAndUserDetails();
-            //StartTakeScreenshotTimer();
+            //Load Options.
+
+            PQ = new PriorityQueue();
         }
 
         private void LeagueAIO_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Options.SaveOptions();
+            //Save Options.
         }
-        private void LoadSettingsAndUserDetails()
+
+        private void LoadOptions()
         {
-            LiveStatusLabel.Text = "Loading User Settings...";
+            Options.AutoStartLeague = Settings.Default.AutoStartLeague;
+            Options.AutoLogin = Settings.Default.AutoLogin;
+            Options.AutoCreateLobby = Settings.Default.AutoCreateLobby;
+            Options.AutoAccept = Settings.Default.AutoAccept;
+            Options.AutoChampSelect = Settings.Default.AutoChampionSelect;
+            Options.AutoChatSpam = Settings.Default.AutoChatSpam;
+            Options.AutoRuneSelect = Settings.Default.AutoRunesSelect;
 
-            Options.LoadOptions();
+            Options.SummonerName = Settings.Default.SummonerName;
+            Options.IsPasswordEncrypted = Settings.Default.IsPasswordEncrypted;
+            Options.Username = Settings.Default.Username;
+            Options.Password = (Options.IsPasswordEncrypted == true) ? Options.Password = Settings.Default.EncryptedPassword : Options.Password = Settings.Default.NotEncryptedPassword;
+            Options.LeagueExeDirectory = Settings.Default.LeagueExeDirectory;
+            Options.MatchType = Settings.Default.MatchType;
+            Options.SummonerType = Settings.Default.SummonerType;
+            Options.ChampionName = Settings.Default.ChamptionName;
+            Options.ChatSpamText = Settings.Default.ChatSpamText;
+            Options.NoTimesSpam = Settings.Default.NoTimesSpam;
+        }
 
-            List<Label> statusLabels = new List<Label>
+        private void SaveOptions()
+        {
+            Settings.Default.AutoStartLeague = Options.AutoStartLeague;
+            Settings.Default.AutoLogin = Options.AutoLogin;
+            Settings.Default.AutoCreateLobby = Options.AutoCreateLobby;
+            Settings.Default.AutoAccept = Options.AutoAccept;
+            Settings.Default.AutoChampionSelect = Options.AutoChampSelect;
+            Settings.Default.AutoChatSpam = Options.AutoChatSpam;
+            Settings.Default.AutoRunesSelect = Options.AutoRuneSelect;
+
+            Settings.Default.SummonerName = Options.SummonerName;
+            Settings.Default.IsPasswordEncrypted = Options.IsPasswordEncrypted;
+            Settings.Default.Username = Options.Username;
+            if (Options.IsPasswordEncrypted) Settings.Default.EncryptedPassword = Options.Password; else Settings.Default.NotEncryptedPassword = Options.Password;
+            Settings.Default.LeagueExeDirectory = Options.LeagueExeDirectory;
+            Settings.Default.MatchType = Options.MatchType;
+            Settings.Default.SummonerType = Options.SummonerType;
+            Settings.Default.ChamptionName = Options.ChampionName;
+            Settings.Default.ChatSpamText = Options.ChatSpamText;
+            Settings.Default.NoTimesSpam = Options.NoTimesSpam;
+        }
+
+        private void MainOperationsBackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            while (!MainOperationsBackgroundWorker.CancellationPending)
             {
-                AutoLoginStatusLabel,
-                AutoAcceptStatusLabel,
-                AutoChampSelectStatusLabel,
-                AutoChatSpamStatusLabel,
-                AutoRunesSelectStatusLabel
-            };
 
-            List<bool> optionsStatusBool = new List<bool>
-            {
-                Options.AutoLoginStatus,
-                Options.AutoAcceptStatus,
-                Options.AutoChampSelectStatus,
-                Options.AutoChatSpamStatus,
-                Options.AutoRuneSelectStatus
-            };
-
-            Options.CreateAutoStatusDictionary(statusLabels, optionsStatusBool);
-            Options.LoadLabelStatusFromOptionsVariables();
-        }
-        
-        private void SaveSettingsAndUserDetails()
-        {
-            Options.SaveOptions();
-        }
-
-        #region "Start/Stop Timer Voids"
-        public void StartTakeScreenshotTimer()
-        {
-            TakeScreenshotTimer.Start();
-        }
-
-        public void StopTakeScreenshotTimer()
-        {
-            TakeScreenshotTimer.Stop();
-        }
-
-        public void StartAutoLoginTimer()
-        {
-            AutoLoginTimer.Start();
-        }
-
-        public void StopAuoLoginTimer()
-        {
-            AutoLoginTimer.Stop();
-        }
-
-        public void StartAutoAcceptTimer()
-        {
-            AutoAcceptTimer.Start();
-        }
-
-        public void StopAutoAcceptTimer()
-        {
-            AutoAcceptTimer.Stop();
-        }
-
-        public void StartAutoChampSelectTimer()
-        {
-            AutoChampSelectTimer.Start();
-        }
-
-        public void StopAutoChampSelectTimer()
-        {
-            AutoChampSelectTimer.Stop();
-        }
-
-        public void StartAutoChatSpamTimer()
-        {
-            AutoChatSpamTimer.Start();
-        }
-
-        public void StopAutoChatSpamTimer()
-        {
-            AutoChatSpamTimer.Stop();
-        }
-
-        public void StartAutoRunesSelectTimer()
-        {
-            AutoRuneSelectTimer.Start();
-        }
-
-        public void StopAutoRunesSelectTimer()
-        {
-            AutoRuneSelectTimer.Stop();
-        }
-        #endregion
-
-        #region "Timers"
-        private void TakeScreenshotTimer_Tick(object sender, EventArgs e)
-        {
-            TakeActiveWindowScreenshot();
-        }
-
-        private void AutoAcceptTimer_Tick(object sender, EventArgs e)
-        {
-            AutoAcceptImageRecognition();
-        }
-
-        private void AutoLoginTimer_Tick(object sender, EventArgs e)
-        {
-            if (!CheckUsernamePasswordTextboxIsValid())
-            {
-                MessageBox.Show(@"Please make sure you've added your Username and Password.\r\nPlease check the Auto Login tab.", "Unable To Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LiveStatusLabel.Text = "Please double check the Username and Password.";
-                AutoLoginTimer.Stop();
-                return;
             }
-
-            AutoLoginImageRecognition();
         }
-
-        private void AutoChampSelectTimer_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AutoChatSpamTimer_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AutoRuneSelectTimer_Tick(object sender, EventArgs e)
-        {
-
-        }
-        #endregion
 
         private void TakeFullDesktopScreenShot()
         {
             ScreenCapture screenCapsture = new ScreenCapture();
-            Image image = screenCapsture.CaptureScreen();
-            image.Save(HelpFile.GetScreenShotDirectory());
-
-            MatchFoundPicturebox.Image = image;
-        }
-
-        private void TakeActiveWindowScreenshot()
-        {
-            Bitmap image = ScreenCapture.CaptureActiveWindow();
-            image.Save(HelpFile.GetScreenShotDirectory(), ImageFormat.Png);
-
-            MatchFoundPicturebox.Image = image;
+            ImageRecognition.desktopScreenshot = screenCapsture.CaptureScreen();
         }
 
         private void AutoStartLeagueClient()
         {
-            if (string.IsNullOrWhiteSpace(Options.LeagueEXELocation))
+            if (string.IsNullOrWhiteSpace(Options.LeagueExeDirectory))
             {
                 MessageBox.Show("League path directory is not selected! Please select league.exe", "Error 404: League.exe not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LiveStatusLabel.Text = "Error 404: League.exe not found. Please choose league.exe directory.";
+                AutoStartLeagueToggle.Checked = false;
                 return;
             }
 
-            Process.Start(Options.LeagueEXELocation);
+            Process.Start(Options.LeagueExeDirectory);
         }
 
-        private void AutoAcceptImageRecognition()
+        private async void CheckIfLeagueLoadedAsync()
         {
-            string screenShotPath = HelpFile.GetScreenShotDirectory();
-            Bitmap leagueAcceptButton = Resources.LeagueAcceptButton;
+            bool leagueFullyLoadedWithRiotLogo = false;
 
-            Image<Bgr, byte> source = new Image<Bgr, byte>(screenShotPath);
-            Image<Bgr, byte> template = new Image<Bgr, byte>(leagueAcceptButton);
-            Image<Bgr, byte> imageToShow = source.Copy();
-
-            using (Image<Gray, float> result = source.MatchTemplate(template, Emgu.CV.CvEnum.TemplateMatchingType.CcoeffNormed))
+            while (!leagueFullyLoadedWithRiotLogo)
             {
-                double[] minValues, maxValues;
-                Point[] minLocations, maxLocations;
-                result.MinMax(out minValues, out maxValues, out minLocations, out maxLocations);
+                TakeFullDesktopScreenShot();
+                leagueFullyLoadedWithRiotLogo = await ImageRecognition.CheckLeagueRiotLogoImageRecognition();
+            }
 
-                if (maxValues[0] > 0.9)
-                {
-                    Rectangle match = new Rectangle(maxLocations[0], template.Size);
-                    imageToShow.Draw(match, new Bgr(Color.Red), 3);
-
-                    int x = match.X + (match.Width / 2);
-                    int y = match.Y + (match.Height / 2);
-
-                    MouseToAndClickAcceptButton(x, y);
-
-                    AutoAcceptTimer.Stop();
-                }
+            if (leagueFullyLoadedWithRiotLogo)
+            {
+                Thread.Sleep(1000);
+                //Start Login To League.
             }
         }
 
-        private void MouseToAndClickAcceptButton(int x, int y)
+        private bool CheckUsernamePasswordTextIsValid()
         {
-            MouseEvent.MoveCursorTo(x, y);
-            MouseEvent.LeftClick();
+            return !string.IsNullOrWhiteSpace(Options.Username) && !string.IsNullOrWhiteSpace(Options.Password);
         }
 
-        private void SaveLoginDetailsButton_Click(object sender, EventArgs e)
+        private async void LoginToLeagueAsync()
         {
-            if (RememberLoginDetailsToggle.Checked)
+            bool rememberMeChecked = false;
+            bool addedUsername = false;
+            bool addedPassword = false;
+            bool clickedSignIn = false;
+            bool failLoggedIn = false;
+
+            if (!CheckUsernamePasswordTextIsValid())
             {
-                if (EncryptPasswordToggle.Checked)
+                MessageBox.Show(@"Please make sure you've added your Username and Password.\r\nPlease check the Auto Login tab.", "Unable To Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LiveStatusLabel.Text = "Please double check the Username and Password.";
+                return;
+            }
+
+            TakeFullDesktopScreenShot();
+            rememberMeChecked = await ImageRecognition.RememberMeCheckedImageRecognition();
+
+            while (!clickedSignIn || !failLoggedIn)
+            {
+                if (rememberMeChecked)
                 {
-                    Settings.Default.EncryptedPassword = Encryption.Encrypt(PasswordTextbox.Text);
-                    Settings.Default.EncryptedKey = Encryption.GetRijndaelKey();
-                    Settings.Default.EncryptedIV = Encryption.GetRijndaelIV();
+                    TakeFullDesktopScreenShot();
+                    if (!addedPassword) addedPassword = await ImageRecognition.LoginPasswordImageRecognition(Options.Password);
+
+                    TakeFullDesktopScreenShot();
+                    if (!addedPassword) addedPassword = await ImageRecognition.LoginPasswordFocusedImageRecognition(Options.Password);
                 }
                 else
                 {
-                    Settings.Default.NotEncryptedPassword = PasswordTextbox.Text;
+                    TakeFullDesktopScreenShot();
+                    if (!addedUsername) addedUsername = await ImageRecognition.LoginUsernameImageRecognition(Options.Username);
+
+                    TakeFullDesktopScreenShot();
+                    if (!addedUsername) addedUsername = await ImageRecognition.LoginUsernameFocusedImageRecognition(Options.Username);
+
+                    TakeFullDesktopScreenShot();
+                    if (!addedPassword) addedPassword = await ImageRecognition.LoginPasswordImageRecognition(Options.Password);
+
+                    TakeFullDesktopScreenShot();
+                    if (!addedPassword) addedPassword = await ImageRecognition.LoginPasswordFocusedImageRecognition(Options.Password);
                 }
-                Settings.Default.RememberMeTicked = RememberMeIsTickedToggle.Checked;
+
+                if (addedPassword) KeyboardEvents.PressEnter();
+
+                TakeFullDesktopScreenShot();
+                if (!clickedSignIn) clickedSignIn = await ImageRecognition.LoginSignInImageRecognition();
+
+                TakeFullDesktopScreenShot();
+                if (!failLoggedIn) failLoggedIn = await ImageRecognition.LoginFailed();
+
+                if (failLoggedIn)
+                {
+                    //stop thread.
+                    AutoLoginToggle.Checked = false;
+                    MessageBox.Show(@"Please make sure your Username and Password is correct.", "Unable To Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LiveStatusLabel.Text = "Please double check the Username and Password.";
+                }
             }
-            Settings.Default.Save();
+
+            //if (clickedSignIn) acceptLeagueMatchThread.Start();
+            //Dont start next thread straight away!
         }
 
-        private bool CheckUsernamePasswordTextboxIsValid()
+        private async void CreateSummonersRiftLobby()
         {
-            return !string.IsNullOrWhiteSpace(UsernameTextbox.Text) && !string.IsNullOrWhiteSpace(PasswordTextbox.Text);
-        }
-
-        private void AutoLoginImageRecognition()
-        {
-            if (RememberMeIsTickedToggle.Checked)
+            bool clickedPlayButton = false;
+            bool selectedSummonersRift = false;
+            bool clickedConfirmButton = false;
+            
+            while (!clickedConfirmButton)
             {
-                LoginPasswordImageRecognition(RememberMeIsTickedToggle.Checked);
+                TakeFullDesktopScreenShot();
+                if (!clickedPlayButton) clickedPlayButton = await ImageRecognition.AutoClickPlayButton();
+
+                TakeFullDesktopScreenShot();
+                if (!selectedSummonersRift) selectedSummonersRift = await ImageRecognition.AutoChooseSummerRiftMode();
+
+                TakeFullDesktopScreenShot();
+                if (!clickedConfirmButton) clickedConfirmButton = await ImageRecognition.AutoClickConfirmButton();
+            }
+        }
+
+        private async void CreateARAMLobby()
+        {
+            bool clickedPlayButton = false;
+            bool selectedARAM = false;
+            bool clickedConfirmButton = false;
+
+            while (!clickedConfirmButton)
+            {
+                TakeFullDesktopScreenShot();
+                if (!clickedPlayButton) clickedPlayButton = await ImageRecognition.AutoClickPlayButton();
+
+                TakeFullDesktopScreenShot();
+                if (!selectedARAM) selectedARAM = await ImageRecognition.AutoChooseARAMtMode();
+
+                TakeFullDesktopScreenShot();
+                if (!clickedConfirmButton) clickedConfirmButton = await ImageRecognition.AutoClickConfirmButton();
+            }
+        }        
+
+        private void AutoStartLeagueToggle_CheckedChanged(object sender)
+        {
+            if (AutoStartLeagueToggle.Checked)
+            {
+                if (string.IsNullOrWhiteSpace(Options.LeagueExeDirectory))
+                {
+                    MessageBox.Show("League AIO", "Please choose your League.exe directory in the settings.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    AutoStartLeagueToggle.Checked = false;
+                    return;
+                }
+            }
+        }
+
+        private void AutoLoginToggle_CheckedChanged(object sender)
+        {
+            if (AutoLoginToggle.Checked)
+            {
+                PQ.push(1, AutoLoginThread);
+                PQ.PrintQueue();
             }
             else
             {
-                LoginUsernameImageRecognition();
-                LoginPasswordImageRecognition(RememberMeIsTickedToggle.Checked);
-            }
-
-            LoginSignInImageRecognition();
-            LoginFailed();
-        }
-
-        private void LoginUsernameImageRecognition()
-        {
-            string screenShotPath = HelpFile.GetScreenShotDirectory();
-            Bitmap leagueUsername = Resources.LeagueUsernameFocused;
-
-            Image<Bgr, byte> source = new Image<Bgr, byte>(screenShotPath);
-            Image<Bgr, byte> template = new Image<Bgr, byte>(leagueUsername);
-            Image<Bgr, byte> imageToShow = source.Copy();
-
-            using (Image<Gray, float> result = source.MatchTemplate(template, Emgu.CV.CvEnum.TemplateMatchingType.CcoeffNormed))
-            {
-                double[] minValues, maxValues;
-                Point[] minLocations, maxLocations;
-                result.MinMax(out minValues, out maxValues, out minLocations, out maxLocations);
-
-                if (maxValues[0] > 0.9)
-                {
-                    Rectangle match = new Rectangle(maxLocations[0], template.Size);
-                    imageToShow.Draw(match, new Bgr(Color.Red), 3);
-
-                    int x = match.X + (match.Width / 2);
-                    int y = match.Y + (match.Height / 2);
-
-                    MouseEvent.MoveCursorTo(x, y);
-                    MouseEvent.LeftClick();
-
-                    KeyboardEvents.SetClipboardText(UsernameTextbox.Text);
-                    KeyboardEvents.PasteFromClipboard();
-
-                    MatchFoundPicturebox.Image = imageToShow.Bitmap;
-                }
+                PQ.PopFromKey(1);
             }
         }
 
-        private void LoginPasswordImageRecognition(bool rememberMeChecked)
+        private void CreateMatchToggle_CheckedChanged(object sender)
         {
-            string screenShotPath = HelpFile.GetScreenShotDirectory();
-            Bitmap leaguePassword;
-
-            if (rememberMeChecked)
+            if (CreateMatchToggle.Checked)
             {
-                leaguePassword = Resources.LeaguePasswordFocused;
+                PQ.push(2, AutoCreateMatchThread);
+                PQ.PrintQueue();
             }
             else
             {
-                leaguePassword = Resources.LeaguePassword;
-            }
-
-            Image<Bgr, byte> source = new Image<Bgr, byte>(screenShotPath);
-            Image<Bgr, byte> template = new Image<Bgr, byte>(leaguePassword);
-            Image<Bgr, byte> imageToShow = source.Copy();
-
-            using (Image<Gray, float> result = source.MatchTemplate(template, Emgu.CV.CvEnum.TemplateMatchingType.CcoeffNormed))
-            {
-                double[] minValues, maxValues;
-                Point[] minLocations, maxLocations;
-                result.MinMax(out minValues, out maxValues, out minLocations, out maxLocations);
-
-                if (maxValues[0] > 0.9)
-                {
-                    Rectangle match = new Rectangle(maxLocations[0], template.Size);
-                    imageToShow.Draw(match, new Bgr(Color.Red), 3);
-
-                    int x = match.X + (match.Width / 2);
-                    int y = match.Y + (match.Height / 2);
-
-                    MouseEvent.MoveCursorTo(x, y);
-                    MouseEvent.LeftClick();
-
-                    KeyboardEvents.SetClipboardText(PasswordTextbox.Text);
-                    KeyboardEvents.PasteFromClipboard();
-
-                    MatchFoundPicturebox.Image = imageToShow.Bitmap;
-                }
+                PQ.PopFromKey(2);
             }
         }
 
-        private void LoginSignInImageRecognition()
+        private void AutoAcceptToggle_CheckedChanged(object sender)
         {
-            string screenShotPath = HelpFile.GetScreenShotDirectory();
-            Bitmap leagueSignIn = Resources.LeagueSignInButton;
-
-            Image<Bgr, byte> source = new Image<Bgr, byte>(screenShotPath);
-            Image<Bgr, byte> template = new Image<Bgr, byte>(leagueSignIn);
-            Image<Bgr, byte> imageToShow = source.Copy();
-
-            using (Image<Gray, float> result = source.MatchTemplate(template, Emgu.CV.CvEnum.TemplateMatchingType.CcoeffNormed))
+            if (AutoAcceptToggle.Checked)
             {
-                double[] minValues, maxValues;
-                Point[] minLocations, maxLocations;
-                result.MinMax(out minValues, out maxValues, out minLocations, out maxLocations);
-
-                if (maxValues[0] > 0.9)
-                {
-                    Rectangle match = new Rectangle(maxLocations[0], template.Size);
-                    imageToShow.Draw(match, new Bgr(Color.Red), 3);
-
-                    int x = match.X + (match.Width / 2);
-                    int y = match.Y + (match.Height / 2);
-
-                    MouseEvent.MoveCursorTo(x, y);
-                    MouseEvent.LeftClick();
-
-                    MatchFoundPicturebox.Image = imageToShow.Bitmap;
-                }
+                PQ.push(3, AutoAcceptMatchThread);
+                PQ.PrintQueue();
+            }
+            else
+            {
+                PQ.PopFromKey(3);
             }
         }
 
-        private void LoginFailed()
+        private void AutoChampSelectToggle_CheckedChanged(object sender)
         {
-            string screenShotPath = HelpFile.GetScreenShotDirectory();
-            Bitmap leagueSignIn = Resources.LeagueLoginFailed;
+            
+        }
 
-            Image<Bgr, byte> source = new Image<Bgr, byte>(screenShotPath);
-            Image<Bgr, byte> template = new Image<Bgr, byte>(leagueSignIn);
-            Image<Bgr, byte> imageToShow = source.Copy();
+        private void AutoSpamChatToggle_CheckedChanged(object sender)
+        {
 
-            using (Image<Gray, float> result = source.MatchTemplate(template, Emgu.CV.CvEnum.TemplateMatchingType.CcoeffNormed))
+        }
+    }
+
+    class PriorityQueue
+    {
+        private SortedList PseudoQueue;
+
+        public bool Empty
+        {
+            get
             {
-                double[] minValues, maxValues;
-                Point[] minLocations, maxLocations;
-                result.MinMax(out minValues, out maxValues, out minLocations, out maxLocations);
-
-                if (maxValues[0] > 0.9)
-                {
-                    AutoLoginTimer.Stop();
-
-                    MatchFoundPicturebox.Image = imageToShow.Bitmap;
-                }
+                return PseudoQueue.Count == 0;
             }
         }
 
-        private void LocateLeagueButton_Click(object sender, EventArgs e)
+        public PriorityQueue()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "LeagueClient.exe (*.exe*)|*LeagueClient.exe*";
-            openFileDialog.FilterIndex = 1;
+            PseudoQueue = new SortedList();
+        }
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+        public void push(object Priority, object Value)
+        {
+            PseudoQueue.Add(Priority, Value);
+        }
+
+        public void PopFromKey(object Priority)
+        {
+            PseudoQueue.Remove(Priority);
+        }
+
+        public object[] pop()
+        {
+            object[] ReturnValue = { null, null };
+            if (PseudoQueue.Count > 0)
             {
-                string fileName = openFileDialog.FileName;
+                ReturnValue[0] = PseudoQueue.GetKey(0);
+                ReturnValue[1] = PseudoQueue.GetByIndex(0);
 
-                LeagueLocationTextbox.Text = fileName;
-                Options.LeagueEXELocation = fileName;
+                PseudoQueue.RemoveAt(0);
             }
+            return ReturnValue;
         }
         
+        public void PrintQueue()
+        {
+            foreach (DictionaryEntry item in PseudoQueue)
+            {
+                Console.WriteLine("key: {0}, value: {1}", item.Key, item.Value);
+            }
+        }
     }
 }

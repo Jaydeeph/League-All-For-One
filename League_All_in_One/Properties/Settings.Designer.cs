@@ -98,18 +98,6 @@ namespace League_All_in_One.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool RememberMeTicked {
-            get {
-                return ((bool)(this["RememberMeTicked"]));
-            }
-            set {
-                this["RememberMeTicked"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool AutoStartLeague {
             get {
                 return ((bool)(this["AutoStartLeague"]));
@@ -182,12 +170,168 @@ namespace League_All_in_One.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string LeagueEXELocation {
+        public string LeagueExeDirectory {
             get {
-                return ((string)(this["LeagueEXELocation"]));
+                return ((string)(this["LeagueExeDirectory"]));
             }
             set {
-                this["LeagueEXELocation"] = value;
+                this["LeagueExeDirectory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ChamptionName {
+            get {
+                return ((string)(this["ChamptionName"]));
+            }
+            set {
+                this["ChamptionName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ChatSpamText {
+            get {
+                return ((string)(this["ChatSpamText"]));
+            }
+            set {
+                this["ChatSpamText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int NoTimesSpam {
+            get {
+                return ((int)(this["NoTimesSpam"]));
+            }
+            set {
+                this["NoTimesSpam"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MatchType {
+            get {
+                return ((string)(this["MatchType"]));
+            }
+            set {
+                this["MatchType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SummonerType {
+            get {
+                return ((string)(this["SummonerType"]));
+            }
+            set {
+                this["SummonerType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SummonerName {
+            get {
+                return ((string)(this["SummonerName"]));
+            }
+            set {
+                this["SummonerName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsPasswordEncrypted {
+            get {
+                return ((bool)(this["IsPasswordEncrypted"]));
+            }
+            set {
+                this["IsPasswordEncrypted"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoCreateLobby {
+            get {
+                return ((bool)(this["AutoCreateLobby"]));
+            }
+            set {
+                this["AutoCreateLobby"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoLock {
+            get {
+                return ((bool)(this["AutoLock"]));
+            }
+            set {
+                this["AutoLock"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Amber500")]
+        public global::MaterialSkin.Primary PrimaryColor {
+            get {
+                return ((global::MaterialSkin.Primary)(this["PrimaryColor"]));
+            }
+            set {
+                this["PrimaryColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Amber700")]
+        public global::MaterialSkin.Primary PrimaryDarkColor {
+            get {
+                return ((global::MaterialSkin.Primary)(this["PrimaryDarkColor"]));
+            }
+            set {
+                this["PrimaryDarkColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Amber200")]
+        public global::MaterialSkin.Primary PrimaryLightColor {
+            get {
+                return ((global::MaterialSkin.Primary)(this["PrimaryLightColor"]));
+            }
+            set {
+                this["PrimaryLightColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LightBlue200")]
+        public global::MaterialSkin.Accent AccentColor {
+            get {
+                return ((global::MaterialSkin.Accent)(this["AccentColor"]));
+            }
+            set {
+                this["AccentColor"] = value;
             }
         }
     }

@@ -151,5 +151,15 @@ namespace League_All_in_One
 
             return result;
         }
+
+        public static int[] CalculateDesktopBounds()
+        {
+            var rect = new User32.Rect();
+            User32.GetWindowRect(User32.GetDesktopWindow(), ref rect);
+            var bounds = new Rectangle(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);
+            int[] result = { bounds.Width, bounds.Height };
+
+            return result;
+        }
     }
 }

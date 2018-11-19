@@ -15,6 +15,8 @@ namespace League_All_in_One
             Application.SetCompatibleTextRenderingDefault(false);
 
             HelpFile.CreateLeagueFolder();
+            HelpFile.CheckIfFirstTime();
+            HelpFile.StartAppLog();
 
             Application.Run(new LeagueAIO());
         }

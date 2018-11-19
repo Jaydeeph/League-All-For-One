@@ -60,13 +60,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Encryption.cs" />
-    <Compile Include="FlatTheme.cs">
+    <Compile Include="FlatComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatStatusBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="FlatToggle.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Helpers.cs" />
     <Compile Include="HelpFile.cs" />
+    <Compile Include="ImageRecognition.cs" />
     <Compile Include="KeyboardEvents.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -74,16 +79,17 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MonoFlatTheme.cs" />
     <Compile Include="MouseEvent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenCapture.cs" />
     <Compile Include="Options.cs" />
-    <Compile Include="SettinsForm.cs">
+    <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SettinsForm.Designer.cs">
-      <DependentUpon>SettinsForm.cs</DependentUpon>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -98,8 +104,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SettinsForm.resx">
-      <DependentUpon>SettinsForm.cs</DependentUpon>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -117,6 +123,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="License-LGPL.txt" />
+    <None Include="Resources\LeaguePlayButton.png" />
+    <None Include="Resources\LeaguePlayButtonGray.png" />
+    <None Include="Resources\LeagueConfirmButton.png" />
+    <None Include="Resources\LeagueSelectSummonersRift.png" />
+    <None Include="Resources\LeagueSelectARAM.png" />
+    <None Include="Resources\LeagueFindMatchButton.png" />
+    <None Include="Resources\ShowHidePassword-Black.png" />
+    <None Include="Resources\ShowHidePassword-White.png" />
+    <None Include="Resources\LeagueRiotLogo.png" />
+    <None Include="Resources\LeagueLoginSignInText.png" />
+    <None Include="Resources\LeagueRememberMeTicked.png" />
+    <None Include="Resources\LeagueRememberMeNotTicked.png" />
     <None Include="Resources\LeagueUsernameFocused.png" />
     <None Include="Resources\LeagueUsername.png" />
     <None Include="Resources\LeagueSignInButton.png" />

@@ -73,9 +73,19 @@ namespace League_All_in_One.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LeagueLogin {
+        internal static System.Drawing.Bitmap LeagueConfirmButton {
             get {
-                object obj = ResourceManager.GetObject("LeagueLogin", resourceCulture);
+                object obj = ResourceManager.GetObject("LeagueConfirmButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LeagueFindMatchButton {
+            get {
+                object obj = ResourceManager.GetObject("LeagueFindMatchButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,6 +123,76 @@ namespace League_All_in_One.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LeaguePlayButton {
+            get {
+                object obj = ResourceManager.GetObject("LeaguePlayButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LeaguePlayButtonGray {
+            get {
+                object obj = ResourceManager.GetObject("LeaguePlayButtonGray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LeagueRememberMeNotTicked {
+            get {
+                object obj = ResourceManager.GetObject("LeagueRememberMeNotTicked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LeagueRememberMeTicked {
+            get {
+                object obj = ResourceManager.GetObject("LeagueRememberMeTicked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LeagueRiotLogo {
+            get {
+                object obj = ResourceManager.GetObject("LeagueRiotLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LeagueSelectARAM {
+            get {
+                object obj = ResourceManager.GetObject("LeagueSelectARAM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LeagueSelectSummonersRift {
+            get {
+                object obj = ResourceManager.GetObject("LeagueSelectSummonersRift", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LeagueSignInButton {
             get {
                 object obj = ResourceManager.GetObject("LeagueSignInButton", resourceCulture);
@@ -136,6 +216,26 @@ namespace League_All_in_One.Properties {
         internal static System.Drawing.Bitmap LeagueUsernameFocused {
             get {
                 object obj = ResourceManager.GetObject("LeagueUsernameFocused", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShowHidePassword_Black {
+            get {
+                object obj = ResourceManager.GetObject("ShowHidePassword_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShowHidePassword_White {
+            get {
+                object obj = ResourceManager.GetObject("ShowHidePassword_White", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

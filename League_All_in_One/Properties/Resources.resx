@@ -121,8 +121,11 @@
   <data name="LeagueAcceptButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LeagueAccpetButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LeagueLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LeagueLogin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LeagueConfirmButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LeagueConfirmButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeagueFindMatchButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LeagueFindMatchButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LeagueLoginFailed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LeagueLoginFailed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,6 +136,27 @@
   <data name="LeaguePasswordFocused" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LeaguePasswordFocused.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LeaguePlayButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LeaguePlayButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeaguePlayButtonGray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LeaguePlayButtonGray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeagueRememberMeNotTicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LeagueRememberMeNotTicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeagueRememberMeTicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LeagueRememberMeTicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeagueRiotLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LeagueRiotLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeagueSelectARAM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LeagueSelectARAM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeagueSelectSummonersRift" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LeagueSelectSummonersRift.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LeagueSignInButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LeagueSignInButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -141,5 +165,11 @@
   </data>
   <data name="LeagueUsernameFocused" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LeagueUsernameFocused.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShowHidePassword_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ShowHidePassword-Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShowHidePassword_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ShowHidePassword-White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

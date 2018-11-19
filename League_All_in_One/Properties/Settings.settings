@@ -20,9 +20,6 @@
     <Setting Name="NotEncryptedPassword" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="RememberMeTicked" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="AutoStartLeague" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -41,8 +38,47 @@
     <Setting Name="AutoRunesSelect" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="LeagueEXELocation" Type="System.String" Scope="User">
+    <Setting Name="LeagueExeDirectory" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ChamptionName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ChatSpamText" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="NoTimesSpam" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="MatchType" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SummonerType" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SummonerName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="IsPasswordEncrypted" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AutoCreateLobby" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AutoLock" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PrimaryColor" Type="MaterialSkin.Primary" Scope="User">
+      <Value Profile="(Default)">Amber500</Value>
+    </Setting>
+    <Setting Name="PrimaryDarkColor" Type="MaterialSkin.Primary" Scope="User">
+      <Value Profile="(Default)">Amber700</Value>
+    </Setting>
+    <Setting Name="PrimaryLightColor" Type="MaterialSkin.Primary" Scope="User">
+      <Value Profile="(Default)">Amber200</Value>
+    </Setting>
+    <Setting Name="AccentColor" Type="MaterialSkin.Accent" Scope="User">
+      <Value Profile="(Default)">LightBlue200</Value>
     </Setting>
   </Settings>
 </SettingsFile>
