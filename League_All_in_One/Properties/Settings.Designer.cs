@@ -26,12 +26,12 @@ namespace League_All_in_One.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool FirstTime {
+        public bool IsFirstTime {
             get {
-                return ((bool)(this["FirstTime"]));
+                return ((bool)(this["IsFirstTime"]));
             }
             set {
-                this["FirstTime"] = value;
+                this["IsFirstTime"] = value;
             }
         }
         
@@ -146,18 +146,6 @@ namespace League_All_in_One.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoChatSpam {
-            get {
-                return ((bool)(this["AutoChatSpam"]));
-            }
-            set {
-                this["AutoChatSpam"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool AutoRunesSelect {
             get {
                 return ((bool)(this["AutoRunesSelect"]));
@@ -188,30 +176,6 @@ namespace League_All_in_One.Properties {
             }
             set {
                 this["ChamptionName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ChatSpamText {
-            get {
-                return ((string)(this["ChatSpamText"]));
-            }
-            set {
-                this["ChatSpamText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int NoTimesSpam {
-            get {
-                return ((int)(this["NoTimesSpam"]));
-            }
-            set {
-                this["NoTimesSpam"] = value;
             }
         }
         
@@ -332,6 +296,222 @@ namespace League_All_in_One.Properties {
             }
             set {
                 this["AccentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ImageRecognitionInterval {
+            get {
+                return ((int)(this["ImageRecognitionInterval"]));
+            }
+            set {
+                this["ImageRecognitionInterval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LoginUsernameCoordinates {
+            get {
+                return ((string)(this["LoginUsernameCoordinates"]));
+            }
+            set {
+                this["LoginUsernameCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LoginPasswordCoordinates {
+            get {
+                return ((string)(this["LoginPasswordCoordinates"]));
+            }
+            set {
+                this["LoginPasswordCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LoginButtonCoordinates {
+            get {
+                return ((string)(this["LoginButtonCoordinates"]));
+            }
+            set {
+                this["LoginButtonCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PlayButtonCoordinates {
+            get {
+                return ((string)(this["PlayButtonCoordinates"]));
+            }
+            set {
+                this["PlayButtonCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SummonersRiftCoordinates {
+            get {
+                return ((string)(this["SummonersRiftCoordinates"]));
+            }
+            set {
+                this["SummonersRiftCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string BlindPickCoordinates {
+            get {
+                return ((string)(this["BlindPickCoordinates"]));
+            }
+            set {
+                this["BlindPickCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DraftPickCoordinates {
+            get {
+                return ((string)(this["DraftPickCoordinates"]));
+            }
+            set {
+                this["DraftPickCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RankedSoloDuoCoordinates {
+            get {
+                return ((string)(this["RankedSoloDuoCoordinates"]));
+            }
+            set {
+                this["RankedSoloDuoCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ARAMCoordinates {
+            get {
+                return ((string)(this["ARAMCoordinates"]));
+            }
+            set {
+                this["ARAMCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ConfirmButtonCoordinates {
+            get {
+                return ((string)(this["ConfirmButtonCoordinates"]));
+            }
+            set {
+                this["ConfirmButtonCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FindMatchButtonCoordinates {
+            get {
+                return ((string)(this["FindMatchButtonCoordinates"]));
+            }
+            set {
+                this["FindMatchButtonCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ChampionSearchTextboxCoordinates {
+            get {
+                return ((string)(this["ChampionSearchTextboxCoordinates"]));
+            }
+            set {
+                this["ChampionSearchTextboxCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FirstChampionSelectionCoordinates {
+            get {
+                return ((string)(this["FirstChampionSelectionCoordinates"]));
+            }
+            set {
+                this["FirstChampionSelectionCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LockButtonCoordinates {
+            get {
+                return ((string)(this["LockButtonCoordinates"]));
+            }
+            set {
+                this["LockButtonCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UseImageRecognition {
+            get {
+                return ((string)(this["UseImageRecognition"]));
+            }
+            set {
+                this["UseImageRecognition"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UseCoordinates {
+            get {
+                return ((string)(this["UseCoordinates"]));
+            }
+            set {
+                this["UseCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AutoAcceptButtonCoordinates {
+            get {
+                return ((string)(this["AutoAcceptButtonCoordinates"]));
+            }
+            set {
+                this["AutoAcceptButtonCoordinates"] = value;
             }
         }
     }

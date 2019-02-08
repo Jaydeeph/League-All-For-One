@@ -25,5 +25,11 @@ namespace League_All_in_One
             Thread.Sleep(100);
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
         }
+
+        public static void MoveMouseXYToAndClick(int x, int y)
+        {
+            MoveCursorTo(x, y);
+            LeftClick();
+        }
     }
 }

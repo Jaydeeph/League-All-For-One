@@ -14,6 +14,9 @@ namespace League_All_in_One
         [DllImport("user32.dll")]
         static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
 
+        [DllImport("User32.dll")]
+        public static extern short GetAsyncKeyState(Keys vKey);
+
         private const byte KEY_DOWN = 0x00;
         private const byte KEY_UP = 0x02;
 

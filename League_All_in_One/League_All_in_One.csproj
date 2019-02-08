@@ -33,14 +33,17 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Surrender_at_20_Emote.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Emgu.CV.UI, Version=3.4.1.2976, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Emgu.CV.UI">
       <HintPath>..\packages\EMGU.CV.3.4.1.2976\lib\net35\Emgu.CV.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.World, Version=3.4.1.2976, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Emgu.CV.World">
       <HintPath>..\packages\EMGU.CV.3.4.1.2976\lib\net35\Emgu.CV.World.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="MaterialSkin">
       <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -54,9 +57,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Encryption.cs" />
@@ -73,11 +73,11 @@
     <Compile Include="HelpFile.cs" />
     <Compile Include="ImageRecognition.cs" />
     <Compile Include="KeyboardEvents.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="ImageRecognitionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="ImageRecognitionForm.Designer.cs">
+      <DependentUpon>ImageRecognitionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MonoFlatTheme.cs" />
     <Compile Include="MouseEvent.cs" />
@@ -91,8 +91,8 @@
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="ImageRecognitionForm.resx">
+      <DependentUpon>ImageRecognitionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -123,6 +123,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="License-LGPL.txt" />
+    <Content Include="Surrender_at_20_Emote.ico" />
+    <None Include="Resources\LeagueLockButton.png" />
+    <None Include="Resources\LeagueSearchTextbox.png" />
+    <None Include="Resources\LeagueRandomChampionBox.png" />
+    <None Include="Resources\LeagueRankedText.png" />
+    <None Include="Resources\LeagueDraftPickText.png" />
+    <None Include="Resources\LeagueBlindPickText.png" />
+    <None Include="Resources\icons8-settings-50.png" />
+    <None Include="Resources\icons8-settings-100.png" />
     <None Include="Resources\LeaguePlayButton.png" />
     <None Include="Resources\LeaguePlayButtonGray.png" />
     <None Include="Resources\LeagueConfirmButton.png" />
@@ -145,6 +154,7 @@
     <None Include="Resources\LeagueAccpetButton.png" />
     <None Include="Resources\LeagueAcceptButton.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\EMGU.CV.3.4.1.2976\build\EMGU.CV.targets" Condition="Exists('..\packages\EMGU.CV.3.4.1.2976\build\EMGU.CV.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
