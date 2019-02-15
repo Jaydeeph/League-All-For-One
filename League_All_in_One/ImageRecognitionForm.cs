@@ -437,7 +437,7 @@ namespace League_All_in_One
                 if (!clickedConfirmButton) clickedConfirmButton = await ImageRecognition.AutoClickConfirmButtonImageRecognition();
                 if (clickedConfirmButton)
                 {
-                    int[] coordinates = HelpFile.GetXYCoordinatesRegex(Options.PlayButtonCoordinates);
+                    int[] coordinates = HelpFile.GetXYCoordinatesRegex(Options.ConfirmButtonCoordinates);
                     MouseEvent.MoveMouseXYToAndClick(coordinates[0], coordinates[1]);
                     HelpFile.Log("Confirm Button: Clicked Confirm Button X:" + coordinates[0] + ", Y:" + coordinates[1] + ".");
 
@@ -577,17 +577,34 @@ namespace League_All_in_One
 
         private void SetLiveStatusText(string message, Color color)
         {
-            LiveStatusLabel.BeginInvoke((MethodInvoker) delegate ()
+            if (LiveStatusLabel.InvokeRequired)
             {
-                LiveStatusLabel.Text = message;
-                LiveStatusLabel.Refresh();
-            });
+                LiveStatusLabel.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    LiveStatusLabel.Text = message;
+                    LiveStatusLabel.Refresh();
+                });
 
-            LiveStatusColorPanel.BeginInvoke((MethodInvoker)delegate ()
+                LiveStatusColorPanel.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    LiveStatusColorPanel.BackColor = color;
+                    LiveStatusColorPanel.Refresh();
+                });
+            }
+            else
             {
-                LiveStatusColorPanel.BackColor = color;
-                LiveStatusColorPanel.Refresh();
-            });
+                LiveStatusLabel.Invoke((MethodInvoker)delegate ()
+                {
+                    LiveStatusLabel.Text = message;
+                    LiveStatusLabel.Refresh();
+                });
+
+                LiveStatusColorPanel.Invoke((MethodInvoker)delegate ()
+                {
+                    LiveStatusColorPanel.BackColor = color;
+                    LiveStatusColorPanel.Refresh();
+                });
+            }
         }
 
         private void AutoStartLeagueToggle_CheckedChanged(object sender)

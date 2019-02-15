@@ -59,7 +59,6 @@
             this.PasswordTextbox = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.UsernameTextbox = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.EncryptPasswordToggle = new League_All_in_One.FlatToggle();
             this.CoordinatesPage = new System.Windows.Forms.TabPage();
             this.CoordinatesLockButtonTextbox = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.CoordinatesFirstChampionBoxTextbox = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -88,12 +87,13 @@
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.OthersPage = new System.Windows.Forms.TabPage();
-            this.UseCoordinatesToggle = new League_All_in_One.FlatToggle();
             this.materialLabel24 = new MaterialSkin.Controls.MaterialLabel();
-            this.UseImageRecognitionToggle = new League_All_in_One.FlatToggle();
             this.materialLabel23 = new MaterialSkin.Controls.MaterialLabel();
             this.MainFormPanel = new System.Windows.Forms.Panel();
             this.PositionTimer = new System.Windows.Forms.Timer(this.components);
+            this.EncryptPasswordToggle = new League_All_in_One.FlatToggle();
+            this.UseCoordinatesToggle = new League_All_in_One.FlatToggle();
+            this.UseImageRecognitionToggle = new League_All_in_One.FlatToggle();
             this.TopPanel.SuspendLayout();
             this.MainTabController.SuspendLayout();
             this.AutoLoginMatchPage.SuspendLayout();
@@ -190,6 +190,7 @@
             this.SaveSettingsButton.TabIndex = 29;
             this.SaveSettingsButton.Text = "Save Settings";
             this.SaveSettingsButton.UseVisualStyleBackColor = true;
+            this.SaveSettingsButton.Click += new System.EventHandler(this.SaveSettingsButton_Click);
             // 
             // materialDivider5
             // 
@@ -234,12 +235,12 @@
             // 
             this.materialLabel10.AutoSize = true;
             this.materialLabel10.Depth = 0;
-            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel10.Location = new System.Drawing.Point(126, 475);
             this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel10.Name = "materialLabel10";
-            this.materialLabel10.Size = new System.Drawing.Size(62, 19);
+            this.materialLabel10.Size = new System.Drawing.Size(58, 18);
             this.materialLabel10.TabIndex = 25;
             this.materialLabel10.Text = "Interval:";
             // 
@@ -264,12 +265,12 @@
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel2.Location = new System.Drawing.Point(19, 410);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(125, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(124, 18);
             this.materialLabel2.TabIndex = 23;
             this.materialLabel2.Text = "Champion Name:";
             // 
@@ -337,12 +338,12 @@
             // 
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel6.Location = new System.Drawing.Point(19, 19);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(130, 19);
+            this.materialLabel6.Size = new System.Drawing.Size(130, 18);
             this.materialLabel6.TabIndex = 17;
             this.materialLabel6.Text = "Summoner Name:";
             // 
@@ -361,12 +362,12 @@
             // 
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel3.Location = new System.Drawing.Point(34, 348);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(122, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(122, 18);
             this.materialLabel3.TabIndex = 14;
             this.materialLabel3.Text = "Summoner Type:";
             // 
@@ -385,12 +386,12 @@
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel1.Location = new System.Drawing.Point(19, 309);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(137, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(134, 18);
             this.materialLabel1.TabIndex = 10;
             this.materialLabel1.Text = "Select Match Type:";
             // 
@@ -439,12 +440,12 @@
             // 
             this.materialLabel11.AutoSize = true;
             this.materialLabel11.Depth = 0;
-            this.materialLabel11.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel11.Location = new System.Drawing.Point(201, 146);
             this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel11.Name = "materialLabel11";
-            this.materialLabel11.Size = new System.Drawing.Size(133, 19);
+            this.materialLabel11.Size = new System.Drawing.Size(133, 18);
             this.materialLabel11.TabIndex = 4;
             this.materialLabel11.Text = "Encrypt Password:";
             // 
@@ -452,12 +453,12 @@
             // 
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel7.Location = new System.Drawing.Point(19, 76);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(81, 19);
+            this.materialLabel7.Size = new System.Drawing.Size(81, 18);
             this.materialLabel7.TabIndex = 0;
             this.materialLabel7.Text = "Username:";
             // 
@@ -465,12 +466,12 @@
             // 
             this.materialLabel9.AutoSize = true;
             this.materialLabel9.Depth = 0;
-            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel9.Location = new System.Drawing.Point(19, 210);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(126, 19);
+            this.materialLabel9.Size = new System.Drawing.Size(124, 18);
             this.materialLabel9.TabIndex = 8;
             this.materialLabel9.Text = "League Directory:";
             // 
@@ -496,12 +497,12 @@
             // 
             this.materialLabel8.AutoSize = true;
             this.materialLabel8.Depth = 0;
-            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel8.Location = new System.Drawing.Point(21, 104);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(79, 19);
+            this.materialLabel8.Size = new System.Drawing.Size(79, 18);
             this.materialLabel8.TabIndex = 1;
             this.materialLabel8.Text = "Password:";
             // 
@@ -522,18 +523,6 @@
             this.UsernameTextbox.TabStop = false;
             this.UsernameTextbox.Text = "Termin8or9000";
             this.UsernameTextbox.UseSystemPasswordChar = false;
-            // 
-            // EncryptPasswordToggle
-            // 
-            this.EncryptPasswordToggle.BackColor = System.Drawing.Color.Transparent;
-            this.EncryptPasswordToggle.Checked = false;
-            this.EncryptPasswordToggle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EncryptPasswordToggle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.EncryptPasswordToggle.Location = new System.Drawing.Point(340, 141);
-            this.EncryptPasswordToggle.Name = "EncryptPasswordToggle";
-            this.EncryptPasswordToggle.Options = League_All_in_One.FlatToggle._Options.Style3;
-            this.EncryptPasswordToggle.Size = new System.Drawing.Size(76, 33);
-            this.EncryptPasswordToggle.TabIndex = 6;
             // 
             // CoordinatesPage
             // 
@@ -810,12 +799,12 @@
             this.materialLabel22.AutoSize = true;
             this.materialLabel22.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel22.Depth = 0;
-            this.materialLabel22.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel22.Location = new System.Drawing.Point(123, 361);
             this.materialLabel22.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel22.Name = "materialLabel22";
-            this.materialLabel22.Size = new System.Drawing.Size(94, 19);
+            this.materialLabel22.Size = new System.Drawing.Size(92, 18);
             this.materialLabel22.TabIndex = 13;
             this.materialLabel22.Text = "Lock Button:";
             // 
@@ -824,12 +813,12 @@
             this.materialLabel21.AutoSize = true;
             this.materialLabel21.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel21.Depth = 0;
-            this.materialLabel21.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel21.Location = new System.Drawing.Point(73, 332);
             this.materialLabel21.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel21.Name = "materialLabel21";
-            this.materialLabel21.Size = new System.Drawing.Size(144, 19);
+            this.materialLabel21.Size = new System.Drawing.Size(143, 18);
             this.materialLabel21.TabIndex = 12;
             this.materialLabel21.Text = "First Champion Box:";
             // 
@@ -838,12 +827,12 @@
             this.materialLabel20.AutoSize = true;
             this.materialLabel20.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel20.Depth = 0;
-            this.materialLabel20.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel20.Location = new System.Drawing.Point(29, 303);
             this.materialLabel20.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel20.Name = "materialLabel20";
-            this.materialLabel20.Size = new System.Drawing.Size(188, 19);
+            this.materialLabel20.Size = new System.Drawing.Size(187, 18);
             this.materialLabel20.TabIndex = 11;
             this.materialLabel20.Text = "Champion Search Textbox:";
             // 
@@ -852,12 +841,12 @@
             this.materialLabel19.AutoSize = true;
             this.materialLabel19.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel19.Depth = 0;
-            this.materialLabel19.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel19.Location = new System.Drawing.Point(102, 274);
             this.materialLabel19.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel19.Name = "materialLabel19";
-            this.materialLabel19.Size = new System.Drawing.Size(115, 19);
+            this.materialLabel19.Size = new System.Drawing.Size(112, 18);
             this.materialLabel19.TabIndex = 10;
             this.materialLabel19.Text = "Confirm Button:";
             // 
@@ -866,12 +855,12 @@
             this.materialLabel18.AutoSize = true;
             this.materialLabel18.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel18.Depth = 0;
-            this.materialLabel18.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel18.Location = new System.Drawing.Point(87, 245);
             this.materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel18.Name = "materialLabel18";
-            this.materialLabel18.Size = new System.Drawing.Size(130, 19);
+            this.materialLabel18.Size = new System.Drawing.Size(130, 18);
             this.materialLabel18.TabIndex = 9;
             this.materialLabel18.Text = "Ranked Solo/Duo:";
             // 
@@ -880,12 +869,12 @@
             this.materialLabel17.AutoSize = true;
             this.materialLabel17.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel17.Depth = 0;
-            this.materialLabel17.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel17.Location = new System.Drawing.Point(138, 216);
             this.materialLabel17.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel17.Name = "materialLabel17";
-            this.materialLabel17.Size = new System.Drawing.Size(79, 19);
+            this.materialLabel17.Size = new System.Drawing.Size(77, 18);
             this.materialLabel17.TabIndex = 8;
             this.materialLabel17.Text = "Draft Pick:";
             // 
@@ -894,12 +883,12 @@
             this.materialLabel16.AutoSize = true;
             this.materialLabel16.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel16.Depth = 0;
-            this.materialLabel16.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel16.Location = new System.Drawing.Point(138, 187);
             this.materialLabel16.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel16.Name = "materialLabel16";
-            this.materialLabel16.Size = new System.Drawing.Size(79, 19);
+            this.materialLabel16.Size = new System.Drawing.Size(77, 18);
             this.materialLabel16.TabIndex = 7;
             this.materialLabel16.Text = "Blind Pick:";
             // 
@@ -908,12 +897,12 @@
             this.materialLabel15.AutoSize = true;
             this.materialLabel15.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel15.Depth = 0;
-            this.materialLabel15.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel15.Location = new System.Drawing.Point(116, 158);
             this.materialLabel15.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel15.Name = "materialLabel15";
-            this.materialLabel15.Size = new System.Drawing.Size(101, 19);
+            this.materialLabel15.Size = new System.Drawing.Size(99, 18);
             this.materialLabel15.TabIndex = 6;
             this.materialLabel15.Text = "ARAM Match:";
             // 
@@ -922,12 +911,12 @@
             this.materialLabel14.AutoSize = true;
             this.materialLabel14.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel14.Depth = 0;
-            this.materialLabel14.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel14.Location = new System.Drawing.Point(77, 129);
             this.materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel14.Name = "materialLabel14";
-            this.materialLabel14.Size = new System.Drawing.Size(140, 19);
+            this.materialLabel14.Size = new System.Drawing.Size(139, 18);
             this.materialLabel14.TabIndex = 5;
             this.materialLabel14.Text = "Summoners Match:";
             // 
@@ -936,12 +925,12 @@
             this.materialLabel13.AutoSize = true;
             this.materialLabel13.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel13.Depth = 0;
-            this.materialLabel13.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel13.Location = new System.Drawing.Point(128, 100);
             this.materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel13.Name = "materialLabel13";
-            this.materialLabel13.Size = new System.Drawing.Size(89, 19);
+            this.materialLabel13.Size = new System.Drawing.Size(87, 18);
             this.materialLabel13.TabIndex = 4;
             this.materialLabel13.Text = "Play Button:";
             // 
@@ -950,12 +939,12 @@
             this.materialLabel12.AutoSize = true;
             this.materialLabel12.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel12.Depth = 0;
-            this.materialLabel12.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel12.Location = new System.Drawing.Point(119, 71);
             this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
-            this.materialLabel12.Size = new System.Drawing.Size(98, 19);
+            this.materialLabel12.Size = new System.Drawing.Size(95, 18);
             this.materialLabel12.TabIndex = 3;
             this.materialLabel12.Text = "Login Button:";
             // 
@@ -964,12 +953,12 @@
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel5.Location = new System.Drawing.Point(97, 42);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(120, 19);
+            this.materialLabel5.Size = new System.Drawing.Size(119, 18);
             this.materialLabel5.TabIndex = 2;
             this.materialLabel5.Text = "Login Password:";
             // 
@@ -978,12 +967,12 @@
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel4.Location = new System.Drawing.Point(95, 13);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(122, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(121, 18);
             this.materialLabel4.TabIndex = 1;
             this.materialLabel4.Text = "Login Username:";
             // 
@@ -991,8 +980,8 @@
             // 
             this.OthersPage.Controls.Add(this.UseCoordinatesToggle);
             this.OthersPage.Controls.Add(this.materialLabel24);
-            this.OthersPage.Controls.Add(this.UseImageRecognitionToggle);
             this.OthersPage.Controls.Add(this.materialLabel23);
+            this.OthersPage.Controls.Add(this.UseImageRecognitionToggle);
             this.OthersPage.Location = new System.Drawing.Point(4, 22);
             this.OthersPage.Name = "OthersPage";
             this.OthersPage.Padding = new System.Windows.Forms.Padding(3);
@@ -1001,59 +990,31 @@
             this.OthersPage.Text = "Extra";
             this.OthersPage.UseVisualStyleBackColor = true;
             // 
-            // UseCoordinatesToggle
-            // 
-            this.UseCoordinatesToggle.BackColor = System.Drawing.Color.Transparent;
-            this.UseCoordinatesToggle.Checked = false;
-            this.UseCoordinatesToggle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UseCoordinatesToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.UseCoordinatesToggle.Location = new System.Drawing.Point(251, 59);
-            this.UseCoordinatesToggle.Name = "UseCoordinatesToggle";
-            this.UseCoordinatesToggle.Options = League_All_in_One.FlatToggle._Options.Style3;
-            this.UseCoordinatesToggle.Size = new System.Drawing.Size(76, 33);
-            this.UseCoordinatesToggle.TabIndex = 5;
-            this.UseCoordinatesToggle.Text = "flatToggle2";
-            this.UseCoordinatesToggle.CheckedChanged += new League_All_in_One.FlatToggle.CheckedChangedEventHandler(this.UseCoordinatesToggle_CheckedChanged);
-            // 
             // materialLabel24
             // 
             this.materialLabel24.AutoSize = true;
             this.materialLabel24.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel24.Depth = 0;
-            this.materialLabel24.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel24.Location = new System.Drawing.Point(123, 64);
             this.materialLabel24.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel24.Name = "materialLabel24";
-            this.materialLabel24.Size = new System.Drawing.Size(125, 19);
+            this.materialLabel24.Size = new System.Drawing.Size(124, 18);
             this.materialLabel24.TabIndex = 4;
             this.materialLabel24.Text = "Use Coordinates:";
-            // 
-            // UseImageRecognitionToggle
-            // 
-            this.UseImageRecognitionToggle.BackColor = System.Drawing.Color.Transparent;
-            this.UseImageRecognitionToggle.Checked = false;
-            this.UseImageRecognitionToggle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UseImageRecognitionToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.UseImageRecognitionToggle.Location = new System.Drawing.Point(251, 20);
-            this.UseImageRecognitionToggle.Name = "UseImageRecognitionToggle";
-            this.UseImageRecognitionToggle.Options = League_All_in_One.FlatToggle._Options.Style3;
-            this.UseImageRecognitionToggle.Size = new System.Drawing.Size(76, 33);
-            this.UseImageRecognitionToggle.TabIndex = 3;
-            this.UseImageRecognitionToggle.Text = "flatToggle1";
-            this.UseImageRecognitionToggle.CheckedChanged += new League_All_in_One.FlatToggle.CheckedChangedEventHandler(this.UseImageRecognitionToggle_CheckedChanged);
             // 
             // materialLabel23
             // 
             this.materialLabel23.AutoSize = true;
             this.materialLabel23.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel23.Depth = 0;
-            this.materialLabel23.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel23.Location = new System.Drawing.Point(77, 25);
             this.materialLabel23.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel23.Name = "materialLabel23";
-            this.materialLabel23.Size = new System.Drawing.Size(168, 19);
+            this.materialLabel23.Size = new System.Drawing.Size(166, 18);
             this.materialLabel23.TabIndex = 2;
             this.materialLabel23.Text = "Use Image Recognition:";
             // 
@@ -1071,6 +1032,46 @@
             // PositionTimer
             // 
             this.PositionTimer.Tick += new System.EventHandler(this.PositionTimer_Tick);
+            // 
+            // EncryptPasswordToggle
+            // 
+            this.EncryptPasswordToggle.BackColor = System.Drawing.Color.Transparent;
+            this.EncryptPasswordToggle.Checked = false;
+            this.EncryptPasswordToggle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EncryptPasswordToggle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.EncryptPasswordToggle.Location = new System.Drawing.Point(340, 141);
+            this.EncryptPasswordToggle.Name = "EncryptPasswordToggle";
+            this.EncryptPasswordToggle.Options = League_All_in_One.FlatToggle._Options.Style3;
+            this.EncryptPasswordToggle.Size = new System.Drawing.Size(76, 33);
+            this.EncryptPasswordToggle.TabIndex = 6;
+            // 
+            // UseCoordinatesToggle
+            // 
+            this.UseCoordinatesToggle.BackColor = System.Drawing.Color.Transparent;
+            this.UseCoordinatesToggle.Checked = false;
+            this.UseCoordinatesToggle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UseCoordinatesToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.UseCoordinatesToggle.Location = new System.Drawing.Point(251, 59);
+            this.UseCoordinatesToggle.Name = "UseCoordinatesToggle";
+            this.UseCoordinatesToggle.Options = League_All_in_One.FlatToggle._Options.Style3;
+            this.UseCoordinatesToggle.Size = new System.Drawing.Size(76, 33);
+            this.UseCoordinatesToggle.TabIndex = 5;
+            this.UseCoordinatesToggle.Text = "flatToggle2";
+            this.UseCoordinatesToggle.CheckedChanged += new League_All_in_One.FlatToggle.CheckedChangedEventHandler(this.UseCoordinatesToggle_CheckedChanged);
+            // 
+            // UseImageRecognitionToggle
+            // 
+            this.UseImageRecognitionToggle.BackColor = System.Drawing.Color.Transparent;
+            this.UseImageRecognitionToggle.Checked = false;
+            this.UseImageRecognitionToggle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UseImageRecognitionToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.UseImageRecognitionToggle.Location = new System.Drawing.Point(251, 20);
+            this.UseImageRecognitionToggle.Name = "UseImageRecognitionToggle";
+            this.UseImageRecognitionToggle.Options = League_All_in_One.FlatToggle._Options.Style3;
+            this.UseImageRecognitionToggle.Size = new System.Drawing.Size(76, 33);
+            this.UseImageRecognitionToggle.TabIndex = 3;
+            this.UseImageRecognitionToggle.Text = "flatToggle1";
+            this.UseImageRecognitionToggle.CheckedChanged += new League_All_in_One.FlatToggle.CheckedChangedEventHandler(this.UseImageRecognitionToggle_CheckedChanged);
             // 
             // SettingsForm
             // 
