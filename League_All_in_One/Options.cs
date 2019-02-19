@@ -1,17 +1,11 @@
 ﻿using League_All_in_One.Properties;
+
 using MaterialSkin;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace League_All_in_One
 {
     static class Options
     {
-        public static bool UseImageRecognition { get; set; }
-        public static bool UseCoordinates { get; set; }
-
         public static bool IsFirstTime { get; set; }
         public static bool IsPasswordEncrypted { get; set; }
 

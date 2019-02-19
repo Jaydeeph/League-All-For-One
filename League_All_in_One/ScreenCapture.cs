@@ -125,6 +125,10 @@ namespace League_All_in_One
             public static extern IntPtr GetWindowRect(IntPtr hWnd, ref Rect rect);
             [DllImport("user32.dll")]
             public static extern IntPtr GetForegroundWindow();
+            [DllImport("user32.dll", SetLastError = true)]
+            public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+            [DllImportAttribute("User32.dll")]
+            public static extern IntPtr SetForegroundWindow(IntPtr hWnd);
         }
 
         public static Image CaptureDesktop()
@@ -160,6 +164,20 @@ namespace League_All_in_One
             int[] result = { bounds.Width, bounds.Height };
 
             return result;
+        }
+
+        public static IntPtr FindWindow(string caption)
+        {
+            return User32.FindWindow(String.Empty, caption);
+        }
+
+        public static void BringLeagueClientToForeground()
+        {
+            System.Diagnostics.Process[] p = System.Diagnostics.Process.GetProcessesByName("League");
+            if (p.Length > 0)
+            {
+                User32.SetForegroundWindow(p[0].MainWindowHandle);
+            }
         }
     }
 }

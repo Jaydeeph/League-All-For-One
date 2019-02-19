@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="MonoFlatTheme.cs" />
     <Compile Include="MouseEvent.cs" />
+    <Compile Include="Networking.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenCapture.cs" />

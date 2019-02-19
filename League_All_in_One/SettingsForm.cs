@@ -14,14 +14,14 @@ namespace League_All_in_One
     {
         LeagueAIO mainForm;
 
-        Size autoLoginPageMatchMainFormPanelSize = new Size(459, 600);
-        Size autoLoginPageMatchFormSize = new Size(459, 663);
+        private Size autoLoginPageMatchMainFormPanelSize = new Size(459, 600);
+        private Size autoLoginPageMatchFormSize = new Size(459, 663);
 
-        Size coordinatesPageMainFormPanelSize = new Size(459, 447);
-        Size coordinatesFormSize = new Size(459, 505);
+        private Size coordinatesPageMainFormPanelSize = new Size(459, 447);
+        private Size coordinatesFormSize = new Size(459, 505);
 
-        Size othersPageMainFormPanelSize = new Size(459, 140);
-        Size othersPageFormSize = new Size(459, 203);
+        private Size othersPageMainFormPanelSize = new Size(459, 140);
+        private Size othersPageFormSize = new Size(459, 203);
 
         public SettingsForm(LeagueAIO main)
         {
@@ -180,7 +180,7 @@ namespace League_All_in_One
         private void SelectCoordinates_TextBox(object sender, EventArgs e)
         {
             tempTextBox = (TextBox)sender;
-            tempTextBox.Text = "Testing";
+            tempTextBox.Text = "Right Click To Select Coordinates.";
             PositionTimer.Start();
         }
 
@@ -192,7 +192,7 @@ namespace League_All_in_One
                 tempTextBox.Text = "X: " + mousePosition.X + " Y: " + mousePosition.Y;
                 PositionTimer.Stop();
             }
-        }        
+        }
 
         private Point GetCurrentMousePosition()
         {
@@ -216,16 +216,6 @@ namespace League_All_in_One
                 MainFormPanel.Size = othersPageMainFormPanelSize;
                 this.Size = othersPageFormSize;
             }
-        }
-
-        private void UseImageRecognitionToggle_CheckedChanged(object sender)
-        {
-            if(UseImageRecognitionToggle.Checked) UseCoordinatesToggle.Checked = false;
-        }
-
-        private void UseCoordinatesToggle_CheckedChanged(object sender)
-        {
-            if (UseCoordinatesToggle.Checked) UseImageRecognitionToggle.Checked = false;
         }
     }
 }

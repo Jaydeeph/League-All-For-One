@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeagueAIO));
             this.MainPanel = new System.Windows.Forms.Panel();
             this.TabControllerPanel = new System.Windows.Forms.Panel();
-            this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
-            this.ImageRecognitionPage = new System.Windows.Forms.TabPage();
+            this.MainTabController = new MaterialSkin.Controls.MaterialTabControl();
+            this.AutomaticPage = new System.Windows.Forms.TabPage();
             this.StartAutoImageRecognitionButton = new MaterialSkin.Controls.MaterialFlatButton();
             this.AutoLockChampionToggle = new League_All_in_One.FlatToggle();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
@@ -47,7 +47,25 @@
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.ManualPage = new System.Windows.Forms.TabPage();
+            this.CoordinatesSelectAndLockChampionButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.CoordinatesLockChampionButton = new MaterialSkin.Controls.MaterialFlatButton();
+            this.CoordinatesSelectChampionButton = new MaterialSkin.Controls.MaterialFlatButton();
+            this.AutoAcceptMatchButton = new MaterialSkin.Controls.MaterialFlatButton();
+            this.CoordinatesCreateARAMLobbyButton = new MaterialSkin.Controls.MaterialFlatButton();
+            this.CoordinatesCreateSummonersRiftLobbyButton = new MaterialSkin.Controls.MaterialFlatButton();
+            this.CoordinatesLoginToLeagueButton = new MaterialSkin.Controls.MaterialFlatButton();
+            this.CoordiantesStartLeagueClient = new MaterialSkin.Controls.MaterialFlatButton();
             this.PingTestPage = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.TestPingButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.PingLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.LANPingTestCheckbox = new MaterialSkin.Controls.MaterialRadioButton();
+            this.OCEPingTestCheckbox = new MaterialSkin.Controls.MaterialRadioButton();
+            this.EUNEPingTestCheckbox = new MaterialSkin.Controls.MaterialRadioButton();
+            this.EUWPingTestCheckbox = new MaterialSkin.Controls.MaterialRadioButton();
+            this.NAPingTestCheckbox = new MaterialSkin.Controls.MaterialRadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.BottomPanel = new System.Windows.Forms.Panel();
@@ -56,8 +74,12 @@
             this.SettingsButton = new System.Windows.Forms.PictureBox();
             this.MainPanel.SuspendLayout();
             this.TabControllerPanel.SuspendLayout();
-            this.materialTabControl1.SuspendLayout();
-            this.ImageRecognitionPage.SuspendLayout();
+            this.MainTabController.SuspendLayout();
+            this.AutomaticPage.SuspendLayout();
+            this.ManualPage.SuspendLayout();
+            this.PingTestPage.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.TopPanel.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
@@ -76,7 +98,7 @@
             // 
             // TabControllerPanel
             // 
-            this.TabControllerPanel.Controls.Add(this.materialTabControl1);
+            this.TabControllerPanel.Controls.Add(this.MainTabController);
             this.TabControllerPanel.Controls.Add(this.TopPanel);
             this.TabControllerPanel.Controls.Add(this.BottomPanel);
             this.TabControllerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -85,42 +107,43 @@
             this.TabControllerPanel.Size = new System.Drawing.Size(466, 402);
             this.TabControllerPanel.TabIndex = 2;
             // 
-            // materialTabControl1
+            // MainTabController
             // 
-            this.materialTabControl1.Controls.Add(this.ImageRecognitionPage);
-            this.materialTabControl1.Controls.Add(this.ManualPage);
-            this.materialTabControl1.Controls.Add(this.PingTestPage);
-            this.materialTabControl1.Depth = 0;
-            this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialTabControl1.Location = new System.Drawing.Point(0, 45);
-            this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialTabControl1.Name = "materialTabControl1";
-            this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(466, 337);
-            this.materialTabControl1.TabIndex = 2;
+            this.MainTabController.Controls.Add(this.AutomaticPage);
+            this.MainTabController.Controls.Add(this.ManualPage);
+            this.MainTabController.Controls.Add(this.PingTestPage);
+            this.MainTabController.Depth = 0;
+            this.MainTabController.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainTabController.Location = new System.Drawing.Point(0, 45);
+            this.MainTabController.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MainTabController.Name = "MainTabController";
+            this.MainTabController.SelectedIndex = 0;
+            this.MainTabController.Size = new System.Drawing.Size(466, 337);
+            this.MainTabController.TabIndex = 2;
+            this.MainTabController.Selected += new System.Windows.Forms.TabControlEventHandler(this.MainTabController_Selected);
             // 
-            // ImageRecognitionPage
+            // AutomaticPage
             // 
-            this.ImageRecognitionPage.BackColor = System.Drawing.Color.White;
-            this.ImageRecognitionPage.Controls.Add(this.StartAutoImageRecognitionButton);
-            this.ImageRecognitionPage.Controls.Add(this.AutoLockChampionToggle);
-            this.ImageRecognitionPage.Controls.Add(this.materialLabel6);
-            this.ImageRecognitionPage.Controls.Add(this.AutoSelectChampionToggle);
-            this.ImageRecognitionPage.Controls.Add(this.AutoAcceptToggle);
-            this.ImageRecognitionPage.Controls.Add(this.AutoCreateMatchToggle);
-            this.ImageRecognitionPage.Controls.Add(this.AutoLoginToggle);
-            this.ImageRecognitionPage.Controls.Add(this.AutoStartLeagueToggle);
-            this.ImageRecognitionPage.Controls.Add(this.materialLabel5);
-            this.ImageRecognitionPage.Controls.Add(this.materialLabel4);
-            this.ImageRecognitionPage.Controls.Add(this.materialLabel3);
-            this.ImageRecognitionPage.Controls.Add(this.materialLabel2);
-            this.ImageRecognitionPage.Controls.Add(this.materialLabel1);
-            this.ImageRecognitionPage.Location = new System.Drawing.Point(4, 22);
-            this.ImageRecognitionPage.Name = "ImageRecognitionPage";
-            this.ImageRecognitionPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ImageRecognitionPage.Size = new System.Drawing.Size(458, 311);
-            this.ImageRecognitionPage.TabIndex = 0;
-            this.ImageRecognitionPage.Text = "Automatic";
+            this.AutomaticPage.BackColor = System.Drawing.Color.White;
+            this.AutomaticPage.Controls.Add(this.StartAutoImageRecognitionButton);
+            this.AutomaticPage.Controls.Add(this.AutoLockChampionToggle);
+            this.AutomaticPage.Controls.Add(this.materialLabel6);
+            this.AutomaticPage.Controls.Add(this.AutoSelectChampionToggle);
+            this.AutomaticPage.Controls.Add(this.AutoAcceptToggle);
+            this.AutomaticPage.Controls.Add(this.AutoCreateMatchToggle);
+            this.AutomaticPage.Controls.Add(this.AutoLoginToggle);
+            this.AutomaticPage.Controls.Add(this.AutoStartLeagueToggle);
+            this.AutomaticPage.Controls.Add(this.materialLabel5);
+            this.AutomaticPage.Controls.Add(this.materialLabel4);
+            this.AutomaticPage.Controls.Add(this.materialLabel3);
+            this.AutomaticPage.Controls.Add(this.materialLabel2);
+            this.AutomaticPage.Controls.Add(this.materialLabel1);
+            this.AutomaticPage.Location = new System.Drawing.Point(4, 22);
+            this.AutomaticPage.Name = "AutomaticPage";
+            this.AutomaticPage.Padding = new System.Windows.Forms.Padding(3);
+            this.AutomaticPage.Size = new System.Drawing.Size(458, 311);
+            this.AutomaticPage.TabIndex = 0;
+            this.AutomaticPage.Text = "Automatic";
             // 
             // StartAutoImageRecognitionButton
             // 
@@ -298,23 +321,346 @@
             // 
             // ManualPage
             // 
+            this.ManualPage.Controls.Add(this.CoordinatesSelectAndLockChampionButton);
+            this.ManualPage.Controls.Add(this.CoordinatesLockChampionButton);
+            this.ManualPage.Controls.Add(this.CoordinatesSelectChampionButton);
+            this.ManualPage.Controls.Add(this.AutoAcceptMatchButton);
+            this.ManualPage.Controls.Add(this.CoordinatesCreateARAMLobbyButton);
+            this.ManualPage.Controls.Add(this.CoordinatesCreateSummonersRiftLobbyButton);
+            this.ManualPage.Controls.Add(this.CoordinatesLoginToLeagueButton);
+            this.ManualPage.Controls.Add(this.CoordiantesStartLeagueClient);
             this.ManualPage.Location = new System.Drawing.Point(4, 22);
             this.ManualPage.Name = "ManualPage";
             this.ManualPage.Padding = new System.Windows.Forms.Padding(3);
             this.ManualPage.Size = new System.Drawing.Size(458, 311);
-            this.ManualPage.TabIndex = 1;
+            this.ManualPage.TabIndex = 3;
             this.ManualPage.Text = "Manual";
             this.ManualPage.UseVisualStyleBackColor = true;
             // 
+            // CoordinatesSelectAndLockChampionButton
+            // 
+            this.CoordinatesSelectAndLockChampionButton.AutoSize = true;
+            this.CoordinatesSelectAndLockChampionButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CoordinatesSelectAndLockChampionButton.Depth = 0;
+            this.CoordinatesSelectAndLockChampionButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CoordinatesSelectAndLockChampionButton.Icon = null;
+            this.CoordinatesSelectAndLockChampionButton.Location = new System.Drawing.Point(3, 255);
+            this.CoordinatesSelectAndLockChampionButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.CoordinatesSelectAndLockChampionButton.Name = "CoordinatesSelectAndLockChampionButton";
+            this.CoordinatesSelectAndLockChampionButton.Primary = true;
+            this.CoordinatesSelectAndLockChampionButton.Size = new System.Drawing.Size(452, 36);
+            this.CoordinatesSelectAndLockChampionButton.TabIndex = 13;
+            this.CoordinatesSelectAndLockChampionButton.Text = "Select And Lock Champion";
+            this.CoordinatesSelectAndLockChampionButton.UseVisualStyleBackColor = true;
+            this.CoordinatesSelectAndLockChampionButton.Click += new System.EventHandler(this.CoordinatesSelectAndLockChampionButton_Click);
+            // 
+            // CoordinatesLockChampionButton
+            // 
+            this.CoordinatesLockChampionButton.AutoSize = true;
+            this.CoordinatesLockChampionButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CoordinatesLockChampionButton.Depth = 0;
+            this.CoordinatesLockChampionButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CoordinatesLockChampionButton.Icon = null;
+            this.CoordinatesLockChampionButton.Location = new System.Drawing.Point(3, 219);
+            this.CoordinatesLockChampionButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.CoordinatesLockChampionButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.CoordinatesLockChampionButton.Name = "CoordinatesLockChampionButton";
+            this.CoordinatesLockChampionButton.Primary = false;
+            this.CoordinatesLockChampionButton.Size = new System.Drawing.Size(452, 36);
+            this.CoordinatesLockChampionButton.TabIndex = 12;
+            this.CoordinatesLockChampionButton.Text = "Lock Champion";
+            this.CoordinatesLockChampionButton.UseVisualStyleBackColor = true;
+            this.CoordinatesLockChampionButton.Click += new System.EventHandler(this.CoordinatesLockChampionButton_Click);
+            // 
+            // CoordinatesSelectChampionButton
+            // 
+            this.CoordinatesSelectChampionButton.AutoSize = true;
+            this.CoordinatesSelectChampionButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CoordinatesSelectChampionButton.Depth = 0;
+            this.CoordinatesSelectChampionButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CoordinatesSelectChampionButton.Icon = null;
+            this.CoordinatesSelectChampionButton.Location = new System.Drawing.Point(3, 183);
+            this.CoordinatesSelectChampionButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.CoordinatesSelectChampionButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.CoordinatesSelectChampionButton.Name = "CoordinatesSelectChampionButton";
+            this.CoordinatesSelectChampionButton.Primary = false;
+            this.CoordinatesSelectChampionButton.Size = new System.Drawing.Size(452, 36);
+            this.CoordinatesSelectChampionButton.TabIndex = 11;
+            this.CoordinatesSelectChampionButton.Text = "Select Champion";
+            this.CoordinatesSelectChampionButton.UseVisualStyleBackColor = true;
+            this.CoordinatesSelectChampionButton.Click += new System.EventHandler(this.CoordinatesSelectChampionButton_Click);
+            // 
+            // AutoAcceptMatchButton
+            // 
+            this.AutoAcceptMatchButton.AutoSize = true;
+            this.AutoAcceptMatchButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AutoAcceptMatchButton.Depth = 0;
+            this.AutoAcceptMatchButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AutoAcceptMatchButton.Icon = null;
+            this.AutoAcceptMatchButton.Location = new System.Drawing.Point(3, 147);
+            this.AutoAcceptMatchButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.AutoAcceptMatchButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AutoAcceptMatchButton.Name = "AutoAcceptMatchButton";
+            this.AutoAcceptMatchButton.Primary = false;
+            this.AutoAcceptMatchButton.Size = new System.Drawing.Size(452, 36);
+            this.AutoAcceptMatchButton.TabIndex = 10;
+            this.AutoAcceptMatchButton.Text = "Start Auto Accept Match";
+            this.AutoAcceptMatchButton.UseVisualStyleBackColor = true;
+            this.AutoAcceptMatchButton.Click += new System.EventHandler(this.AutoAcceptMatchButton_Click);
+            // 
+            // CoordinatesCreateARAMLobbyButton
+            // 
+            this.CoordinatesCreateARAMLobbyButton.AutoSize = true;
+            this.CoordinatesCreateARAMLobbyButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CoordinatesCreateARAMLobbyButton.Depth = 0;
+            this.CoordinatesCreateARAMLobbyButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CoordinatesCreateARAMLobbyButton.Icon = null;
+            this.CoordinatesCreateARAMLobbyButton.Location = new System.Drawing.Point(3, 111);
+            this.CoordinatesCreateARAMLobbyButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.CoordinatesCreateARAMLobbyButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.CoordinatesCreateARAMLobbyButton.Name = "CoordinatesCreateARAMLobbyButton";
+            this.CoordinatesCreateARAMLobbyButton.Primary = false;
+            this.CoordinatesCreateARAMLobbyButton.Size = new System.Drawing.Size(452, 36);
+            this.CoordinatesCreateARAMLobbyButton.TabIndex = 9;
+            this.CoordinatesCreateARAMLobbyButton.Text = "Create ARAM Lobby";
+            this.CoordinatesCreateARAMLobbyButton.UseVisualStyleBackColor = true;
+            this.CoordinatesCreateARAMLobbyButton.Click += new System.EventHandler(this.CoordinatesCreateARAMLobbyButton_Click);
+            // 
+            // CoordinatesCreateSummonersRiftLobbyButton
+            // 
+            this.CoordinatesCreateSummonersRiftLobbyButton.AutoSize = true;
+            this.CoordinatesCreateSummonersRiftLobbyButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CoordinatesCreateSummonersRiftLobbyButton.Depth = 0;
+            this.CoordinatesCreateSummonersRiftLobbyButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CoordinatesCreateSummonersRiftLobbyButton.Icon = null;
+            this.CoordinatesCreateSummonersRiftLobbyButton.Location = new System.Drawing.Point(3, 75);
+            this.CoordinatesCreateSummonersRiftLobbyButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.CoordinatesCreateSummonersRiftLobbyButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.CoordinatesCreateSummonersRiftLobbyButton.Name = "CoordinatesCreateSummonersRiftLobbyButton";
+            this.CoordinatesCreateSummonersRiftLobbyButton.Primary = false;
+            this.CoordinatesCreateSummonersRiftLobbyButton.Size = new System.Drawing.Size(452, 36);
+            this.CoordinatesCreateSummonersRiftLobbyButton.TabIndex = 8;
+            this.CoordinatesCreateSummonersRiftLobbyButton.Text = "Create Summoner\'s Rift Lobby";
+            this.CoordinatesCreateSummonersRiftLobbyButton.UseVisualStyleBackColor = true;
+            this.CoordinatesCreateSummonersRiftLobbyButton.Click += new System.EventHandler(this.CoordinatesCreateSummonersRiftLobbyButton_Click);
+            // 
+            // CoordinatesLoginToLeagueButton
+            // 
+            this.CoordinatesLoginToLeagueButton.AutoSize = true;
+            this.CoordinatesLoginToLeagueButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CoordinatesLoginToLeagueButton.Depth = 0;
+            this.CoordinatesLoginToLeagueButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CoordinatesLoginToLeagueButton.Icon = null;
+            this.CoordinatesLoginToLeagueButton.Location = new System.Drawing.Point(3, 39);
+            this.CoordinatesLoginToLeagueButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.CoordinatesLoginToLeagueButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.CoordinatesLoginToLeagueButton.Name = "CoordinatesLoginToLeagueButton";
+            this.CoordinatesLoginToLeagueButton.Primary = false;
+            this.CoordinatesLoginToLeagueButton.Size = new System.Drawing.Size(452, 36);
+            this.CoordinatesLoginToLeagueButton.TabIndex = 7;
+            this.CoordinatesLoginToLeagueButton.Text = "Login To League";
+            this.CoordinatesLoginToLeagueButton.UseVisualStyleBackColor = true;
+            this.CoordinatesLoginToLeagueButton.Click += new System.EventHandler(this.CoordinatesLoginToLeagueButton_Click);
+            // 
+            // CoordiantesStartLeagueClient
+            // 
+            this.CoordiantesStartLeagueClient.AutoSize = true;
+            this.CoordiantesStartLeagueClient.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CoordiantesStartLeagueClient.Depth = 0;
+            this.CoordiantesStartLeagueClient.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CoordiantesStartLeagueClient.Icon = null;
+            this.CoordiantesStartLeagueClient.Location = new System.Drawing.Point(3, 3);
+            this.CoordiantesStartLeagueClient.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.CoordiantesStartLeagueClient.MouseState = MaterialSkin.MouseState.HOVER;
+            this.CoordiantesStartLeagueClient.Name = "CoordiantesStartLeagueClient";
+            this.CoordiantesStartLeagueClient.Primary = false;
+            this.CoordiantesStartLeagueClient.Size = new System.Drawing.Size(452, 36);
+            this.CoordiantesStartLeagueClient.TabIndex = 0;
+            this.CoordiantesStartLeagueClient.Text = "Start League Client";
+            this.CoordiantesStartLeagueClient.UseVisualStyleBackColor = true;
+            this.CoordiantesStartLeagueClient.Click += new System.EventHandler(this.CoordiantesStartLeagueClient_Click);
+            // 
             // PingTestPage
             // 
+            this.PingTestPage.Controls.Add(this.panel2);
+            this.PingTestPage.Controls.Add(this.panel1);
             this.PingTestPage.Location = new System.Drawing.Point(4, 22);
             this.PingTestPage.Name = "PingTestPage";
             this.PingTestPage.Padding = new System.Windows.Forms.Padding(3);
             this.PingTestPage.Size = new System.Drawing.Size(458, 311);
-            this.PingTestPage.TabIndex = 2;
+            this.PingTestPage.TabIndex = 4;
             this.PingTestPage.Text = "Ping Test";
             this.PingTestPage.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.TestPingButton);
+            this.panel2.Controls.Add(this.PingLabel);
+            this.panel2.Controls.Add(this.LANPingTestCheckbox);
+            this.panel2.Controls.Add(this.OCEPingTestCheckbox);
+            this.panel2.Controls.Add(this.EUNEPingTestCheckbox);
+            this.panel2.Controls.Add(this.EUWPingTestCheckbox);
+            this.panel2.Controls.Add(this.NAPingTestCheckbox);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 43);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(452, 265);
+            this.panel2.TabIndex = 10;
+            // 
+            // TestPingButton
+            // 
+            this.TestPingButton.AutoSize = true;
+            this.TestPingButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.TestPingButton.Depth = 0;
+            this.TestPingButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TestPingButton.Icon = null;
+            this.TestPingButton.Location = new System.Drawing.Point(0, 169);
+            this.TestPingButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TestPingButton.Name = "TestPingButton";
+            this.TestPingButton.Primary = true;
+            this.TestPingButton.Size = new System.Drawing.Size(452, 36);
+            this.TestPingButton.TabIndex = 15;
+            this.TestPingButton.Text = "Test Ping";
+            this.TestPingButton.UseVisualStyleBackColor = true;
+            this.TestPingButton.Click += new System.EventHandler(this.TestPingButton_Click);
+            // 
+            // PingLabel
+            // 
+            this.PingLabel.Depth = 0;
+            this.PingLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PingLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.PingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PingLabel.Location = new System.Drawing.Point(0, 150);
+            this.PingLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.PingLabel.Name = "PingLabel";
+            this.PingLabel.Size = new System.Drawing.Size(452, 19);
+            this.PingLabel.TabIndex = 14;
+            this.PingLabel.Text = "Ping:";
+            this.PingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LANPingTestCheckbox
+            // 
+            this.LANPingTestCheckbox.AutoSize = true;
+            this.LANPingTestCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LANPingTestCheckbox.Depth = 0;
+            this.LANPingTestCheckbox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LANPingTestCheckbox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.LANPingTestCheckbox.Location = new System.Drawing.Point(0, 120);
+            this.LANPingTestCheckbox.Margin = new System.Windows.Forms.Padding(0);
+            this.LANPingTestCheckbox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.LANPingTestCheckbox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LANPingTestCheckbox.Name = "LANPingTestCheckbox";
+            this.LANPingTestCheckbox.Ripple = true;
+            this.LANPingTestCheckbox.Size = new System.Drawing.Size(452, 30);
+            this.LANPingTestCheckbox.TabIndex = 13;
+            this.LANPingTestCheckbox.TabStop = true;
+            this.LANPingTestCheckbox.Text = "LAN";
+            this.LANPingTestCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LANPingTestCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // OCEPingTestCheckbox
+            // 
+            this.OCEPingTestCheckbox.AutoSize = true;
+            this.OCEPingTestCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.OCEPingTestCheckbox.Depth = 0;
+            this.OCEPingTestCheckbox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.OCEPingTestCheckbox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.OCEPingTestCheckbox.Location = new System.Drawing.Point(0, 90);
+            this.OCEPingTestCheckbox.Margin = new System.Windows.Forms.Padding(0);
+            this.OCEPingTestCheckbox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.OCEPingTestCheckbox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.OCEPingTestCheckbox.Name = "OCEPingTestCheckbox";
+            this.OCEPingTestCheckbox.Ripple = true;
+            this.OCEPingTestCheckbox.Size = new System.Drawing.Size(452, 30);
+            this.OCEPingTestCheckbox.TabIndex = 12;
+            this.OCEPingTestCheckbox.TabStop = true;
+            this.OCEPingTestCheckbox.Text = "OCE";
+            this.OCEPingTestCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.OCEPingTestCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // EUNEPingTestCheckbox
+            // 
+            this.EUNEPingTestCheckbox.AutoSize = true;
+            this.EUNEPingTestCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.EUNEPingTestCheckbox.Depth = 0;
+            this.EUNEPingTestCheckbox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.EUNEPingTestCheckbox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.EUNEPingTestCheckbox.Location = new System.Drawing.Point(0, 60);
+            this.EUNEPingTestCheckbox.Margin = new System.Windows.Forms.Padding(0);
+            this.EUNEPingTestCheckbox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.EUNEPingTestCheckbox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.EUNEPingTestCheckbox.Name = "EUNEPingTestCheckbox";
+            this.EUNEPingTestCheckbox.Ripple = true;
+            this.EUNEPingTestCheckbox.Size = new System.Drawing.Size(452, 30);
+            this.EUNEPingTestCheckbox.TabIndex = 11;
+            this.EUNEPingTestCheckbox.TabStop = true;
+            this.EUNEPingTestCheckbox.Text = "EUNE";
+            this.EUNEPingTestCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.EUNEPingTestCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // EUWPingTestCheckbox
+            // 
+            this.EUWPingTestCheckbox.AutoSize = true;
+            this.EUWPingTestCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.EUWPingTestCheckbox.Depth = 0;
+            this.EUWPingTestCheckbox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.EUWPingTestCheckbox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.EUWPingTestCheckbox.Location = new System.Drawing.Point(0, 30);
+            this.EUWPingTestCheckbox.Margin = new System.Windows.Forms.Padding(0);
+            this.EUWPingTestCheckbox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.EUWPingTestCheckbox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.EUWPingTestCheckbox.Name = "EUWPingTestCheckbox";
+            this.EUWPingTestCheckbox.Ripple = true;
+            this.EUWPingTestCheckbox.Size = new System.Drawing.Size(452, 30);
+            this.EUWPingTestCheckbox.TabIndex = 10;
+            this.EUWPingTestCheckbox.TabStop = true;
+            this.EUWPingTestCheckbox.Text = "EUW";
+            this.EUWPingTestCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.EUWPingTestCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // NAPingTestCheckbox
+            // 
+            this.NAPingTestCheckbox.AutoSize = true;
+            this.NAPingTestCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.NAPingTestCheckbox.Depth = 0;
+            this.NAPingTestCheckbox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.NAPingTestCheckbox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.NAPingTestCheckbox.Location = new System.Drawing.Point(0, 0);
+            this.NAPingTestCheckbox.Margin = new System.Windows.Forms.Padding(0);
+            this.NAPingTestCheckbox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.NAPingTestCheckbox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.NAPingTestCheckbox.Name = "NAPingTestCheckbox";
+            this.NAPingTestCheckbox.Ripple = true;
+            this.NAPingTestCheckbox.Size = new System.Drawing.Size(452, 30);
+            this.NAPingTestCheckbox.TabIndex = 9;
+            this.NAPingTestCheckbox.TabStop = true;
+            this.NAPingTestCheckbox.Text = "NA";
+            this.NAPingTestCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.NAPingTestCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.materialLabel7);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(452, 40);
+            this.panel1.TabIndex = 9;
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel7.Location = new System.Drawing.Point(0, 0);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(452, 40);
+            this.materialLabel7.TabIndex = 0;
+            this.materialLabel7.Text = "Warning: May be inaccurate sometimes for some regions.\r\nOnly use it as a guidelin" +
+    "e for making accounts on new regions.\r\n";
+            this.materialLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TopPanel
             // 
@@ -327,7 +673,7 @@
             // 
             // materialTabSelector1
             // 
-            this.materialTabSelector1.BaseTabControl = this.materialTabControl1;
+            this.materialTabSelector1.BaseTabControl = this.MainTabController;
             this.materialTabSelector1.Depth = 0;
             this.materialTabSelector1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTabSelector1.Location = new System.Drawing.Point(0, 0);
@@ -353,7 +699,7 @@
             // 
             this.LiveStatusLabel.AutoSize = true;
             this.LiveStatusLabel.Depth = 0;
-            this.LiveStatusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LiveStatusLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.LiveStatusLabel.Font = new System.Drawing.Font("Roboto", 11F);
             this.LiveStatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.LiveStatusLabel.Location = new System.Drawing.Point(13, 3);
@@ -398,9 +744,15 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MainPanel.ResumeLayout(false);
             this.TabControllerPanel.ResumeLayout(false);
-            this.materialTabControl1.ResumeLayout(false);
-            this.ImageRecognitionPage.ResumeLayout(false);
-            this.ImageRecognitionPage.PerformLayout();
+            this.MainTabController.ResumeLayout(false);
+            this.AutomaticPage.ResumeLayout(false);
+            this.AutomaticPage.PerformLayout();
+            this.ManualPage.ResumeLayout(false);
+            this.ManualPage.PerformLayout();
+            this.PingTestPage.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.TopPanel.ResumeLayout(false);
             this.BottomPanel.ResumeLayout(false);
             this.BottomPanel.PerformLayout();
@@ -417,8 +769,8 @@
         private System.Windows.Forms.Panel BottomPanel;
         private MaterialSkin.Controls.MaterialLabel LiveStatusLabel;
         private System.Windows.Forms.Panel LiveStatusColorPanel;
-        private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
-        private System.Windows.Forms.TabPage ImageRecognitionPage;
+        private MaterialSkin.Controls.MaterialTabControl MainTabController;
+        private System.Windows.Forms.TabPage AutomaticPage;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
@@ -435,6 +787,24 @@
         private MaterialSkin.Controls.MaterialFlatButton StartAutoImageRecognitionButton;
         private System.Windows.Forms.TabPage ManualPage;
         private System.Windows.Forms.TabPage PingTestPage;
+        private MaterialSkin.Controls.MaterialRaisedButton CoordinatesSelectAndLockChampionButton;
+        private MaterialSkin.Controls.MaterialFlatButton CoordinatesLockChampionButton;
+        private MaterialSkin.Controls.MaterialFlatButton CoordinatesSelectChampionButton;
+        private MaterialSkin.Controls.MaterialFlatButton AutoAcceptMatchButton;
+        private MaterialSkin.Controls.MaterialFlatButton CoordinatesCreateARAMLobbyButton;
+        private MaterialSkin.Controls.MaterialFlatButton CoordinatesCreateSummonersRiftLobbyButton;
+        private MaterialSkin.Controls.MaterialFlatButton CoordinatesLoginToLeagueButton;
+        private MaterialSkin.Controls.MaterialFlatButton CoordiantesStartLeagueClient;
+        private System.Windows.Forms.Panel panel2;
+        private MaterialSkin.Controls.MaterialRaisedButton TestPingButton;
+        private MaterialSkin.Controls.MaterialLabel PingLabel;
+        private MaterialSkin.Controls.MaterialRadioButton LANPingTestCheckbox;
+        private MaterialSkin.Controls.MaterialRadioButton OCEPingTestCheckbox;
+        private MaterialSkin.Controls.MaterialRadioButton EUNEPingTestCheckbox;
+        private MaterialSkin.Controls.MaterialRadioButton EUWPingTestCheckbox;
+        private MaterialSkin.Controls.MaterialRadioButton NAPingTestCheckbox;
+        private System.Windows.Forms.Panel panel1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
     }
 }
 

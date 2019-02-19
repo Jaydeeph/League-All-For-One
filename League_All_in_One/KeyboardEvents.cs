@@ -23,7 +23,17 @@ namespace League_All_in_One
         private const byte VK_CONTROL = 0x11;
         private const byte VK_ENTER = 0x0D;
 
+        private const byte A_KEY = 0x41;
         private const byte V_KEY = 0x56;
+
+        public static void PressControlA()
+        {
+            keybd_event(VK_CONTROL, 0, KEY_DOWN, UIntPtr.Zero);
+            keybd_event(A_KEY, 0, KEY_DOWN, UIntPtr.Zero);
+
+            keybd_event(VK_CONTROL, 0, KEY_UP, UIntPtr.Zero);
+            keybd_event(A_KEY, 0, KEY_UP, UIntPtr.Zero);
+        }
 
         public static void PressControlV()
         {
