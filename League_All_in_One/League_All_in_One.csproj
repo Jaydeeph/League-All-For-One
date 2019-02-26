@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="License-LGPL.txt" />
+    <None Include="Resources\LeagueBoostButton.png" />
     <Content Include="Surrender_at_20_Emote.ico" />
     <None Include="Resources\LeagueLockButton.png" />
     <None Include="Resources\LeagueSearchTextbox.png" />

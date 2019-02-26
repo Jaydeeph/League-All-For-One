@@ -97,66 +97,6 @@ namespace League_All_in_One.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoStartLeague {
-            get {
-                return ((bool)(this["AutoStartLeague"]));
-            }
-            set {
-                this["AutoStartLeague"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoLogin {
-            get {
-                return ((bool)(this["AutoLogin"]));
-            }
-            set {
-                this["AutoLogin"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoAccept {
-            get {
-                return ((bool)(this["AutoAccept"]));
-            }
-            set {
-                this["AutoAccept"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoChampionSelect {
-            get {
-                return ((bool)(this["AutoChampionSelect"]));
-            }
-            set {
-                this["AutoChampionSelect"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoRunesSelect {
-            get {
-                return ((bool)(this["AutoRunesSelect"]));
-            }
-            set {
-                this["AutoRunesSelect"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string LeagueExeDirectory {
             get {
@@ -224,30 +164,6 @@ namespace League_All_in_One.Properties {
             }
             set {
                 this["IsPasswordEncrypted"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoCreateLobby {
-            get {
-                return ((bool)(this["AutoCreateLobby"]));
-            }
-            set {
-                this["AutoCreateLobby"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoLock {
-            get {
-                return ((bool)(this["AutoLock"]));
-            }
-            set {
-                this["AutoLock"] = value;
             }
         }
         
@@ -512,6 +428,30 @@ namespace League_All_in_One.Properties {
             }
             set {
                 this["AutoAcceptButtonCoordinates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ContiuouslyMonitorAcceptMatch {
+            get {
+                return ((bool)(this["ContiuouslyMonitorAcceptMatch"]));
+            }
+            set {
+                this["ContiuouslyMonitorAcceptMatch"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("BLACK")]
+        public global::MaterialSkin.TextShade TextShadeColour {
+            get {
+                return ((global::MaterialSkin.TextShade)(this["TextShadeColour"]));
+            }
+            set {
+                this["TextShadeColour"] = value;
             }
         }
     }

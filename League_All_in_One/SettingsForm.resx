@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ColourInformationLabel.Text" xml:space="preserve">
+    <value>For you information:
+The colours go from 100-900 (light to dark).
+It's prefered that you use 500 for primary colour, 800 for dark
+colour and 300 for light colour.
+Feel free to mess around with the colours, find your perfect spot.
+
+</value>
+  </data>
   <metadata name="PositionTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

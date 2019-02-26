@@ -33,7 +33,7 @@
             this.TopPanel = new System.Windows.Forms.Panel();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.MainTabController = new MaterialSkin.Controls.MaterialTabControl();
-            this.AutoLoginMatchPage = new System.Windows.Forms.TabPage();
+            this.DetailsPage = new System.Windows.Forms.TabPage();
             this.SaveSettingsButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialDivider5 = new MaterialSkin.Controls.MaterialDivider();
             this.materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
@@ -87,14 +87,34 @@
             this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.OtherPage = new System.Windows.Forms.TabPage();
+            this.ResetEverythingButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.ResetCoordinatesButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.ResetLoginMatchButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.ContiuouslyMonitorAcceptMatchCheckbox = new League_All_in_One.FlatToggle();
+            this.materialLabel23 = new MaterialSkin.Controls.MaterialLabel();
+            this.ColoursPage = new System.Windows.Forms.TabPage();
+            this.RestColoursToDefaultButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.TextshadeColourDropdownbox = new System.Windows.Forms.ComboBox();
+            this.materialLabel28 = new MaterialSkin.Controls.MaterialLabel();
+            this.AccentColourDropdownbox = new System.Windows.Forms.ComboBox();
+            this.materialLabel27 = new MaterialSkin.Controls.MaterialLabel();
+            this.LightPrimaryColourDropdownbox = new System.Windows.Forms.ComboBox();
+            this.materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
+            this.DarkPrimaryColourDropdownbox = new System.Windows.Forms.ComboBox();
+            this.materialLabel25 = new MaterialSkin.Controls.MaterialLabel();
+            this.ColourInformationLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.PrimaryColourDropbox = new System.Windows.Forms.ComboBox();
+            this.materialLabel24 = new MaterialSkin.Controls.MaterialLabel();
             this.MainFormPanel = new System.Windows.Forms.Panel();
             this.PositionTimer = new System.Windows.Forms.Timer(this.components);
             this.TopPanel.SuspendLayout();
             this.MainTabController.SuspendLayout();
-            this.AutoLoginMatchPage.SuspendLayout();
+            this.DetailsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShowHidePasswordPicturebox)).BeginInit();
             this.CoordinatesPage.SuspendLayout();
+            this.OtherPage.SuspendLayout();
+            this.ColoursPage.SuspendLayout();
             this.MainFormPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,9 +141,10 @@
             // 
             // MainTabController
             // 
-            this.MainTabController.Controls.Add(this.AutoLoginMatchPage);
+            this.MainTabController.Controls.Add(this.DetailsPage);
             this.MainTabController.Controls.Add(this.CoordinatesPage);
-            this.MainTabController.Controls.Add(this.tabPage1);
+            this.MainTabController.Controls.Add(this.OtherPage);
+            this.MainTabController.Controls.Add(this.ColoursPage);
             this.MainTabController.Depth = 0;
             this.MainTabController.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTabController.Location = new System.Drawing.Point(0, 41);
@@ -134,41 +155,41 @@
             this.MainTabController.TabIndex = 2;
             this.MainTabController.Selected += new System.Windows.Forms.TabControlEventHandler(this.MainTabController_Selected);
             // 
-            // AutoLoginMatchPage
+            // DetailsPage
             // 
-            this.AutoLoginMatchPage.BackColor = System.Drawing.Color.White;
-            this.AutoLoginMatchPage.Controls.Add(this.SaveSettingsButton);
-            this.AutoLoginMatchPage.Controls.Add(this.materialDivider5);
-            this.AutoLoginMatchPage.Controls.Add(this.materialDivider4);
-            this.AutoLoginMatchPage.Controls.Add(this.ImageRecognitionIntervalTextbox);
-            this.AutoLoginMatchPage.Controls.Add(this.materialLabel10);
-            this.AutoLoginMatchPage.Controls.Add(this.ChampionNameTextbox);
-            this.AutoLoginMatchPage.Controls.Add(this.materialLabel2);
-            this.AutoLoginMatchPage.Controls.Add(this.SummonerTypeCombobox);
-            this.AutoLoginMatchPage.Controls.Add(this.MatchTypeCombobox);
-            this.AutoLoginMatchPage.Controls.Add(this.LocateLeagueButton);
-            this.AutoLoginMatchPage.Controls.Add(this.SummonerNameTextbox);
-            this.AutoLoginMatchPage.Controls.Add(this.materialLabel6);
-            this.AutoLoginMatchPage.Controls.Add(this.materialDivider3);
-            this.AutoLoginMatchPage.Controls.Add(this.materialLabel3);
-            this.AutoLoginMatchPage.Controls.Add(this.materialDivider2);
-            this.AutoLoginMatchPage.Controls.Add(this.materialLabel1);
-            this.AutoLoginMatchPage.Controls.Add(this.ShowHidePasswordPicturebox);
-            this.AutoLoginMatchPage.Controls.Add(this.materialDivider1);
-            this.AutoLoginMatchPage.Controls.Add(this.LeagueDirectoryTextbox);
-            this.AutoLoginMatchPage.Controls.Add(this.materialLabel11);
-            this.AutoLoginMatchPage.Controls.Add(this.materialLabel7);
-            this.AutoLoginMatchPage.Controls.Add(this.materialLabel9);
-            this.AutoLoginMatchPage.Controls.Add(this.PasswordTextbox);
-            this.AutoLoginMatchPage.Controls.Add(this.materialLabel8);
-            this.AutoLoginMatchPage.Controls.Add(this.UsernameTextbox);
-            this.AutoLoginMatchPage.Controls.Add(this.EncryptPasswordToggle);
-            this.AutoLoginMatchPage.Location = new System.Drawing.Point(4, 22);
-            this.AutoLoginMatchPage.Name = "AutoLoginMatchPage";
-            this.AutoLoginMatchPage.Padding = new System.Windows.Forms.Padding(3);
-            this.AutoLoginMatchPage.Size = new System.Drawing.Size(451, 558);
-            this.AutoLoginMatchPage.TabIndex = 0;
-            this.AutoLoginMatchPage.Text = "Auto Login/Match";
+            this.DetailsPage.BackColor = System.Drawing.Color.White;
+            this.DetailsPage.Controls.Add(this.SaveSettingsButton);
+            this.DetailsPage.Controls.Add(this.materialDivider5);
+            this.DetailsPage.Controls.Add(this.materialDivider4);
+            this.DetailsPage.Controls.Add(this.ImageRecognitionIntervalTextbox);
+            this.DetailsPage.Controls.Add(this.materialLabel10);
+            this.DetailsPage.Controls.Add(this.ChampionNameTextbox);
+            this.DetailsPage.Controls.Add(this.materialLabel2);
+            this.DetailsPage.Controls.Add(this.SummonerTypeCombobox);
+            this.DetailsPage.Controls.Add(this.MatchTypeCombobox);
+            this.DetailsPage.Controls.Add(this.LocateLeagueButton);
+            this.DetailsPage.Controls.Add(this.SummonerNameTextbox);
+            this.DetailsPage.Controls.Add(this.materialLabel6);
+            this.DetailsPage.Controls.Add(this.materialDivider3);
+            this.DetailsPage.Controls.Add(this.materialLabel3);
+            this.DetailsPage.Controls.Add(this.materialDivider2);
+            this.DetailsPage.Controls.Add(this.materialLabel1);
+            this.DetailsPage.Controls.Add(this.ShowHidePasswordPicturebox);
+            this.DetailsPage.Controls.Add(this.materialDivider1);
+            this.DetailsPage.Controls.Add(this.LeagueDirectoryTextbox);
+            this.DetailsPage.Controls.Add(this.materialLabel11);
+            this.DetailsPage.Controls.Add(this.materialLabel7);
+            this.DetailsPage.Controls.Add(this.materialLabel9);
+            this.DetailsPage.Controls.Add(this.PasswordTextbox);
+            this.DetailsPage.Controls.Add(this.materialLabel8);
+            this.DetailsPage.Controls.Add(this.UsernameTextbox);
+            this.DetailsPage.Controls.Add(this.EncryptPasswordToggle);
+            this.DetailsPage.Location = new System.Drawing.Point(4, 22);
+            this.DetailsPage.Name = "DetailsPage";
+            this.DetailsPage.Padding = new System.Windows.Forms.Padding(3);
+            this.DetailsPage.Size = new System.Drawing.Size(451, 364);
+            this.DetailsPage.TabIndex = 0;
+            this.DetailsPage.Text = "Details";
             // 
             // SaveSettingsButton
             // 
@@ -178,7 +199,7 @@
             this.SaveSettingsButton.Depth = 0;
             this.SaveSettingsButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SaveSettingsButton.Icon = null;
-            this.SaveSettingsButton.Location = new System.Drawing.Point(3, 519);
+            this.SaveSettingsButton.Location = new System.Drawing.Point(3, 325);
             this.SaveSettingsButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.SaveSettingsButton.Name = "SaveSettingsButton";
             this.SaveSettingsButton.Primary = true;
@@ -982,15 +1003,287 @@
             this.materialLabel4.TabIndex = 1;
             this.materialLabel4.Text = "Login Username:";
             // 
-            // tabPage1
+            // OtherPage
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(451, 558);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.OtherPage.Controls.Add(this.ResetEverythingButton);
+            this.OtherPage.Controls.Add(this.ResetCoordinatesButton);
+            this.OtherPage.Controls.Add(this.ResetLoginMatchButton);
+            this.OtherPage.Controls.Add(this.ContiuouslyMonitorAcceptMatchCheckbox);
+            this.OtherPage.Controls.Add(this.materialLabel23);
+            this.OtherPage.Location = new System.Drawing.Point(4, 22);
+            this.OtherPage.Name = "OtherPage";
+            this.OtherPage.Padding = new System.Windows.Forms.Padding(3);
+            this.OtherPage.Size = new System.Drawing.Size(451, 558);
+            this.OtherPage.TabIndex = 3;
+            this.OtherPage.Text = "Others";
+            this.OtherPage.UseVisualStyleBackColor = true;
+            // 
+            // ResetEverythingButton
+            // 
+            this.ResetEverythingButton.AutoSize = true;
+            this.ResetEverythingButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ResetEverythingButton.Depth = 0;
+            this.ResetEverythingButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ResetEverythingButton.Icon = null;
+            this.ResetEverythingButton.Location = new System.Drawing.Point(3, 447);
+            this.ResetEverythingButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ResetEverythingButton.Name = "ResetEverythingButton";
+            this.ResetEverythingButton.Primary = true;
+            this.ResetEverythingButton.Size = new System.Drawing.Size(445, 36);
+            this.ResetEverythingButton.TabIndex = 16;
+            this.ResetEverythingButton.Text = "Reset Everything";
+            this.ResetEverythingButton.UseVisualStyleBackColor = true;
+            this.ResetEverythingButton.Click += new System.EventHandler(this.ResetEverythingButton_Click);
+            // 
+            // ResetCoordinatesButton
+            // 
+            this.ResetCoordinatesButton.AutoSize = true;
+            this.ResetCoordinatesButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ResetCoordinatesButton.Depth = 0;
+            this.ResetCoordinatesButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ResetCoordinatesButton.Icon = null;
+            this.ResetCoordinatesButton.Location = new System.Drawing.Point(3, 483);
+            this.ResetCoordinatesButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ResetCoordinatesButton.Name = "ResetCoordinatesButton";
+            this.ResetCoordinatesButton.Primary = true;
+            this.ResetCoordinatesButton.Size = new System.Drawing.Size(445, 36);
+            this.ResetCoordinatesButton.TabIndex = 15;
+            this.ResetCoordinatesButton.Text = "Reset Coordinates Information";
+            this.ResetCoordinatesButton.UseVisualStyleBackColor = true;
+            this.ResetCoordinatesButton.Click += new System.EventHandler(this.ResetCoordinatesButton_Click);
+            // 
+            // ResetLoginMatchButton
+            // 
+            this.ResetLoginMatchButton.AutoSize = true;
+            this.ResetLoginMatchButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ResetLoginMatchButton.Depth = 0;
+            this.ResetLoginMatchButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ResetLoginMatchButton.Icon = null;
+            this.ResetLoginMatchButton.Location = new System.Drawing.Point(3, 519);
+            this.ResetLoginMatchButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ResetLoginMatchButton.Name = "ResetLoginMatchButton";
+            this.ResetLoginMatchButton.Primary = true;
+            this.ResetLoginMatchButton.Size = new System.Drawing.Size(445, 36);
+            this.ResetLoginMatchButton.TabIndex = 14;
+            this.ResetLoginMatchButton.Text = "Reset Auto Login/Match Details";
+            this.ResetLoginMatchButton.UseVisualStyleBackColor = true;
+            this.ResetLoginMatchButton.Click += new System.EventHandler(this.ResetLoginMatchButton_Click);
+            // 
+            // ContiuouslyMonitorAcceptMatchCheckbox
+            // 
+            this.ContiuouslyMonitorAcceptMatchCheckbox.BackColor = System.Drawing.Color.Transparent;
+            this.ContiuouslyMonitorAcceptMatchCheckbox.Checked = false;
+            this.ContiuouslyMonitorAcceptMatchCheckbox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ContiuouslyMonitorAcceptMatchCheckbox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ContiuouslyMonitorAcceptMatchCheckbox.Location = new System.Drawing.Point(358, 15);
+            this.ContiuouslyMonitorAcceptMatchCheckbox.Name = "ContiuouslyMonitorAcceptMatchCheckbox";
+            this.ContiuouslyMonitorAcceptMatchCheckbox.Options = League_All_in_One.FlatToggle._Options.Style3;
+            this.ContiuouslyMonitorAcceptMatchCheckbox.Size = new System.Drawing.Size(76, 33);
+            this.ContiuouslyMonitorAcceptMatchCheckbox.TabIndex = 8;
+            // 
+            // materialLabel23
+            // 
+            this.materialLabel23.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabel23.AutoSize = true;
+            this.materialLabel23.Depth = 0;
+            this.materialLabel23.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel23.Location = new System.Drawing.Point(79, 21);
+            this.materialLabel23.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel23.Name = "materialLabel23";
+            this.materialLabel23.Size = new System.Drawing.Size(273, 19);
+            this.materialLabel23.TabIndex = 7;
+            this.materialLabel23.Text = "Contiuously Monitor For Accept Match:";
+            // 
+            // ColoursPage
+            // 
+            this.ColoursPage.Controls.Add(this.RestColoursToDefaultButton);
+            this.ColoursPage.Controls.Add(this.TextshadeColourDropdownbox);
+            this.ColoursPage.Controls.Add(this.materialLabel28);
+            this.ColoursPage.Controls.Add(this.AccentColourDropdownbox);
+            this.ColoursPage.Controls.Add(this.materialLabel27);
+            this.ColoursPage.Controls.Add(this.LightPrimaryColourDropdownbox);
+            this.ColoursPage.Controls.Add(this.materialLabel26);
+            this.ColoursPage.Controls.Add(this.DarkPrimaryColourDropdownbox);
+            this.ColoursPage.Controls.Add(this.materialLabel25);
+            this.ColoursPage.Controls.Add(this.ColourInformationLabel);
+            this.ColoursPage.Controls.Add(this.PrimaryColourDropbox);
+            this.ColoursPage.Controls.Add(this.materialLabel24);
+            this.ColoursPage.Location = new System.Drawing.Point(4, 22);
+            this.ColoursPage.Name = "ColoursPage";
+            this.ColoursPage.Padding = new System.Windows.Forms.Padding(3);
+            this.ColoursPage.Size = new System.Drawing.Size(451, 558);
+            this.ColoursPage.TabIndex = 4;
+            this.ColoursPage.Text = "Colours";
+            this.ColoursPage.UseVisualStyleBackColor = true;
+            // 
+            // RestColoursToDefaultButton
+            // 
+            this.RestColoursToDefaultButton.AutoSize = true;
+            this.RestColoursToDefaultButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.RestColoursToDefaultButton.Depth = 0;
+            this.RestColoursToDefaultButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.RestColoursToDefaultButton.Icon = null;
+            this.RestColoursToDefaultButton.Location = new System.Drawing.Point(3, 519);
+            this.RestColoursToDefaultButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.RestColoursToDefaultButton.Name = "RestColoursToDefaultButton";
+            this.RestColoursToDefaultButton.Primary = true;
+            this.RestColoursToDefaultButton.Size = new System.Drawing.Size(445, 36);
+            this.RestColoursToDefaultButton.TabIndex = 32;
+            this.RestColoursToDefaultButton.Text = "Reset Colours Theme To Default";
+            this.RestColoursToDefaultButton.UseVisualStyleBackColor = true;
+            this.RestColoursToDefaultButton.Click += new System.EventHandler(this.RestColoursToDefaultButton_Click);
+            // 
+            // TextshadeColourDropdownbox
+            // 
+            this.TextshadeColourDropdownbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.TextshadeColourDropdownbox.ForeColor = System.Drawing.Color.White;
+            this.TextshadeColourDropdownbox.FormattingEnabled = true;
+            this.TextshadeColourDropdownbox.Location = new System.Drawing.Point(170, 285);
+            this.TextshadeColourDropdownbox.MaxDropDownItems = 5;
+            this.TextshadeColourDropdownbox.Name = "TextshadeColourDropdownbox";
+            this.TextshadeColourDropdownbox.Size = new System.Drawing.Size(255, 21);
+            this.TextshadeColourDropdownbox.Sorted = true;
+            this.TextshadeColourDropdownbox.TabIndex = 31;
+            // 
+            // materialLabel28
+            // 
+            this.materialLabel28.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabel28.AutoSize = true;
+            this.materialLabel28.Depth = 0;
+            this.materialLabel28.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel28.Location = new System.Drawing.Point(36, 285);
+            this.materialLabel28.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel28.Name = "materialLabel28";
+            this.materialLabel28.Size = new System.Drawing.Size(132, 19);
+            this.materialLabel28.TabIndex = 30;
+            this.materialLabel28.Text = "TextShade Colour:";
+            // 
+            // AccentColourDropdownbox
+            // 
+            this.AccentColourDropdownbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.AccentColourDropdownbox.ForeColor = System.Drawing.Color.White;
+            this.AccentColourDropdownbox.FormattingEnabled = true;
+            this.AccentColourDropdownbox.Location = new System.Drawing.Point(170, 248);
+            this.AccentColourDropdownbox.MaxDropDownItems = 5;
+            this.AccentColourDropdownbox.Name = "AccentColourDropdownbox";
+            this.AccentColourDropdownbox.Size = new System.Drawing.Size(255, 21);
+            this.AccentColourDropdownbox.Sorted = true;
+            this.AccentColourDropdownbox.TabIndex = 29;
+            // 
+            // materialLabel27
+            // 
+            this.materialLabel27.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabel27.AutoSize = true;
+            this.materialLabel27.Depth = 0;
+            this.materialLabel27.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel27.Location = new System.Drawing.Point(59, 248);
+            this.materialLabel27.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel27.Name = "materialLabel27";
+            this.materialLabel27.Size = new System.Drawing.Size(109, 19);
+            this.materialLabel27.TabIndex = 28;
+            this.materialLabel27.Text = "Accent Colour:";
+            // 
+            // LightPrimaryColourDropdownbox
+            // 
+            this.LightPrimaryColourDropdownbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.LightPrimaryColourDropdownbox.ForeColor = System.Drawing.Color.White;
+            this.LightPrimaryColourDropdownbox.FormattingEnabled = true;
+            this.LightPrimaryColourDropdownbox.Location = new System.Drawing.Point(170, 211);
+            this.LightPrimaryColourDropdownbox.MaxDropDownItems = 5;
+            this.LightPrimaryColourDropdownbox.Name = "LightPrimaryColourDropdownbox";
+            this.LightPrimaryColourDropdownbox.Size = new System.Drawing.Size(255, 21);
+            this.LightPrimaryColourDropdownbox.Sorted = true;
+            this.LightPrimaryColourDropdownbox.TabIndex = 27;
+            // 
+            // materialLabel26
+            // 
+            this.materialLabel26.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabel26.AutoSize = true;
+            this.materialLabel26.Depth = 0;
+            this.materialLabel26.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel26.Location = new System.Drawing.Point(18, 211);
+            this.materialLabel26.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel26.Name = "materialLabel26";
+            this.materialLabel26.Size = new System.Drawing.Size(150, 19);
+            this.materialLabel26.TabIndex = 26;
+            this.materialLabel26.Text = "Light Primary Colour:";
+            // 
+            // DarkPrimaryColourDropdownbox
+            // 
+            this.DarkPrimaryColourDropdownbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.DarkPrimaryColourDropdownbox.ForeColor = System.Drawing.Color.White;
+            this.DarkPrimaryColourDropdownbox.FormattingEnabled = true;
+            this.DarkPrimaryColourDropdownbox.Location = new System.Drawing.Point(170, 175);
+            this.DarkPrimaryColourDropdownbox.MaxDropDownItems = 5;
+            this.DarkPrimaryColourDropdownbox.Name = "DarkPrimaryColourDropdownbox";
+            this.DarkPrimaryColourDropdownbox.Size = new System.Drawing.Size(255, 21);
+            this.DarkPrimaryColourDropdownbox.Sorted = true;
+            this.DarkPrimaryColourDropdownbox.TabIndex = 25;
+            // 
+            // materialLabel25
+            // 
+            this.materialLabel25.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabel25.AutoSize = true;
+            this.materialLabel25.Depth = 0;
+            this.materialLabel25.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel25.Location = new System.Drawing.Point(20, 175);
+            this.materialLabel25.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel25.Name = "materialLabel25";
+            this.materialLabel25.Size = new System.Drawing.Size(148, 19);
+            this.materialLabel25.TabIndex = 24;
+            this.materialLabel25.Text = "Dark Primary Colour:";
+            // 
+            // ColourInformationLabel
+            // 
+            this.ColourInformationLabel.AutoSize = true;
+            this.ColourInformationLabel.Depth = 0;
+            this.ColourInformationLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ColourInformationLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.ColourInformationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ColourInformationLabel.Location = new System.Drawing.Point(3, 3);
+            this.ColourInformationLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ColourInformationLabel.Name = "ColourInformationLabel";
+            this.ColourInformationLabel.Size = new System.Drawing.Size(442, 114);
+            this.ColourInformationLabel.TabIndex = 23;
+            this.ColourInformationLabel.Text = resources.GetString("ColourInformationLabel.Text");
+            this.ColourInformationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PrimaryColourDropbox
+            // 
+            this.PrimaryColourDropbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.PrimaryColourDropbox.ForeColor = System.Drawing.Color.White;
+            this.PrimaryColourDropbox.FormattingEnabled = true;
+            this.PrimaryColourDropbox.Location = new System.Drawing.Point(170, 139);
+            this.PrimaryColourDropbox.MaxDropDownItems = 5;
+            this.PrimaryColourDropbox.Name = "PrimaryColourDropbox";
+            this.PrimaryColourDropbox.Size = new System.Drawing.Size(255, 21);
+            this.PrimaryColourDropbox.Sorted = true;
+            this.PrimaryColourDropbox.TabIndex = 22;
+            // 
+            // materialLabel24
+            // 
+            this.materialLabel24.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabel24.AutoSize = true;
+            this.materialLabel24.Depth = 0;
+            this.materialLabel24.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel24.Location = new System.Drawing.Point(55, 138);
+            this.materialLabel24.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel24.Name = "materialLabel24";
+            this.materialLabel24.Size = new System.Drawing.Size(113, 19);
+            this.materialLabel24.TabIndex = 8;
+            this.materialLabel24.Text = "Primary Colour:";
             // 
             // MainFormPanel
             // 
@@ -1022,11 +1315,15 @@
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.TopPanel.ResumeLayout(false);
             this.MainTabController.ResumeLayout(false);
-            this.AutoLoginMatchPage.ResumeLayout(false);
-            this.AutoLoginMatchPage.PerformLayout();
+            this.DetailsPage.ResumeLayout(false);
+            this.DetailsPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShowHidePasswordPicturebox)).EndInit();
             this.CoordinatesPage.ResumeLayout(false);
             this.CoordinatesPage.PerformLayout();
+            this.OtherPage.ResumeLayout(false);
+            this.OtherPage.PerformLayout();
+            this.ColoursPage.ResumeLayout(false);
+            this.ColoursPage.PerformLayout();
             this.MainFormPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1037,7 +1334,7 @@
         private System.Windows.Forms.Panel TopPanel;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
         private MaterialSkin.Controls.MaterialTabControl MainTabController;
-        private System.Windows.Forms.TabPage AutoLoginMatchPage;
+        private System.Windows.Forms.TabPage DetailsPage;
         private MaterialSkin.Controls.MaterialRaisedButton LocateLeagueButton;
         private MaterialSkin.Controls.MaterialSingleLineTextField SummonerNameTextbox;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
@@ -1064,7 +1361,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel10;
         private MaterialSkin.Controls.MaterialSingleLineTextField ChampionNameTextbox;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialRaisedButton SaveSettingsButton;
         private System.Windows.Forms.TabPage CoordinatesPage;
         private MaterialSkin.Controls.MaterialLabel materialLabel13;
         private MaterialSkin.Controls.MaterialLabel materialLabel12;
@@ -1093,6 +1389,25 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel15;
         private MaterialSkin.Controls.MaterialLabel materialLabel14;
         private System.Windows.Forms.Timer PositionTimer;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage OtherPage;
+        private MaterialSkin.Controls.MaterialLabel materialLabel23;
+        private FlatToggle ContiuouslyMonitorAcceptMatchCheckbox;
+        private MaterialSkin.Controls.MaterialRaisedButton ResetEverythingButton;
+        private MaterialSkin.Controls.MaterialRaisedButton ResetCoordinatesButton;
+        private MaterialSkin.Controls.MaterialRaisedButton ResetLoginMatchButton;
+        private System.Windows.Forms.TabPage ColoursPage;
+        private MaterialSkin.Controls.MaterialRaisedButton SaveSettingsButton;
+        private System.Windows.Forms.ComboBox PrimaryColourDropbox;
+        private MaterialSkin.Controls.MaterialLabel materialLabel24;
+        private MaterialSkin.Controls.MaterialLabel ColourInformationLabel;
+        private System.Windows.Forms.ComboBox LightPrimaryColourDropdownbox;
+        private MaterialSkin.Controls.MaterialLabel materialLabel26;
+        private System.Windows.Forms.ComboBox DarkPrimaryColourDropdownbox;
+        private MaterialSkin.Controls.MaterialLabel materialLabel25;
+        private System.Windows.Forms.ComboBox TextshadeColourDropdownbox;
+        private MaterialSkin.Controls.MaterialLabel materialLabel28;
+        private System.Windows.Forms.ComboBox AccentColourDropdownbox;
+        private MaterialSkin.Controls.MaterialLabel materialLabel27;
+        private MaterialSkin.Controls.MaterialRaisedButton RestColoursToDefaultButton;
     }
 }

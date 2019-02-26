@@ -1,11 +1,8 @@
-﻿using League_All_in_One.Properties;
-using MaterialSkin;
+﻿using MaterialSkin;
 using MaterialSkin.Controls;
 
 using System;
-using System.ComponentModel;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace League_All_in_One
@@ -20,8 +17,11 @@ namespace League_All_in_One
         private Size coordinatesPageMainFormPanelSize = new Size(459, 447);
         private Size coordinatesFormSize = new Size(459, 505);
 
-        private Size othersPageMainFormPanelSize = new Size(459, 140);
-        private Size othersPageFormSize = new Size(459, 203);
+        private Size othersPageMainFormPanelSize = new Size(459, 236);
+        private Size othersPageFormSize = new Size(459, 300);
+
+        private Size coloursPageMainFormPanelSize = new Size(459, 431);
+        private Size coloursPageMainFormSiz = new Size(459, 494);
 
         public SettingsForm(LeagueAIO main)
         {
@@ -30,20 +30,26 @@ namespace League_All_in_One
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Amber500, Primary.Amber800, Primary.Amber300, Accent.LightBlue400, TextShade.BLACK);
+            materialSkinManager.ColorScheme = new ColorScheme(Options.PrimaryColor, Options.PrimaryDarkColor, Options.PrimaryLightColor, Options.AccentColor, Options.TextShadeColour);
 
             mainForm = main;
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
+            LoadPrimiaryColorToDropbox();
+            LoadDarkPrimaryColourToDropbox();
+            LoadLightPrimaryColourToDropbox();
+            LoadAccentColourToDropbox();
+            LoadTextshadeColourToDropbox();
+
             LoadOptions();
         }
 
         private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             mainForm.Show();
-        }
+        }        
 
         private void LoadOptions()
         {
@@ -70,6 +76,14 @@ namespace League_All_in_One
             CoordinatesChampionSearchTextbox.Text = Options.ChampionSearchTextboxCoordinates;
             CoordinatesFirstChampionBoxTextbox.Text = Options.FirstChampionBoxCoordinates;
             CoordinatesLockButtonTextbox.Text = Options.LockButtonCoodinates;
+
+            ContiuouslyMonitorAcceptMatchCheckbox.Checked = Options.ContiuouslyMonitorAcceptMatch;
+            
+            PrimaryColourDropbox.SelectedItem = Enum.GetName(typeof(Primary), Options.PrimaryColor);
+            DarkPrimaryColourDropdownbox.SelectedItem = Enum.GetName(typeof(Primary), Options.PrimaryDarkColor);
+            LightPrimaryColourDropdownbox.SelectedItem = Enum.GetName(typeof(Primary), Options.PrimaryLightColor);
+            AccentColourDropdownbox.SelectedItem = Enum.GetName(typeof(Primary), Options.AccentColor);
+            TextshadeColourDropdownbox.SelectedItem = Enum.GetName(typeof(Primary), Options.TextShadeColour);
         }
 
         private void SaveOptions()
@@ -106,25 +120,21 @@ namespace League_All_in_One
             Options.ChampionSearchTextboxCoordinates = CoordinatesChampionSearchTextbox.Text;
             Options.FirstChampionBoxCoordinates = CoordinatesFirstChampionBoxTextbox.Text;
             Options.LockButtonCoodinates = CoordinatesLockButtonTextbox.Text;
-    }
+
+            Options.ContiuouslyMonitorAcceptMatch = ContiuouslyMonitorAcceptMatchCheckbox.Checked;
+
+            Options.PrimaryColor = (Primary)Enum.Parse(typeof(Primary), PrimaryColourDropbox.SelectedItem.ToString());
+            Options.PrimaryDarkColor = (Primary)Enum.Parse(typeof(Primary), DarkPrimaryColourDropdownbox.SelectedItem.ToString());
+            Options.PrimaryLightColor = (Primary)Enum.Parse(typeof(Primary), LightPrimaryColourDropdownbox.SelectedItem.ToString());
+            Options.AccentColor = (Accent)Enum.Parse(typeof(Accent), AccentColourDropdownbox.SelectedItem.ToString());
+            Options.TextShadeColour = (TextShade)Enum.Parse(typeof(TextShade), TextshadeColourDropdownbox.SelectedItem.ToString());
+        }
 
         private void SaveSettingsButton_Click(object sender, EventArgs e)
         {
             SaveOptions();
             SaveSettingsButton.Enabled = false;
-
-            string originalText = SaveSettingsButton.Text;
-            var backgroundWorker = new BackgroundWorker();
-            backgroundWorker.DoWork += (s, ea) => Thread.Sleep(TimeSpan.FromSeconds(5));
-
-            backgroundWorker.RunWorkerCompleted += (s, ea) =>
-            {
-                SaveSettingsButton.Text = originalText;
-                SaveSettingsButton.Enabled = true;
-            };
-
-            SaveSettingsButton.Text = "Settings Saved!";
-            backgroundWorker.RunWorkerAsync();
+            MessageBox.Show("Your settings are now saved.", "Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ShowPassword()
@@ -180,7 +190,7 @@ namespace League_All_in_One
         private void SelectCoordinates_TextBox(object sender, EventArgs e)
         {
             tempTextBox = (TextBox)sender;
-            tempTextBox.Text = "Right Click To Select Coordinates.";
+            tempTextBox.Text = "Right Click On It.";
             PositionTimer.Start();
         }
 
@@ -201,7 +211,7 @@ namespace League_All_in_One
 
         private void MainTabController_Selected(object sender, TabControlEventArgs e)
         {
-            if (MainTabController.SelectedTab == MainTabController.TabPages["AutoLoginMatchPage"])
+            if (MainTabController.SelectedTab == MainTabController.TabPages["DetailsPage"])
             {
                 MainFormPanel.Size = autoLoginPageMatchMainFormPanelSize;
                 this.Size = autoLoginPageMatchFormSize;
@@ -211,11 +221,76 @@ namespace League_All_in_One
                 MainFormPanel.Size = coordinatesPageMainFormPanelSize;
                 this.Size = coordinatesFormSize;
             }
-            else if (MainTabController.SelectedTab == MainTabController.TabPages["OthersPage"])
+            else if (MainTabController.SelectedTab == MainTabController.TabPages["OtherPage"])
             {
                 MainFormPanel.Size = othersPageMainFormPanelSize;
                 this.Size = othersPageFormSize;
             }
+            else if (MainTabController.SelectedTab == MainTabController.TabPages["ColoursPage"])
+            {
+                MainFormPanel.Size = coloursPageMainFormPanelSize;
+                this.Size = coloursPageMainFormSiz;
+            }
+        }
+
+        private void ResetLoginMatchButton_Click(object sender, EventArgs e)
+        {
+            Options.ClearUserAndMatchDetails();
+            MessageBox.Show("The details were successfully removed.", "Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ResetCoordinatesButton_Click(object sender, EventArgs e)
+        {
+            Options.ClearCoordinates();
+            MessageBox.Show("The coordinates were successfully removed.", "Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ResetEverythingButton_Click(object sender, EventArgs e)
+        {
+            Options.ClearEverything();
+            MessageBox.Show("Everything was successfully reset.", "Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void LoadPrimiaryColorToDropbox()
+        {
+            string[] primaryColours = Enum.GetNames(typeof(Primary));
+            PrimaryColourDropbox.DataSource = primaryColours;
+
+        }
+
+        private void LoadDarkPrimaryColourToDropbox()
+        {
+            string[] primaryColours = Enum.GetNames(typeof(Primary));
+            DarkPrimaryColourDropdownbox.DataSource = primaryColours;
+        }
+
+        private void LoadLightPrimaryColourToDropbox()
+        {
+            string[] primaryColours = Enum.GetNames(typeof(Primary));
+            LightPrimaryColourDropdownbox.DataSource = primaryColours;
+        }
+
+        private void LoadAccentColourToDropbox()
+        {
+            string[] primaryColours = Enum.GetNames(typeof(Accent));
+            AccentColourDropdownbox.DataSource = primaryColours;
+        }
+
+        private void LoadTextshadeColourToDropbox()
+        {
+            string[] primaryColours = Enum.GetNames(typeof(TextShade));
+            TextshadeColourDropdownbox.DataSource = primaryColours;
+        }
+
+        private void RestColoursToDefaultButton_Click(object sender, EventArgs e)
+        {
+            Options.PrimaryColor = Options.DefaultPrimaryColour;
+            Options.PrimaryDarkColor = Options.DefaultPrimaryDarkColour;
+            Options.PrimaryLightColor = Options.DefaultPrimaryLightColour;
+            Options.AccentColor = Options.DefaultAccentColour;
+            Options.TextShadeColour = Options.DefaultTextShadeColour;
+
+            MessageBox.Show("Colours reset to default. App restard required.", "Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

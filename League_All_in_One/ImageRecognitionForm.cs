@@ -4,13 +4,11 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 
 using System;
-using System.Collections;
 using System.Diagnostics;
 using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Reflection;
 
 namespace League_All_in_One
 {
@@ -23,13 +21,6 @@ namespace League_All_in_One
         private Thread ImageRecognitionAcceptMatchThread;
         private Thread ImageRecognitionSelectChampionThread;
         private Thread ImageRecognitionLockChampionThread;
-
-        private bool AutoLogin = false;
-        private bool AutoAcceptMatch = false;
-        private bool AutoCreateSummonerRift = false;
-        private bool AutoCreateARAM = false;
-        private bool AutoSelectChampion = false;
-        private bool AutoLockChampion = false;
 
         private bool CancelAutoLogin = false;
         private bool CancelAutoAcceptMatch = false;
@@ -44,7 +35,7 @@ namespace League_All_in_One
         private Size ManualFormSize = new Size(466, 418);
 
         private Size PingMainPanelSize = new Size(466, 314);
-        private Size PingFormSize = new Size(466, 380);
+        private Size PingFormSize = new Size(466, 376);
 
         public LeagueAIO()
         {
@@ -58,7 +49,7 @@ namespace League_All_in_One
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new ColorScheme(Options.PrimaryColor, Options.PrimaryDarkColor, Options.PrimaryLightColor, Options.AccentColor, TextShade.BLACK);
+            materialSkinManager.ColorScheme = new ColorScheme(Options.PrimaryColor, Options.PrimaryDarkColor, Options.PrimaryLightColor, Options.AccentColor, Options.TextShadeColour);
         }
 
         private void LoadMaterialColors()
@@ -346,7 +337,7 @@ namespace League_All_in_One
                 HelpFile.Log("Starting Thread: " + ImageRecognitionAcceptMatchThread.Name);
 
                 ImageRecognitionAcceptMatchThread.Start();
-                ImageRecognitionAcceptMatchThread.Join();
+                if (!Options.ContiuouslyMonitorAcceptMatch) ImageRecognitionAcceptMatchThread.Join();
                 UncheckToggle_FromRunningThread(AutoAcceptToggle);
             }
 
@@ -404,8 +395,9 @@ namespace League_All_in_One
             bool rememberMeChecked = false;
             bool addedUsername = false;
             bool addedPassword = false;
-            bool clickedSignIn = false;
+            bool successfullyLoggedIn = false;
             bool failLoggedIn = false;
+            bool clickedPlayButton = false;
 
             if (!UsernamePasswordIsValid())
             {
@@ -422,7 +414,7 @@ namespace League_All_in_One
             TakeFullDesktopScreenShot();
             rememberMeChecked = await ImageRecognition.RememberMeCheckedImageRecognition();
 
-            while (!clickedSignIn || !failLoggedIn)
+            while (!successfullyLoggedIn || !failLoggedIn || !CancelAutoLogin)
             {
                 if (rememberMeChecked)
                 {
@@ -465,29 +457,28 @@ namespace League_All_in_One
                 if (addedPassword)
                 {
                     KeyboardEvents.PressEnter();
-                    clickedSignIn = true;
-                    AutoLogin = true;
+                    return;
+                }
+
+                TakeFullDesktopScreenShot();
+                if (!clickedPlayButton) clickedPlayButton = await ImageRecognition.AutoClickPlayButtonImageRecognition();
+                if (clickedPlayButton)
+                {
+                    successfullyLoggedIn = true;
+                    SetLiveStatusText("Successfully logged into league.", Color.Green);
                     return;
                 }
 
                 TakeFullDesktopScreenShot();
                 if (!failLoggedIn) failLoggedIn = await ImageRecognition.LoginFailedImageRecognition();
-            }
-
-            if (clickedSignIn)
-            {
-                SetLiveStatusText("Successfully logged into league.", Color.Green);
-                AutoLogin = true;
-                return;
-            }
-
-            if (failLoggedIn)
-            {
-                AutoLoginToggle.Checked = false;
-                ShowMessageBox(@"Please make sure your Username and Password is correct.", "Unable To Login", MessageBoxIcon.Error);
-                SetLiveStatusText("Please double check the Username and Password.", Color.Green);
-                return;
-            }
+                if (failLoggedIn)
+                {
+                    AutoLoginToggle.Checked = false;
+                    ShowMessageBox(@"Please make sure your Username and Password is correct.", "Unable To Login", MessageBoxIcon.Error);
+                    SetLiveStatusText("Please double check the Username and Password.", Color.Green);
+                    return;
+                }
+            }            
         }
 
         private async void ImageRecognitionCreateSummonersRiftLobby()
@@ -506,11 +497,18 @@ namespace League_All_in_One
             
             while (!clickedConfirmButton)
             {
-                TakeFullDesktopScreenShot();
-                if (!clickedPlayButton) clickedPlayButton = await ImageRecognition.AutoClickPlayButtonImageRecognition();
-                if (clickedPlayButton)
+                if (!string.IsNullOrEmpty(Options.PlayButtonCoordinates))
                 {
                     Actions.ClickPlayButton();
+                }
+                else
+                {
+                    TakeFullDesktopScreenShot();
+                    if (!clickedPlayButton) clickedPlayButton = await ImageRecognition.AutoClickPlayButtonImageRecognition();
+                    if (clickedPlayButton)
+                    {
+                        Actions.ClickPlayButton();
+                    }
                 }
 
                 TakeFullDesktopScreenShot();
@@ -555,8 +553,6 @@ namespace League_All_in_One
                 if (clickedConfirmButton)
                 {
                     Actions.ClickConfirmButton();
-
-                    AutoCreateSummonerRift = true;
                     SetLiveStatusText("Created Summoner's Rift: " + Options.SummonerType + " room.", Color.Green);
                 }
             }
@@ -570,11 +566,18 @@ namespace League_All_in_One
 
             while (!clickedConfirmButton)
             {
-                TakeFullDesktopScreenShot();
-                if (!clickedPlayButton) clickedPlayButton = await ImageRecognition.AutoClickPlayButtonImageRecognition();
-                if (clickedPlayButton)
+                if (!string.IsNullOrEmpty(Options.PlayButtonCoordinates))
                 {
                     Actions.ClickPlayButton();
+                }
+                else
+                {
+                    TakeFullDesktopScreenShot();
+                    if (!clickedPlayButton) clickedPlayButton = await ImageRecognition.AutoClickPlayButtonImageRecognition();
+                    if (clickedPlayButton)
+                    {
+                        Actions.ClickPlayButton();
+                    }
                 }
 
                 TakeFullDesktopScreenShot();
@@ -589,8 +592,6 @@ namespace League_All_in_One
                 if (clickedConfirmButton)
                 {
                     Actions.ClickConfirmButton();
-
-                    AutoCreateSummonerRift = true;
                     SetLiveStatusText("Created an ARAM room.", Color.Green);
                 }
             }
@@ -601,18 +602,18 @@ namespace League_All_in_One
             bool championSearchbox = false;
             bool acceptButton = false;
 
-            while (!championSearchbox)
+            while (!championSearchbox || Options.ContiuouslyMonitorAcceptMatch)
             {
                 TakeFullDesktopScreenShot();
-                if (!championSearchbox) championSearchbox = await ImageRecognition.AutoFindChampionSearchTextboxImageRecognition();
+                if (!championSearchbox) championSearchbox = await ImageRecognition.AutoFindBoostButtonImageRecognition();
 
                 TakeFullDesktopScreenShot();
                 if (!acceptButton) acceptButton = await ImageRecognition.AutoAcceptImageRecognition();
                 if (acceptButton)
                 {
                     Actions.ClickAcceptButton();
-
                     SetLiveStatusText("Accepted Match", Color.Green);
+                    if (Options.ContiuouslyMonitorAcceptMatch) acceptButton = false;
                 }
             }
         }
@@ -635,8 +636,6 @@ namespace League_All_in_One
                     Actions.ClickFirstChamptionBox();
 
                     selectChampion = true;
-
-                    AutoSelectChampion = true;
                     SetLiveStatusText(Options.ChampionName + " was selected.", Color.Green);
                 }
             }
@@ -653,8 +652,6 @@ namespace League_All_in_One
                 if (lockChampion)
                 {
                     Actions.ClickLockButton();
-
-                    AutoLockChampion = true;
                     SetLiveStatusText("Champion has been locked.", Color.Green);
                 }
             }

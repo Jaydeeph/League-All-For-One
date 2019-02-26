@@ -6,20 +6,14 @@ namespace League_All_in_One
 {
     static class Options
     {
-        public static bool IsFirstTime { get; set; }
+        public static bool IsFirstTime { get; set; } //TODO: Check where its used.
         public static bool IsPasswordEncrypted { get; set; }
-
-        public static bool AutoStartLeague { get; set; }
-        public static bool AutoLogin { get; set; }
-        public static bool AutoCreateLobby { get; set; }
-        public static bool AutoAccept { get; set; }
-        public static bool AutoChampSelect { get; set; }
-        public static bool AutoLock { get; set; }
-        public static bool AutoRuneSelect { get; set; }
+        
+        public static bool ContiuouslyMonitorAcceptMatch { get; set; }
 
         public static string SummonerName { get; set; }
         public static string Username { get; set; }
-        public static string Password { get; set; } //only decrypt pass when user wants to view the password and copy pasting it. After pasting it clear clipboard.
+        public static string Password { get; set; }
         public static string EncryptedKey { get; set; }
         public static string EncryptedIV { get; set; }
         public static string LeagueExeDirectory { get; set; }
@@ -29,10 +23,17 @@ namespace League_All_in_One
 
         public static int ImageRecognitionInterval { get; set; }
 
+        public static readonly Primary DefaultPrimaryColour = Primary.Amber500;
+        public static readonly Primary DefaultPrimaryDarkColour = Primary.Amber800;
+        public static readonly Primary DefaultPrimaryLightColour = Primary.Amber300;
+        public static readonly Accent DefaultAccentColour = Accent.LightBlue400;
+        public static readonly TextShade DefaultTextShadeColour = TextShade.BLACK;
+
         public static Primary PrimaryColor { get; set; }
         public static Primary PrimaryDarkColor { get; set; }
         public static Primary PrimaryLightColor { get; set; }
         public static Accent AccentColor { get; set; }
+        public static TextShade TextShadeColour { get; set; }
 
         public static string LoginUsernameCoordinates { get; set; }
         public static string LoginPasswordCoordinates { get; set; }
@@ -44,6 +45,7 @@ namespace League_All_in_One
         public static string DraftPickCoordinates { get; set; }
         public static string RankedSoloDuoCoordinates { get; set; }
         public static string AutoAcceptButtonCoordinates { get; set; }
+        public static string BoostButtonCoordinates { get; set; }
         public static string ConfirmButtonCoordinates { get; set; }
         public static string ChampionSearchTextboxCoordinates { get; set; }
         public static string FirstChampionBoxCoordinates { get; set; }
@@ -51,24 +53,24 @@ namespace League_All_in_One
 
         public static void LoadOptions()
         {
+            PrimaryColor = Settings.Default.PrimaryColor;
+            PrimaryDarkColor = Settings.Default.PrimaryDarkColor;
+            PrimaryLightColor = Settings.Default.PrimaryLightColor;
+            AccentColor = Settings.Default.AccentColor;
+            TextShadeColour = Settings.Default.TextShadeColour;
+
             SummonerName = Settings.Default.SummonerName;
             Username = Settings.Default.Username;
+            IsPasswordEncrypted = Settings.Default.IsPasswordEncrypted;
+            EncryptedKey = Settings.Default.EncryptedKey;
+            EncryptedIV = Settings.Default.EncryptedIV;
             Password = (Settings.Default.IsPasswordEncrypted == true) ? Settings.Default.EncryptedPassword : Settings.Default.NotEncryptedPassword;
 
             LeagueExeDirectory = Settings.Default.LeagueExeDirectory;
             MatchType = Settings.Default.MatchType;
             SummonerType = Settings.Default.SummonerType;
             ChampionName = Settings.Default.ChamptionName;
-
-            AutoStartLeague = Settings.Default.AutoStartLeague;
-            AutoLogin = Settings.Default.AutoLogin;
-            AutoCreateLobby = Settings.Default.AutoCreateLobby;
-            AutoAccept = Settings.Default.AutoAccept;
-            AutoChampSelect = Settings.Default.AutoChampionSelect;
-            AutoLock = Settings.Default.AutoLock;
-            AutoRuneSelect = Settings.Default.AutoRunesSelect;
-
-            IsPasswordEncrypted = Settings.Default.IsPasswordEncrypted;
+            ContiuouslyMonitorAcceptMatch = Settings.Default.ContiuouslyMonitorAcceptMatch;
 
             LoginUsernameCoordinates = Settings.Default.LoginUsernameCoordinates;
             LoginPasswordCoordinates = Settings.Default.LoginPasswordCoordinates;
@@ -88,21 +90,23 @@ namespace League_All_in_One
 
         public static void SaveOptions()
         {
+            Settings.Default.PrimaryColor = PrimaryColor;
+            Settings.Default.PrimaryDarkColor = PrimaryDarkColor;
+            Settings.Default.PrimaryLightColor = PrimaryLightColor;
+            Settings.Default.AccentColor = AccentColor;
+            Settings.Default.TextShadeColour = TextShadeColour;
+
             Settings.Default.SummonerName = SummonerName;
             Settings.Default.Username = Username;
-            if (Settings.Default.IsPasswordEncrypted == true) Settings.Default.EncryptedPassword = Password; else Settings.Default.NotEncryptedPassword = Password;
+            if (Settings.Default.IsPasswordEncrypted) Settings.Default.EncryptedPassword = Password; else Settings.Default.NotEncryptedPassword = Password;
+            if (Settings.Default.IsPasswordEncrypted) Settings.Default.EncryptedKey = Encryption.ConvertRijndaelKeyToBase64();
+            if (Settings.Default.IsPasswordEncrypted) Settings.Default.EncryptedIV = Encryption.ConvertRijndaelIVToBase64();
+
             Settings.Default.LeagueExeDirectory = LeagueExeDirectory;
             Settings.Default.MatchType = MatchType;
             Settings.Default.SummonerType = SummonerType;
             Settings.Default.ChamptionName = ChampionName;
-
-            Settings.Default.AutoStartLeague = AutoStartLeague;
-            Settings.Default.AutoLogin = AutoLogin;
-            Settings.Default.AutoCreateLobby = AutoCreateLobby;
-            Settings.Default.AutoAccept = AutoAccept;
-            Settings.Default.AutoChampionSelect = AutoChampSelect;
-            Settings.Default.AutoLock = AutoLock;
-            Settings.Default.AutoRunesSelect = AutoRuneSelect;
+            Settings.Default.ContiuouslyMonitorAcceptMatch = ContiuouslyMonitorAcceptMatch;
 
             Settings.Default.IsPasswordEncrypted = IsPasswordEncrypted;
 
@@ -121,6 +125,73 @@ namespace League_All_in_One
             Settings.Default.FirstChampionSelectionCoordinates = FirstChampionBoxCoordinates;
             Settings.Default.LockButtonCoordinates = LockButtonCoodinates;
 
+            Settings.Default.Save();
+        }
+
+        public static void ClearUserAndMatchDetails()
+        {
+            SummonerName = "";
+            Username = "";
+            IsPasswordEncrypted = false;
+            EncryptedKey = "";
+            EncryptedIV = "";
+            Password = "";
+            LeagueExeDirectory = "";
+            MatchType = "";
+            SummonerType = "";
+            ChampionName = "";
+
+            SaveOptions();
+        }
+
+        public static void ClearCoordinates()
+        {
+            LoginUsernameCoordinates = "";
+            LoginPasswordCoordinates = "";
+            LoginButtonCoordinates = "";
+            PlayButtonCoordinates = "";
+            SummonersRiftCoordinates = "";
+            ARAMMatchCoordinates = "";
+            BlindPickCoordinates = "";
+            DraftPickCoordinates = "";
+            RankedSoloDuoCoordinates = "";
+            AutoAcceptButtonCoordinates = "";
+            ConfirmButtonCoordinates = "";
+            ChampionSearchTextboxCoordinates = "";
+            FirstChampionBoxCoordinates = "";
+            LockButtonCoodinates = "";
+
+            SaveOptions();
+        }
+
+        public static void ClearEverything()
+        {
+            SummonerName = "";
+            Username = "";
+            IsPasswordEncrypted = false;
+            EncryptedKey = "";
+            EncryptedIV = "";
+            Password = "";
+            LeagueExeDirectory = "";
+            MatchType = "";
+            SummonerType = "";
+            ChampionName = "";
+            LoginUsernameCoordinates = "";
+            LoginPasswordCoordinates = "";
+            LoginButtonCoordinates = "";
+            PlayButtonCoordinates = "";
+            SummonersRiftCoordinates = "";
+            ARAMMatchCoordinates = "";
+            BlindPickCoordinates = "";
+            DraftPickCoordinates = "";
+            RankedSoloDuoCoordinates = "";
+            AutoAcceptButtonCoordinates = "";
+            ConfirmButtonCoordinates = "";
+            ChampionSearchTextboxCoordinates = "";
+            FirstChampionBoxCoordinates = "";
+            LockButtonCoodinates = "";
+
+            Settings.Default.Reset();
             Settings.Default.Save();
         }
     }

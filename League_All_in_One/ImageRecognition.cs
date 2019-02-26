@@ -493,6 +493,36 @@ namespace League_All_in_One
             }
         }
 
+        public static async Task<bool> AutoFindBoostButtonImageRecognition()
+        {
+            Image<Bgr, byte> source = new Image<Bgr, byte>(new Bitmap(desktopScreenshot));
+            Image<Bgr, byte> template = new Image<Bgr, byte>(Resources.LeagueBoostButton);
+
+            using (Image<Gray, float> result = source.MatchTemplate(template, Emgu.CV.CvEnum.TemplateMatchingType.CcoeffNormed))
+            {
+                double[] minValues, maxValues;
+                Point[] minLocations, maxLocations;
+                result.MinMax(out minValues, out maxValues, out minLocations, out maxLocations);
+
+                if (maxValues[0] > 0.9)
+                {
+                    Rectangle match = new Rectangle(maxLocations[0], template.Size);
+
+                    int X = match.X + (match.Width / 2);
+                    int Y = match.Y + (match.Height / 2);
+
+                    Options.BoostButtonCoordinates = "X:" + X + "Y:" + Y;
+                    HelpFile.Log("Auto Accept: Boost Button Found.");
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public static async Task<bool> AutoFindRandomChampionBoxImageRecognition()
         {
             Image<Bgr, byte> source = new Image<Bgr, byte>(new Bitmap(desktopScreenshot));
