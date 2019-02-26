@@ -495,7 +495,7 @@ namespace League_All_in_One
                 return;
             }
             
-            while (!clickedConfirmButton)
+            while (!clickedConfirmButton || CancelAutoCreateMatch)
             {
                 if (!string.IsNullOrEmpty(Options.PlayButtonCoordinates))
                 {
@@ -564,7 +564,7 @@ namespace League_All_in_One
             bool selectedARAM = false;
             bool clickedConfirmButton = false;
 
-            while (!clickedConfirmButton)
+            while (!clickedConfirmButton || CancelAutoCreateMatch)
             {
                 if (!string.IsNullOrEmpty(Options.PlayButtonCoordinates))
                 {
@@ -602,7 +602,7 @@ namespace League_All_in_One
             bool championSearchbox = false;
             bool acceptButton = false;
 
-            while (!championSearchbox || Options.ContiuouslyMonitorAcceptMatch)
+            while (!championSearchbox || Options.ContiuouslyMonitorAcceptMatch  || CancelAutoAcceptMatch)
             {
                 TakeFullDesktopScreenShot();
                 if (!championSearchbox) championSearchbox = await ImageRecognition.AutoFindBoostButtonImageRecognition();
@@ -623,7 +623,7 @@ namespace League_All_in_One
             bool selectChampion = false;
             bool randomChampionBox = false;
 
-            while (!selectChampion)
+            while (!selectChampion || CancelAutoSelectChampion)
             {
                 TakeFullDesktopScreenShot();
                 if (!randomChampionBox) randomChampionBox = await ImageRecognition.AutoFindRandomChampionBoxImageRecognition();
@@ -645,7 +645,7 @@ namespace League_All_in_One
         {
             bool lockChampion = false;
 
-            while (!lockChampion)
+            while (!lockChampion || CancelAutoLockChampion)
             {
                 TakeFullDesktopScreenShot();
                 if (!lockChampion) lockChampion = await ImageRecognition.AutoLockChampionImageRecognition();
