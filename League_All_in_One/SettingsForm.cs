@@ -78,12 +78,12 @@ namespace League_All_in_One
             CoordinatesLockButtonTextbox.Text = Options.LockButtonCoodinates;
 
             ContiuouslyMonitorAcceptMatchCheckbox.Checked = Options.ContiuouslyMonitorAcceptMatch;
-            
+
             PrimaryColourDropbox.SelectedItem = Enum.GetName(typeof(Primary), Options.PrimaryColor);
             DarkPrimaryColourDropdownbox.SelectedItem = Enum.GetName(typeof(Primary), Options.PrimaryDarkColor);
             LightPrimaryColourDropdownbox.SelectedItem = Enum.GetName(typeof(Primary), Options.PrimaryLightColor);
-            AccentColourDropdownbox.SelectedItem = Enum.GetName(typeof(Primary), Options.AccentColor);
-            TextshadeColourDropdownbox.SelectedItem = Enum.GetName(typeof(Primary), Options.TextShadeColour);
+            AccentColourDropdownbox.SelectedItem = Enum.GetName(typeof(Accent), Options.AccentColor);
+            TextshadeColourDropdownbox.SelectedItem = Enum.GetName(typeof(TextShade), Options.TextShadeColour);
         }
 
         private void SaveOptions()
@@ -122,7 +122,7 @@ namespace League_All_in_One
             Options.LockButtonCoodinates = CoordinatesLockButtonTextbox.Text;
 
             Options.ContiuouslyMonitorAcceptMatch = ContiuouslyMonitorAcceptMatchCheckbox.Checked;
-
+                        
             Options.PrimaryColor = (Primary)Enum.Parse(typeof(Primary), PrimaryColourDropbox.SelectedItem.ToString());
             Options.PrimaryDarkColor = (Primary)Enum.Parse(typeof(Primary), DarkPrimaryColourDropdownbox.SelectedItem.ToString());
             Options.PrimaryLightColor = (Primary)Enum.Parse(typeof(Primary), LightPrimaryColourDropdownbox.SelectedItem.ToString());

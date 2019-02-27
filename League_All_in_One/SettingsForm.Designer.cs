@@ -187,7 +187,7 @@
             this.DetailsPage.Location = new System.Drawing.Point(4, 22);
             this.DetailsPage.Name = "DetailsPage";
             this.DetailsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.DetailsPage.Size = new System.Drawing.Size(451, 364);
+            this.DetailsPage.Size = new System.Drawing.Size(451, 558);
             this.DetailsPage.TabIndex = 0;
             this.DetailsPage.Text = "Details";
             // 
@@ -199,7 +199,7 @@
             this.SaveSettingsButton.Depth = 0;
             this.SaveSettingsButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SaveSettingsButton.Icon = null;
-            this.SaveSettingsButton.Location = new System.Drawing.Point(3, 325);
+            this.SaveSettingsButton.Location = new System.Drawing.Point(3, 519);
             this.SaveSettingsButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.SaveSettingsButton.Name = "SaveSettingsButton";
             this.SaveSettingsButton.Primary = true;
