@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "League_All_in_One", "League_All_in_One\League_All_in_One.csproj", "{577AA44B-5900-4E1B-B5DB-454EE1103A76}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupInstaller", "SetupInstaller\SetupInstaller.vdproj", "{3E5B5720-E1D2-47D6-B3A9-124D94C84962}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{577AA44B-5900-4E1B-B5DB-454EE1103A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{577AA44B-5900-4E1B-B5DB-454EE1103A76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{577AA44B-5900-4E1B-B5DB-454EE1103A76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E5B5720-E1D2-47D6-B3A9-124D94C84962}.Debug|Any CPU.ActiveCfg = Debug
+		{3E5B5720-E1D2-47D6-B3A9-124D94C84962}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
