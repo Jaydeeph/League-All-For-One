@@ -68,6 +68,12 @@ namespace League_All_in_One
 
         private void LeagueAIO_FormClosing(object sender, FormClosingEventArgs e)
         {
+            CancelAutoLogin = true;
+            CancelAutoAcceptMatch = true;
+            CancelAutoCreateMatch = true;
+            CancelAutoSelectChampion = true;
+            CancelAutoLockChampion = true;
+
             SaveOptions();
             HelpFile.EndAppLog();
             HelpFile.WriteLogToText();
