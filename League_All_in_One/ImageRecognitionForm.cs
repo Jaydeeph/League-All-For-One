@@ -551,12 +551,15 @@ namespace League_All_in_One
                     }
                 }
 
-                TakeFullDesktopScreenShot();
-                if (!clickedConfirmButton) clickedConfirmButton = await ImageRecognition.AutoClickConfirmButtonImageRecognition();
-                if (clickedConfirmButton)
+                if (selectSummonerType)
                 {
-                    Actions.ClickConfirmButton();
-                    SetLiveStatusText("Created Summoner's Rift: " + Options.SummonerType + " room.", Color.Green);
+                    TakeFullDesktopScreenShot();
+                    if (!clickedConfirmButton) clickedConfirmButton = await ImageRecognition.AutoClickConfirmButtonImageRecognition();
+                    if (clickedConfirmButton)
+                    {
+                        Actions.ClickConfirmButton();
+                        SetLiveStatusText("Created Summoner's Rift: " + Options.SummonerType + " room.", Color.Green);
+                    }
                 }
             }
         }
@@ -590,12 +593,15 @@ namespace League_All_in_One
                     Actions.ClickARAMMatch();
                 }
 
-                TakeFullDesktopScreenShot();
-                if (!clickedConfirmButton) clickedConfirmButton = await ImageRecognition.AutoClickConfirmButtonImageRecognition();
-                if (clickedConfirmButton)
+                if (selectedARAM)
                 {
-                    Actions.ClickConfirmButton();
-                    SetLiveStatusText("Created an ARAM room.", Color.Green);
+                    TakeFullDesktopScreenShot();
+                    if (!clickedConfirmButton) clickedConfirmButton = await ImageRecognition.AutoClickConfirmButtonImageRecognition();
+                    if (clickedConfirmButton)
+                    {
+                        Actions.ClickConfirmButton();
+                        SetLiveStatusText("Created an ARAM room.", Color.Green);
+                    }
                 }
             }
         }
@@ -759,11 +765,14 @@ namespace League_All_in_One
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(Options.SummonerType))
+                if (!Options.MatchType.Equals("ARAM"))
                 {
-                    ShowMessageBox("League All-For-One", "Please select summoner game type from settings.", MessageBoxIcon.Error);
-                    AutoCreateMatchToggle.Checked = false;
-                    return;
+                    if (string.IsNullOrWhiteSpace(Options.SummonerType))
+                    {
+                        ShowMessageBox("League All-For-One", "Please select summoner game type from settings.", MessageBoxIcon.Error);
+                        AutoCreateMatchToggle.Checked = false;
+                        return;
+                    }
                 }
             }
             else

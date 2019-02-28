@@ -138,6 +138,8 @@ namespace League_All_in_One
         private void SaveSettingsButton_Click(object sender, EventArgs e)
         {
             SaveOptions();
+            Options.SaveOptions();
+
             SaveSettingsButton.Enabled = false;
             MessageBox.Show("Your settings are now saved.", "Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
