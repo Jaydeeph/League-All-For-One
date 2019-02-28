@@ -25,12 +25,12 @@ namespace League_All_in_One
             return Convert.ToBase64String(myRijndael.Key);
         }
 
-        public static byte[] ConvertRijndaelIVToByte(string rijndaelIV)
+        public static byte[] ConvertRijndaelIVToByteFromBase64(string rijndaelIV)
         {
             return Convert.FromBase64String(rijndaelIV);
         }
 
-        public static byte[] ConvertRijndaelKeyToByte(string rijndaelKey)
+        public static byte[] ConvertRijndaelKeyToByteFromBase64(string rijndaelKey)
         {
             return Convert.FromBase64String(rijndaelKey);
         }
@@ -145,6 +145,18 @@ namespace League_All_in_One
             base64String = base64String.Trim();
             return (base64String.Length % 4 == 0) && Regex.IsMatch(base64String, @"^[a-zA-Z0-9\+/]*={0,3}$", RegexOptions.None);
 
+        }
+
+        public static string ConvertToBase64(string plainText)
+        {
+            var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
+            return Convert.ToBase64String(plainTextBytes);
+        }
+
+        public static string ConvertFromBase64(string encryptedText)
+        {
+            var base64EncodedBytes = Convert.FromBase64String(encryptedText);
+            return Encoding.UTF8.GetString(base64EncodedBytes);
         }
     }
 }

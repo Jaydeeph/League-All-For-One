@@ -50,7 +50,7 @@
     <Setting Name="AccentColor" Type="MaterialSkin.Accent" Scope="User">
       <Value Profile="(Default)">LightBlue200</Value>
     </Setting>
-    <Setting Name="ImageRecognitionInterval" Type="System.Int32" Scope="User">
+    <Setting Name="InteractionInterval" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="LoginUsernameCoordinates" Type="System.String" Scope="User">

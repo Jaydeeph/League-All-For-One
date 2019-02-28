@@ -49,7 +49,7 @@ namespace League_All_in_One
         private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             mainForm.Show();
-        }        
+        }
 
         private void LoadOptions()
         {
@@ -61,7 +61,7 @@ namespace League_All_in_One
             MatchTypeCombobox.Text = Options.MatchType;
             SummonerTypeCombobox.Text = Options.SummonerType;
             ChampionNameTextbox.Text = Options.ChampionName;
-            ImageRecognitionIntervalTextbox.Text = Options.ImageRecognitionInterval.ToString();
+            InteractionIntervalTextbox.Text = Options.InteractionInterval.ToString();
 
             CoordinatesLoginUsernameTextbox.Text = Options.LoginUsernameCoordinates;
             CoordinatesLoginPasswordTextbox.Text = Options.LoginPasswordCoordinates;
@@ -92,9 +92,14 @@ namespace League_All_in_One
             Options.Username = UsernameTextbox.Text;
             if (EncryptPasswordToggle.Checked)
             {
-                Options.Password = Encryption.EncryptNewPassword(PasswordTextbox.Text);
-                Options.EncryptedIV = Encryption.ConvertRijndaelIVToBase64();
-                Options.EncryptedKey = Encryption.ConvertRijndaelKeyToBase64();
+                if (Encryption.IsBase64String(PasswordTextbox.Text))
+                {
+                    Options.Password = PasswordTextbox.Text;
+                }
+                else
+                {
+                    Options.Password = Encryption.ConvertToBase64(PasswordTextbox.Text);
+                }
             }
             else
             {
@@ -105,7 +110,7 @@ namespace League_All_in_One
             Options.MatchType = MatchTypeCombobox.Text;
             Options.SummonerType = SummonerTypeCombobox.Text;
             Options.ChampionName = ChampionNameTextbox.Text;
-            if (HelpFile.IsTextNumeric(ImageRecognitionIntervalTextbox.Text)) Options.ImageRecognitionInterval = int.Parse(ImageRecognitionIntervalTextbox.Text);
+            if (HelpFile.IsTextNumeric(InteractionIntervalTextbox.Text)) Options.InteractionInterval = int.Parse(InteractionIntervalTextbox.Text);
 
             Options.LoginUsernameCoordinates = CoordinatesLoginUsernameTextbox.Text;
             Options.LoginPasswordCoordinates = CoordinatesLoginPasswordTextbox.Text;
@@ -135,13 +140,19 @@ namespace League_All_in_One
             SaveOptions();
             SaveSettingsButton.Enabled = false;
             MessageBox.Show("Your settings are now saved.", "Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.Close();
+            mainForm.Show();
         }
 
         private void ShowPassword()
         {
             if (Options.IsPasswordEncrypted)
             {
-                PasswordTextbox.Text = Encryption.Decrypt(Options.Password, Encryption.ConvertRijndaelKeyToByte(Options.EncryptedKey), Encryption.ConvertRijndaelIVToByte(Options.EncryptedIV));
+                if (Encryption.IsBase64String(PasswordTextbox.Text))
+                {
+                    PasswordTextbox.Text = Encryption.ConvertFromBase64(PasswordTextbox.Text);
+                }
             }
             PasswordTextbox.UseSystemPasswordChar = false;
         }
@@ -150,7 +161,10 @@ namespace League_All_in_One
         {
             if (Options.IsPasswordEncrypted)
             {
-                PasswordTextbox.Text = Encryption.EncryptCurrentPassword(Options.Password, Encryption.ConvertRijndaelKeyToByte(Options.EncryptedKey), Encryption.ConvertRijndaelIVToByte(Options.EncryptedIV));
+                if (Encryption.IsBase64String(PasswordTextbox.Text))
+                {
+                    PasswordTextbox.Text = Encryption.ConvertToBase64(PasswordTextbox.Text);
+                }
             }
             PasswordTextbox.UseSystemPasswordChar = true;
         }

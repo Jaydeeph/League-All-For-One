@@ -1,6 +1,7 @@
 ﻿using League_All_in_One.Properties;
 
 using MaterialSkin;
+using System;
 
 namespace League_All_in_One
 {
@@ -21,7 +22,7 @@ namespace League_All_in_One
         public static string SummonerType { get; set; }
         public static string ChampionName { get; set; }
 
-        public static int ImageRecognitionInterval { get; set; }
+        public static int InteractionInterval { get; set; }
 
         public static readonly Primary DefaultPrimaryColour = Primary.Amber500;
         public static readonly Primary DefaultPrimaryDarkColour = Primary.Amber800;
@@ -52,24 +53,25 @@ namespace League_All_in_One
         public static string LockButtonCoodinates { get; set; }
 
         public static void LoadOptions()
-        {
+        {            
             PrimaryColor = Settings.Default.PrimaryColor;
             PrimaryDarkColor = Settings.Default.PrimaryDarkColor;
             PrimaryLightColor = Settings.Default.PrimaryLightColor;
             AccentColor = Settings.Default.AccentColor;
             TextShadeColour = Settings.Default.TextShadeColour;
-
-            SummonerName = Settings.Default.SummonerName;
+                        
             Username = Settings.Default.Username;
             IsPasswordEncrypted = Settings.Default.IsPasswordEncrypted;
-            EncryptedKey = Settings.Default.EncryptedKey;
-            EncryptedIV = Settings.Default.EncryptedIV;
+            //EncryptedKey = Settings.Default.EncryptedKey;
+            //EncryptedIV = Settings.Default.EncryptedIV;
             Password = (Settings.Default.IsPasswordEncrypted == true) ? Settings.Default.EncryptedPassword : Settings.Default.NotEncryptedPassword;
 
+            SummonerName = Settings.Default.SummonerName;
             LeagueExeDirectory = Settings.Default.LeagueExeDirectory;
             MatchType = Settings.Default.MatchType;
             SummonerType = Settings.Default.SummonerType;
             ChampionName = Settings.Default.ChamptionName;
+            InteractionInterval = Settings.Default.InteractionInterval;
             ContiuouslyMonitorAcceptMatch = Settings.Default.ContiuouslyMonitorAcceptMatch;
 
             LoginUsernameCoordinates = Settings.Default.LoginUsernameCoordinates;
@@ -95,20 +97,20 @@ namespace League_All_in_One
             Settings.Default.PrimaryLightColor = PrimaryLightColor;
             Settings.Default.AccentColor = AccentColor;
             Settings.Default.TextShadeColour = TextShadeColour;
+                        
+            Settings.Default.Username = Username;
+            Settings.Default.IsPasswordEncrypted = IsPasswordEncrypted;
+            if (Settings.Default.IsPasswordEncrypted) Settings.Default.EncryptedPassword = Password; else Settings.Default.NotEncryptedPassword = Password;
+            //if (Settings.Default.IsPasswordEncrypted) Settings.Default.EncryptedKey = Encryption.ConvertRijndaelKeyToBase64();
+            //if (Settings.Default.IsPasswordEncrypted) Settings.Default.EncryptedIV = Encryption.ConvertRijndaelIVToBase64();
 
             Settings.Default.SummonerName = SummonerName;
-            Settings.Default.Username = Username;
-            if (Settings.Default.IsPasswordEncrypted) Settings.Default.EncryptedPassword = Password; else Settings.Default.NotEncryptedPassword = Password;
-            if (Settings.Default.IsPasswordEncrypted) Settings.Default.EncryptedKey = Encryption.ConvertRijndaelKeyToBase64();
-            if (Settings.Default.IsPasswordEncrypted) Settings.Default.EncryptedIV = Encryption.ConvertRijndaelIVToBase64();
-
             Settings.Default.LeagueExeDirectory = LeagueExeDirectory;
             Settings.Default.MatchType = MatchType;
             Settings.Default.SummonerType = SummonerType;
             Settings.Default.ChamptionName = ChampionName;
+            Settings.Default.InteractionInterval = InteractionInterval;
             Settings.Default.ContiuouslyMonitorAcceptMatch = ContiuouslyMonitorAcceptMatch;
-
-            Settings.Default.IsPasswordEncrypted = IsPasswordEncrypted;
 
             Settings.Default.LoginUsernameCoordinates = LoginUsernameCoordinates;
             Settings.Default.LoginPasswordCoordinates = LoginPasswordCoordinates;
@@ -140,6 +142,8 @@ namespace League_All_in_One
             MatchType = "";
             SummonerType = "";
             ChampionName = "";
+            InteractionInterval = 0;
+            ContiuouslyMonitorAcceptMatch = false;
 
             SaveOptions();
         }
@@ -176,6 +180,8 @@ namespace League_All_in_One
             MatchType = "";
             SummonerType = "";
             ChampionName = "";
+            InteractionInterval = 0;
+            ContiuouslyMonitorAcceptMatch = false;
             LoginUsernameCoordinates = "";
             LoginPasswordCoordinates = "";
             LoginButtonCoordinates = "";

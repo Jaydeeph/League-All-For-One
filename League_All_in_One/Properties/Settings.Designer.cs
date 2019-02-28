@@ -218,12 +218,12 @@ namespace League_All_in_One.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ImageRecognitionInterval {
+        public int InteractionInterval {
             get {
-                return ((int)(this["ImageRecognitionInterval"]));
+                return ((int)(this["InteractionInterval"]));
             }
             set {
-                this["ImageRecognitionInterval"] = value;
+                this["InteractionInterval"] = value;
             }
         }
         

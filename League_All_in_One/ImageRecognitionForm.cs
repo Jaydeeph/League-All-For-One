@@ -93,7 +93,10 @@ namespace League_All_in_One
         {
             SettingsForm settingsForm = new SettingsForm(this);
             settingsForm.StartPosition = FormStartPosition.CenterParent;
+            int X = this.Left + (this.Width - settingsForm.Width) / 2;
+            int Y = this.Height + (this.Height - settingsForm.Height) / 2;
             settingsForm.Show();
+            settingsForm.Location = new Point(X, Y);
             this.Hide();
         }
 
@@ -861,23 +864,23 @@ namespace League_All_in_One
 
             KeyboardEvents.SetClipboardText(Options.Username);
             HelpFile.Log("Login Username: Copied Username To Clipboard.");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
 
             MouseEvent.MoveMouseXYToAndClick(coordinates[0], coordinates[1]);
             HelpFile.Log("Login Username: Moved Mouse To And Clicked Username Textbox X:" + coordinates[0] + ", Y:" + coordinates[1] + ".");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
 
             KeyboardEvents.PressControlA();
             HelpFile.Log("Login Username: Pressed Control+A To Hightlight Current Username.");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
 
             KeyboardEvents.PressControlV();
             HelpFile.Log("Login Username: Pressed Control+V To Paste Username.");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
 
             KeyboardEvents.ClearClipboard();
             HelpFile.Log("Login Username: Cleared Clipboard Of Username.");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void EnterUsername()
@@ -886,41 +889,41 @@ namespace League_All_in_One
 
             KeyboardEvents.SetClipboardText(Options.Username);
             HelpFile.Log("Login Username: Copied Username To Clipboard.");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
 
             MouseEvent.MoveMouseXYToAndClick(coordinates[0], coordinates[1]);
             HelpFile.Log("Login Username: Moved Mouse To And Clicked Username Textbox X:" + coordinates[0] + ", Y:" + coordinates[1] + ".");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
 
             KeyboardEvents.PressControlV();
             HelpFile.Log("Login Username: Pressed Control+V To Paste Username.");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
 
             KeyboardEvents.ClearClipboard();
             HelpFile.Log("Login Username: Cleared Clipboard Of Username.");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void EnterPassword()
         {
-            string password = Options.IsPasswordEncrypted ? Encryption.Decrypt(Options.Password, Encryption.ConvertRijndaelKeyToByte(Options.EncryptedKey), Encryption.ConvertRijndaelIVToByte(Options.EncryptedIV)) : Options.Password;
+            string password = Options.IsPasswordEncrypted ? Encryption.Decrypt(Options.Password, Encryption.ConvertRijndaelKeyToByteFromBase64(Options.EncryptedKey), Encryption.ConvertRijndaelIVToByteFromBase64(Options.EncryptedIV)) : Options.Password;
             int[] coordinates = HelpFile.GetXYCoordinatesRegex(Options.LoginPasswordCoordinates);
 
             KeyboardEvents.SetClipboardText(password);
             HelpFile.Log("Login Password: Copied Text To Clipboard.");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
 
             MouseEvent.MoveMouseXYToAndClick(coordinates[0], coordinates[1]);
             HelpFile.Log("Login Password: Moved Mouse To Textbox And Clicked X:" + coordinates[0] + ", Y:" + coordinates[1] + ".");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
 
             KeyboardEvents.PressControlV();
             HelpFile.Log("Login Password: Pressed Control+V To Paste Password.");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
 
             KeyboardEvents.ClearClipboard();
             HelpFile.Log("Login Password: Cleared Clipboard Of Password.");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void ClickSignIn()
@@ -933,7 +936,7 @@ namespace League_All_in_One
             int[] coordinates = HelpFile.GetXYCoordinatesRegex(Options.PlayButtonCoordinates);
             MouseEvent.MoveMouseXYToAndClick(coordinates[0], coordinates[1]);
             HelpFile.Log("Click Play Button: Clicked Play Button X:" + coordinates[0] + ", Y:" + coordinates[1] + ".");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void ClickSummonersMatch()
@@ -941,7 +944,7 @@ namespace League_All_in_One
             int[] coordinates = HelpFile.GetXYCoordinatesRegex(Options.SummonersRiftCoordinates);
             MouseEvent.MoveMouseXYToAndClick(coordinates[0], coordinates[1]);
             HelpFile.Log("Pick Summoner Mode: Picked Summoner Rift X:" + coordinates[0] + ", Y:" + coordinates[1] + ".");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void ClickBlindPick()
@@ -949,7 +952,7 @@ namespace League_All_in_One
             int[] coordinates = HelpFile.GetXYCoordinatesRegex(Options.BlindPickCoordinates);
             MouseEvent.MoveMouseXYToAndClick(coordinates[0], coordinates[1]);
             HelpFile.Log("Summoner Mode: Blind Pick X:" + coordinates[0] + ", Y:" + coordinates[1] + ".");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void ClickDraftPick()
@@ -957,7 +960,7 @@ namespace League_All_in_One
             int[] coordinates = HelpFile.GetXYCoordinatesRegex(Options.DraftPickCoordinates);
             MouseEvent.MoveMouseXYToAndClick(coordinates[0], coordinates[1]);
             HelpFile.Log("Summoner Mode: Draft Pick X:" + coordinates[0] + ", Y:" + coordinates[1] + ".");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void ClickSoloDuoRanked()
@@ -965,7 +968,7 @@ namespace League_All_in_One
             int[] coordinates = HelpFile.GetXYCoordinatesRegex(Options.RankedSoloDuoCoordinates);
             MouseEvent.MoveMouseXYToAndClick(coordinates[0], coordinates[1]);
             HelpFile.Log("Summoner Mode: Ranked Pick X:" + coordinates[0] + ", Y:" + coordinates[1] + ".");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void ClickARAMMatch()
@@ -973,7 +976,7 @@ namespace League_All_in_One
             int[] coordinates = HelpFile.GetXYCoordinatesRegex(Options.ARAMMatchCoordinates);
             MouseEvent.MoveMouseXYToAndClick(coordinates[0], coordinates[1]);
             HelpFile.Log("Pick ARAM Mode X:" + coordinates[0] + ", Y:" + coordinates[1] + ".");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void ClickConfirmButton()
@@ -981,7 +984,7 @@ namespace League_All_in_One
             int[] coordinates = HelpFile.GetXYCoordinatesRegex(Options.ConfirmButtonCoordinates);
             MouseEvent.MoveMouseXYToAndClick(coordinates[0], coordinates[1]);
             HelpFile.Log("Confirm Button: Clicked Confirm Button X:" + coordinates[0] + ", Y:" + coordinates[1] + ".");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void ClickAcceptButton()
@@ -989,7 +992,7 @@ namespace League_All_in_One
             int[] coordinates = HelpFile.GetXYCoordinatesRegex(Options.AutoAcceptButtonCoordinates);
             MouseEvent.MoveMouseXYToAndClick(coordinates[0], coordinates[1]);
             HelpFile.Log("Auto Accept: Clicked Accept Button X:" + coordinates[0] + ", Y:" + coordinates[1] + ".");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void ClickChamptionSearchTextbox()
@@ -997,18 +1000,18 @@ namespace League_All_in_One
             int[] coordinatesChampionSearchTextbox = HelpFile.GetXYCoordinatesRegex(Options.ChampionSearchTextboxCoordinates);
             MouseEvent.MoveMouseXYToAndClick(coordinatesChampionSearchTextbox[0], coordinatesChampionSearchTextbox[1]);
             HelpFile.Log("Select Champ: Search Text Box Clicked X:" + coordinatesChampionSearchTextbox[0] + ", Y:" + coordinatesChampionSearchTextbox[1] + ".");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void PasteChampionName()
         {
             KeyboardEvents.SetClipboardText(Options.ChampionName);
             HelpFile.Log("Select Champ: Copied Champion Name To Clipboard.");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
 
             KeyboardEvents.PressControlV();
             HelpFile.Log("Select Champ: Pressed Control+V To Paste Champion Name.");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void ClickFirstChamptionBox()
@@ -1016,7 +1019,7 @@ namespace League_All_in_One
             int[] coordinatesFirstChampionBox = HelpFile.GetXYCoordinatesRegex(Options.FirstChampionBoxCoordinates);
             MouseEvent.MoveMouseXYToAndClick(coordinatesFirstChampionBox[0], coordinatesFirstChampionBox[1]);
             HelpFile.Log("Select Champ: Moved Mouse To First Champion In List And Clicked X:" + coordinatesFirstChampionBox[0] + ", Y:" + coordinatesFirstChampionBox[1] + ".");
-            Thread.Sleep(Options.ImageRecognitionInterval);
+            Thread.Sleep(Options.InteractionInterval);
         }
 
         public static void ClickLockButton()
